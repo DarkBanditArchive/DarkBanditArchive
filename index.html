@@ -460,93 +460,121 @@
         ========================================= */
 
         .timeline-section {
-
             background: #0d0f15;
+            border-top: 1px solid #252731;
+            border-bottom: 1px solid #252731;
+            overflow: hidden;
+        }
 
-            border-top:
-                1px solid #252731;
+        .timeline-intro {
+            max-width: 650px;
+            margin: -30px auto 45px;
+            text-align: center;
+            color: #99958e;
+            font-size: 14px;
+        }
 
-            border-bottom:
-                1px solid #252731;
+        .timeline-wrapper {
+            max-width: 1250px;
+            margin: auto;
+            overflow-x: auto;
+            padding: 5px 0 20px;
         }
 
         .timeline {
-
-            max-width: 1100px;
-
-            margin: auto;
-
-            display: flex;
-
-            justify-content: space-between;
-
+            min-width: 1080px;
             position: relative;
+            display: grid;
+            grid-template-columns: repeat(9, 1fr);
+            padding: 0 15px;
         }
 
         .timeline::before {
-
             content: "";
-
             position: absolute;
-
-            top: 20px;
-
-            left: 0;
-
-            right: 0;
-
+            top: 150px;
+            left: 15px;
+            right: 15px;
             height: 2px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    #9e303c,
-                    #d6a14b,
-                    #3e9b58
-                );
+            background: linear-gradient(
+                90deg,
+                #9e303c,
+                #d6a14b,
+                #3e9b58
+            );
         }
 
-        .timeline-item {
-
-            width: 16%;
-
-            text-align: center;
-
+        .timeline-column {
             position: relative;
-        }
-
-        .timeline-dot {
-
-            width: 18px;
-
-            height: 18px;
-
-            margin:
-                11px auto 25px;
-
-            transform:
-                rotate(45deg);
-
-            border:
-                2px solid #d4a653;
-
-            background: #101218;
+            min-height: 320px;
+            text-align: center;
         }
 
         .timeline-year {
-
-            font-size: 22px;
-
+            display: inline-block;
+            position: relative;
+            z-index: 2;
+            padding: 0 7px;
+            margin-bottom: 18px;
+            background: #0d0f15;
             color: #e1c27a;
-
-            margin-bottom: 12px;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
 
-        .timeline-text {
+        .timeline-dot {
+            position: relative;
+            z-index: 3;
+            width: 17px;
+            height: 17px;
+            margin: 8px auto 0;
+            transform: rotate(45deg);
+            background: #101218;
+            border: 2px solid #d4a653;
+        }
 
+        .timeline-event {
+            max-width: 125px;
+            margin: 0 auto;
+        }
+
+        .timeline-top {
+            min-height: 95px;
+        }
+
+        .timeline-bottom {
+            padding-top: 28px;
+            min-height: 95px;
+        }
+
+        .timeline-event h3 {
+            margin-bottom: 5px;
+            color: #d8ad5a;
+            font-size: 15px;
+            line-height: 1.3;
+        }
+
+        .timeline-event p {
             color: #99958e;
+            font-size: 11.5px;
+            line-height: 1.45;
+        }
 
-            font-size: 13px;
+        .darkbandit-event h3 {
+            color: #d14b55;
+        }
+
+        .world-event h3 {
+            color: #63b85f;
+        }
+
+        .timeline-scroll-hint {
+            text-align: center;
+            margin-top: 4px;
+            color: #625f59;
+            font-size: 10px;
+            letter-spacing: 1px;
         }
 
 
@@ -630,25 +658,12 @@
                     repeat(2, 1fr);
             }
 
+            .timeline-wrapper {
+                padding-bottom: 20px;
+            }
+
             .timeline {
-
-                flex-direction: column;
-
-                gap: 30px;
-            }
-
-            .timeline::before {
-                display: none;
-            }
-
-            .timeline-item {
-
-                width: 100%;
-            }
-
-            .timeline-dot {
-
-                margin-bottom: 10px;
+                min-width: 1080px;
             }
         }
 
@@ -702,6 +717,22 @@
 
                 padding:
                     65px 20px;
+            }
+
+            .timeline-intro {
+                margin-top: -25px;
+                font-size: 14px;
+            }
+
+            .timeline-wrapper {
+                margin-left: -20px;
+                margin-right: -20px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .timeline {
+                min-width: 1080px;
             }
         }
 
@@ -1025,123 +1056,190 @@
             THE JOURNEY THROUGH TIME
         </h2>
 
+        <p class="timeline-intro">
+            DarkBandit's story, alongside the history of Clash Royale.
+        </p>
 
-        <div class="timeline">
+        <div class="timeline-wrapper">
 
+            <div class="timeline">
 
-            <div class="timeline-item">
+                <!-- 2016 -->
+                <div class="timeline-column">
 
-                <div class="timeline-year">
-                    2021
+                    <div class="timeline-event timeline-top darkbandit-event">
+                        <h3>Dark Prince</h3>
+                        <p>Released</p>
+                    </div>
+
+                    <div class="timeline-year">2016</div>
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-event timeline-bottom world-event">
+                        <h3>Clash Royale</h3>
+                        <p>Launch</p>
+                    </div>
+
                 </div>
 
-                <div class="timeline-dot"></div>
 
-                <div class="timeline-text">
+                <!-- 2017 -->
+                <div class="timeline-column">
 
-                    The first documented traces
-                    of DarkBandit appear.
+                    <div class="timeline-event timeline-top darkbandit-event">
+                        <h3>Bandit released</h3>
+                        <p>And the first Dark Prince × Bandit drawing appears</p>
+                    </div>
+
+                    <div class="timeline-year">2017</div>
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-event timeline-bottom world-event">
+                        <h3>2v2 arrives</h3>
+                        <p>Clash Royale introduces team battles</p>
+                    </div>
+
+                </div>
+
+
+                <!-- 2018–2020 -->
+                <div class="timeline-column">
+
+                    <div class="timeline-event timeline-top darkbandit-event">
+                        <h3>Bridge Spam</h3>
+                        <p>Played together</p>
+                    </div>
+
+                    <div class="timeline-year">2018–20</div>
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-event timeline-bottom world-event">
+                        <h3>COVID-19</h3>
+                        <p>A changing world</p>
+                    </div>
+
+                </div>
+
+
+                <!-- 2021 -->
+                <div class="timeline-column">
+
+                    <div class="timeline-event timeline-top darkbandit-event">
+                        <h3>Shipping fanart</h3>
+                        <p>First documented works</p>
+                    </div>
+
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-event timeline-bottom world-event">
+                        <h3>Champions</h3>
+                        <p>Introduced</p>
+                    </div>
+
+                </div>
+
+
+                <!-- 2022 -->
+                <div class="timeline-column">
+
+                    <div class="timeline-event timeline-top darkbandit-event">
+                        <h3>Growing fandom</h3>
+                        <p>More discussions</p>
+                    </div>
+
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-event timeline-bottom world-event">
+                        <h3>Queen Elizabeth II</h3>
+                        <p>Dies September 8</p>
+                    </div>
+
+                </div>
+
+
+                <!-- 2023 -->
+                <div class="timeline-column">
+
+                    <div class="timeline-event timeline-top darkbandit-event">
+                        <h3>TikTok</h3>
+                        <p>More fan edits</p>
+                    </div>
+
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-event timeline-bottom world-event">
+                        <h3>Evolutions</h3>
+                        <p>Introduced</p>
+                    </div>
+
+                </div>
+
+
+                <!-- 2024 -->
+                <div class="timeline-column">
+
+                    <div class="timeline-event timeline-top darkbandit-event">
+                        <h3>Community</h3>
+                        <p>Dark Prince Enjoyers</p>
+                    </div>
+
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-event timeline-bottom world-event">
+                        <h3>Boycotts</h3>
+                        <p>Community protests</p>
+                    </div>
+
+                </div>
+
+
+                <!-- 2025 -->
+                <div class="timeline-column">
+
+                    <div class="timeline-event timeline-top darkbandit-event">
+                        <h3>More fanworks</h3>
+                        <p>Artists & lore</p>
+                    </div>
+
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-event timeline-bottom world-event">
+                        <h3>Heroes</h3>
+                        <p>Introduced</p>
+                    </div>
+
+                </div>
+
+
+                <!-- 2026 -->
+                <div class="timeline-column">
+
+                    <div class="timeline-event timeline-top darkbandit-event">
+                        <h3>The story continues</h3>
+                        <p>Still growing</p>
+                    </div>
+
+                    <div class="timeline-year">2026</div>
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-event timeline-bottom world-event">
+                        <h3>Clash Royale</h3>
+                        <p>Still writing history</p>
+                    </div>
 
                 </div>
 
             </div>
 
+        </div>
 
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">
-                    2022
-                </div>
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-text">
-
-                    Early fanworks and
-                    growing interest.
-
-                </div>
-
-            </div>
-
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">
-                    2023
-                </div>
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-text">
-
-                    More creators join
-                    the community.
-
-                </div>
-
-            </div>
-
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">
-                    2024
-                </div>
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-text">
-
-                    The ship gains
-                    wider visibility.
-
-                </div>
-
-            </div>
-
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">
-                    2025
-                </div>
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-text">
-
-                    DarkBandit reaches
-                    new audiences.
-
-                </div>
-
-            </div>
-
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">
-                    2026
-                </div>
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-text">
-
-                    The story
-                    continues...
-
-                </div>
-
-            </div>
-
-
+        <div class="timeline-scroll-hint">
+            ← SCROLL TO EXPLORE →
         </div>
 
     </section>
@@ -1179,7 +1277,7 @@
 
     <footer>
 
-        DarkBandit Archive · 2026
+        Dark Bandit Archive · 2026
 
     </footer>
 
