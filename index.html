@@ -7,84 +7,752 @@
     <title>DarkBandit Archive</title>
 
     <style>
-        body {
+        * {
+            box-sizing: border-box;
             margin: 0;
-            background: #0b0d14;
-            color: #e8e8ed;
-            font-family: Georgia, serif;
-            text-align: center;
+            padding: 0;
         }
 
-        header {
-            padding: 80px 20px;
-            background: #111827;
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #08090d;
+            color: #eee8df;
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 18px 6%;
+            background: rgba(5, 6, 10, 0.96);
+
+            border-bottom: 1px solid #8d6b32;
+        }
+
+        .logo {
+            color: #d9a441;
+            font-size: 23px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            color: #b93b45;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ddd5c9;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #e3a54a;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 720px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            padding: 100px 20px;
+
+            background:
+                radial-gradient(circle at 20% 50%, rgba(130, 20, 35, 0.35), transparent 40%),
+                radial-gradient(circle at 80% 50%, rgba(20, 90, 100, 0.35), transparent 40%),
+                #090a0f;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .heart {
+            color: #e99aab;
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .characters {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 15px;
+
+            font-size: 17px;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        .dark-prince {
+            color: #d14b55;
+        }
+
+        .bandit {
+            color: #4bbbd0;
         }
 
         h1 {
-            font-size: 52px;
-            margin: 0;
-            letter-spacing: 4px;
+            font-size: clamp(55px, 10vw, 110px);
+            letter-spacing: 8px;
+
+            color: #d8ad5a;
+
+            text-shadow:
+                0 0 20px rgba(216, 173, 90, 0.2);
         }
 
-        .subtitle {
-            margin-top: 15px;
-            font-size: 20px;
-            color: #9aa7c7;
+        .ship-name {
+            margin-top: 10px;
+
+            color: #d9c38b;
+            font-size: 18px;
+            letter-spacing: 5px;
         }
 
-        main {
-            max-width: 900px;
+        .tagline {
+            margin: 35px auto 20px;
+
+            font-size: 27px;
+            font-style: italic;
+
+            background: linear-gradient(
+                90deg,
+                #d34a54,
+                #eee8df,
+                #50b9ce
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            max-width: 650px;
             margin: auto;
-            padding: 60px 20px;
-        }
 
-        h2 {
-            font-size: 30px;
-        }
-
-        p {
-            line-height: 1.7;
+            color: #bdb7ad;
             font-size: 17px;
         }
 
+        .button {
+            display: inline-block;
+
+            margin-top: 35px;
+            padding: 14px 35px;
+
+            border: 1px solid #b99148;
+
+            color: #dcb86c;
+            text-decoration: none;
+
+            letter-spacing: 2px;
+
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #b99148;
+            color: #08090d;
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        section {
+            padding: 90px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+
+            font-size: 35px;
+            letter-spacing: 4px;
+            color: #d8ad5a;
+        }
+
+        /* =========================
+           CARDS
+        ========================= */
+
+        .cards {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 22px;
+
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        .card {
+            min-height: 280px;
+
+            padding: 35px 25px;
+
+            text-align: center;
+
+            border: 1px solid #3d3b39;
+
+            background: #101218;
+
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: #a87d37;
+        }
+
+        .card.history {
+            border-top: 3px solid #a92f3d;
+        }
+
+        .card.canon {
+            border-top: 3px solid #c49a4a;
+        }
+
+        .card.fanworks {
+            border-top: 3px solid #328fa5;
+        }
+
+        .card.community {
+            border-top: 3px solid #3e8b52;
+        }
+
+        .card-icon {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            color: #e1c27a;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #aaa59d;
+            font-size: 15px;
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 25px;
+
+            color: #d5a64f;
+            text-decoration: none;
+
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        /* =========================
+           TIMELINE
+        ========================= */
+
+        .timeline-section {
+            background: #0d0f15;
+            border-top: 1px solid #252731;
+            border-bottom: 1px solid #252731;
+        }
+
+        .timeline {
+            max-width: 1100px;
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+
+            position: absolute;
+
+            top: 20px;
+            left: 0;
+            right: 0;
+
+            height: 2px;
+
+            background: linear-gradient(
+                90deg,
+                #9e303c,
+                #d6a14b,
+                #3294a8
+            );
+        }
+
+        .timeline-item {
+            width: 16%;
+            text-align: center;
+            position: relative;
+        }
+
+        .timeline-dot {
+            width: 18px;
+            height: 18px;
+
+            margin: 11px auto 25px;
+
+            transform: rotate(45deg);
+
+            border: 2px solid #d4a653;
+            background: #101218;
+        }
+
+        .timeline-year {
+            font-size: 22px;
+            color: #e1c27a;
+            margin-bottom: 12px;
+        }
+
+        .timeline-text {
+            color: #99958e;
+            font-size: 13px;
+        }
+
+        /* =========================
+           QUOTE
+        ========================= */
+
+        .quote {
+            text-align: center;
+            padding: 100px 20px;
+
+            background:
+                radial-gradient(circle, rgba(95, 35, 50, 0.18), transparent 60%),
+                #08090d;
+        }
+
+        .quote p {
+            max-width: 700px;
+            margin: auto;
+
+            font-size: 28px;
+            font-style: italic;
+
+            color: #c9c0b5;
+        }
+
+        .quote-heart {
+            margin-top: 25px;
+            color: #e88b9c;
+            font-size: 30px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
         footer {
-            margin-top: 60px;
             padding: 30px;
-            color: #777;
-            border-top: 1px solid #252a38;
+
+            text-align: center;
+
+            border-top: 1px solid #272932;
+
+            color: #77736d;
+            font-size: 13px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .timeline {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .timeline::before {
+                display: none;
+            }
+
+            .timeline-item {
+                width: 100%;
+            }
+
+            .timeline-dot {
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .hero {
+                min-height: 600px;
+                padding: 70px 20px;
+            }
+
+            .characters {
+                gap: 20px;
+                font-size: 13px;
+            }
+
+            .ship-name {
+                font-size: 13px;
+                letter-spacing: 3px;
+            }
+
+            .tagline {
+                font-size: 22px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 65px 20px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<header>
-    <h1>DARKBANDIT</h1>
+    <!-- NAVIGATION -->
 
-    <div class="subtitle">
-        The Dark Prince × Bandit Archive
-    </div>
-</header>
+    <nav>
 
-<main>
+        <div class="logo">
+            DARK<span>BANDIT</span>
+        </div>
 
-    <h2>Welcome to the DarkBandit Archive</h2>
+        <ul class="nav-links">
 
-    <p>
-        An independent archive documenting the history,
-        fanworks, official appearances and community
-        surrounding Dark Prince × Bandit from Clash Royale.
-    </p>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#history">HISTORY</a></li>
+            <li><a href="#canon">CANON</a></li>
+            <li><a href="#fanworks">FANWORKS</a></li>
+            <li><a href="#community">COMMUNITY</a></li>
+            <li><a href="#timeline">TIMELINE</a></li>
 
-    <p>
-        The archive is currently being built.
-    </p>
+        </ul>
 
-</main>
+    </nav>
 
-<footer>
-    DarkBandit Archive · 2026
-</footer>
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="heart">♥</div>
+
+            <div class="characters">
+
+                <span class="dark-prince">
+                    DARK PRINCE
+                </span>
+
+                <span>×</span>
+
+                <span class="bandit">
+                    BANDIT
+                </span>
+
+            </div>
+
+            <h1>DARKBANDIT</h1>
+
+            <div class="ship-name">
+                DARK PRINCE × BANDIT
+            </div>
+
+            <div class="tagline">
+                Two worlds. One connection.
+            </div>
+
+            <p class="description">
+
+                An independent archive documenting the history,
+                fanworks, official appearances and community
+                surrounding Dark Prince × Bandit from Clash Royale.
+
+            </p>
+
+            <a class="button" href="#history">
+                EXPLORE THE ARCHIVE ♥
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ARCHIVE SECTIONS -->
+
+    <section>
+
+        <h2 class="section-title">
+            THE ARCHIVE
+        </h2>
+
+        <div class="cards">
+
+
+            <div class="card history" id="history">
+
+                <div class="card-icon">♜</div>
+
+                <h3>History</h3>
+
+                <p>
+                    Explore the journey of DarkBandit
+                    through the years, from its earliest
+                    traces to today.
+                </p>
+
+                <a href="#">
+                    VIEW HISTORY →
+                </a>
+
+            </div>
+
+
+            <div class="card canon" id="canon">
+
+                <div class="card-icon">⚔</div>
+
+                <h3>Canon & Official</h3>
+
+                <p>
+                    Discover official appearances,
+                    interactions and everything connecting
+                    Dark Prince and Bandit.
+                </p>
+
+                <a href="#">
+                    VIEW CANON →
+                </a>
+
+            </div>
+
+
+            <div class="card fanworks" id="fanworks">
+
+                <div class="card-icon">✦</div>
+
+                <h3>Fanworks</h3>
+
+                <p>
+                    A collection of fanart, comics,
+                    edits and creations from artists
+                    around the fandom.
+                </p>
+
+                <a href="#">
+                    VIEW FANWORKS →
+                </a>
+
+            </div>
+
+
+            <div class="card community" id="community">
+
+                <div class="card-icon">♧</div>
+
+                <h3>Community</h3>
+
+                <p>
+                    Discover DarkBandit across Reddit,
+                    X, TikTok and other communities.
+                </p>
+
+                <a href="#">
+                    VIEW COMMUNITY →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TIMELINE -->
+
+    <section class="timeline-section" id="timeline">
+
+        <h2 class="section-title">
+            THE JOURNEY THROUGH TIME
+        </h2>
+
+        <div class="timeline">
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-year">
+                    2021
+                </div>
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-text">
+                    The first documented traces
+                    of DarkBandit appear.
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-year">
+                    2022
+                </div>
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-text">
+                    Early fanworks and
+                    growing interest.
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-year">
+                    2023
+                </div>
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-text">
+                    More creators join
+                    the community.
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-year">
+                    2024
+                </div>
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-text">
+                    The ship gains
+                    wider visibility.
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-year">
+                    2025
+                </div>
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-text">
+                    DarkBandit reaches
+                    new audiences.
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-year">
+                    2026
+                </div>
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-text">
+                    The story
+                    continues...
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- QUOTE -->
+
+    <section class="quote">
+
+        <p>
+            In darkness, a prince.<br>
+            In the shadows, a thief.<br>
+            Together, a legend.
+        </p>
+
+        <div class="quote-heart">
+            ♥
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        DarkBandit Archive · 2026
+
+    </footer>
 
 </body>
 </html>
