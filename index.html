@@ -7,6 +7,11 @@
     <title>DarkBandit Archive</title>
 
     <style>
+
+        /* =========================================
+           GENERAL
+        ========================================= */
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -24,9 +29,10 @@
             line-height: 1.6;
         }
 
-        /* =========================
+
+        /* =========================================
            NAVIGATION
-        ========================= */
+        ========================================= */
 
         nav {
             position: sticky;
@@ -38,7 +44,8 @@
             justify-content: space-between;
 
             padding: 18px 6%;
-            background: rgba(5, 6, 10, 0.96);
+
+            background: rgba(5, 6, 10, 0.97);
 
             border-bottom: 1px solid #8d6b32;
         }
@@ -51,7 +58,7 @@
         }
 
         .logo span {
-            color: #b93b45;
+            color: #63b85f;
         }
 
         .nav-links {
@@ -63,8 +70,10 @@
         .nav-links a {
             color: #ddd5c9;
             text-decoration: none;
+
             font-size: 14px;
             letter-spacing: 1px;
+
             transition: 0.3s;
         }
 
@@ -72,11 +81,13 @@
             color: #e3a54a;
         }
 
-        /* =========================
+
+        /* =========================================
            HERO
-        ========================= */
+        ========================================= */
 
         .hero {
+
             min-height: 720px;
 
             display: flex;
@@ -84,11 +95,23 @@
             justify-content: center;
 
             text-align: center;
+
             padding: 100px 20px;
 
             background:
-                radial-gradient(circle at 20% 50%, rgba(130, 20, 35, 0.35), transparent 40%),
-                radial-gradient(circle at 80% 50%, rgba(20, 90, 100, 0.35), transparent 40%),
+
+                radial-gradient(
+                    circle at 18% 50%,
+                    rgba(145, 25, 40, 0.38),
+                    transparent 40%
+                ),
+
+                radial-gradient(
+                    circle at 82% 50%,
+                    rgba(40, 115, 55, 0.30),
+                    transparent 40%
+                ),
+
                 #090a0f;
         }
 
@@ -96,83 +119,136 @@
             max-width: 900px;
         }
 
+
+        /* HEART */
+
         .heart {
             color: #e99aab;
+
             font-size: 45px;
+
             margin-bottom: 20px;
+
+            text-shadow:
+                0 0 18px rgba(233, 154, 171, 0.25);
         }
 
+
+        /* CHARACTER NAMES */
+
         .characters {
+
             display: flex;
+
             justify-content: center;
+
             gap: 60px;
+
             margin-bottom: 15px;
 
             font-size: 17px;
+
             letter-spacing: 3px;
+
             font-weight: bold;
         }
 
         .dark-prince {
+
             color: #d14b55;
+
+            text-shadow:
+                0 0 12px rgba(209, 75, 85, 0.18);
         }
 
         .bandit {
-            color: #4bbbd0;
+
+            color: #63b85f;
+
+            text-shadow:
+                0 0 12px rgba(99, 184, 95, 0.18);
         }
 
+
+        /* MAIN TITLE */
+
         h1 {
+
             font-size: clamp(55px, 10vw, 110px);
+
             letter-spacing: 8px;
 
             color: #d8ad5a;
 
             text-shadow:
-                0 0 20px rgba(216, 173, 90, 0.2);
+                0 0 20px rgba(216, 173, 90, 0.20);
         }
 
+
+        /* SHIP NAME */
+
         .ship-name {
+
             margin-top: 10px;
 
             color: #d9c38b;
+
             font-size: 18px;
+
             letter-spacing: 5px;
         }
 
+
+        /* TAGLINE */
+
         .tagline {
+
             margin: 35px auto 20px;
 
             font-size: 27px;
+
             font-style: italic;
 
             background: linear-gradient(
                 90deg,
                 #d34a54,
-                #eee8df,
-                #50b9ce
+                #e8d6b0,
+                #63b85f
             );
 
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
+
+        /* DESCRIPTION */
+
         .description {
+
             max-width: 650px;
+
             margin: auto;
 
             color: #bdb7ad;
+
             font-size: 17px;
         }
 
+
+        /* BUTTON */
+
         .button {
+
             display: inline-block;
 
             margin-top: 35px;
+
             padding: 14px 35px;
 
             border: 1px solid #b99148;
 
             color: #dcb86c;
+
             text-decoration: none;
 
             letter-spacing: 2px;
@@ -181,43 +257,56 @@
         }
 
         .button:hover {
+
             background: #b99148;
+
             color: #08090d;
         }
 
-        /* =========================
-           SECTIONS
-        ========================= */
+
+        /* =========================================
+           GENERAL SECTIONS
+        ========================================= */
 
         section {
+
             padding: 90px 7%;
         }
 
         .section-title {
+
             text-align: center;
+
             margin-bottom: 55px;
 
             font-size: 35px;
+
             letter-spacing: 4px;
+
             color: #d8ad5a;
         }
 
-        /* =========================
-           CARDS
-        ========================= */
+
+        /* =========================================
+           ARCHIVE CARDS
+        ========================================= */
 
         .cards {
+
             display: grid;
 
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns:
+                repeat(4, 1fr);
 
             gap: 22px;
 
             max-width: 1300px;
+
             margin: auto;
         }
 
         .card {
+
             min-height: 280px;
 
             padding: 35px 25px;
@@ -228,172 +317,280 @@
 
             background: #101218;
 
-            transition: transform 0.3s, border-color 0.3s;
+            transition:
+                transform 0.3s,
+                border-color 0.3s;
         }
 
         .card:hover {
+
             transform: translateY(-7px);
+
             border-color: #a87d37;
         }
 
+
+        /* DARK PRINCE / HISTORY */
+
         .card.history {
+
             border-top: 3px solid #a92f3d;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(125, 25, 38, 0.10),
+                    #101218
+                );
         }
+
+
+        /* GOLD / CANON */
 
         .card.canon {
+
             border-top: 3px solid #c49a4a;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(196, 154, 74, 0.08),
+                    #101218
+                );
         }
+
+
+        /* BANDIT / FANWORKS */
 
         .card.fanworks {
-            border-top: 3px solid #328fa5;
+
+            border-top: 3px solid #3e9b58;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(40, 120, 60, 0.10),
+                    #101218
+                );
         }
+
+
+        /* COMMUNITY / BLUE */
 
         .card.community {
-            border-top: 3px solid #3e8b52;
+
+            border-top: 3px solid #327f91;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(30, 100, 120, 0.10),
+                    #101218
+                );
         }
 
+
         .card-icon {
+
             font-size: 38px;
+
             margin-bottom: 20px;
         }
 
         .card h3 {
+
             color: #e1c27a;
+
             font-size: 24px;
+
             margin-bottom: 15px;
         }
 
         .card p {
+
             color: #aaa59d;
+
             font-size: 15px;
         }
 
         .card a {
+
             display: inline-block;
+
             margin-top: 25px;
 
             color: #d5a64f;
+
             text-decoration: none;
 
             font-size: 13px;
+
             letter-spacing: 1px;
         }
 
-        /* =========================
+
+        /* =========================================
            TIMELINE
-        ========================= */
+        ========================================= */
 
         .timeline-section {
+
             background: #0d0f15;
-            border-top: 1px solid #252731;
-            border-bottom: 1px solid #252731;
+
+            border-top:
+                1px solid #252731;
+
+            border-bottom:
+                1px solid #252731;
         }
 
         .timeline {
+
             max-width: 1100px;
+
             margin: auto;
 
             display: flex;
+
             justify-content: space-between;
 
             position: relative;
         }
 
         .timeline::before {
+
             content: "";
 
             position: absolute;
 
             top: 20px;
+
             left: 0;
+
             right: 0;
 
             height: 2px;
 
-            background: linear-gradient(
-                90deg,
-                #9e303c,
-                #d6a14b,
-                #3294a8
-            );
+            background:
+                linear-gradient(
+                    90deg,
+                    #9e303c,
+                    #d6a14b,
+                    #3e9b58
+                );
         }
 
         .timeline-item {
+
             width: 16%;
+
             text-align: center;
+
             position: relative;
         }
 
         .timeline-dot {
+
             width: 18px;
+
             height: 18px;
 
-            margin: 11px auto 25px;
+            margin:
+                11px auto 25px;
 
-            transform: rotate(45deg);
+            transform:
+                rotate(45deg);
 
-            border: 2px solid #d4a653;
+            border:
+                2px solid #d4a653;
+
             background: #101218;
         }
 
         .timeline-year {
+
             font-size: 22px;
+
             color: #e1c27a;
+
             margin-bottom: 12px;
         }
 
         .timeline-text {
+
             color: #99958e;
+
             font-size: 13px;
         }
 
-        /* =========================
+
+        /* =========================================
            QUOTE
-        ========================= */
+        ========================================= */
 
         .quote {
+
             text-align: center;
-            padding: 100px 20px;
+
+            padding:
+                100px 20px;
 
             background:
-                radial-gradient(circle, rgba(95, 35, 50, 0.18), transparent 60%),
+
+                radial-gradient(
+                    circle,
+                    rgba(110, 35, 55, 0.16),
+                    transparent 60%
+                ),
+
                 #08090d;
         }
 
         .quote p {
+
             max-width: 700px;
+
             margin: auto;
 
             font-size: 28px;
+
             font-style: italic;
 
             color: #c9c0b5;
         }
 
         .quote-heart {
+
             margin-top: 25px;
+
             color: #e88b9c;
+
             font-size: 30px;
         }
 
-        /* =========================
+
+        /* =========================================
            FOOTER
-        ========================= */
+        ========================================= */
 
         footer {
+
             padding: 30px;
 
             text-align: center;
 
-            border-top: 1px solid #272932;
+            border-top:
+                1px solid #272932;
 
             color: #77736d;
+
             font-size: 13px;
         }
 
-        /* =========================
-           MOBILE
-        ========================= */
+
+        /* =========================================
+           TABLET
+        ========================================= */
 
         @media (max-width: 900px) {
 
@@ -402,11 +599,15 @@
             }
 
             .cards {
-                grid-template-columns: repeat(2, 1fr);
+
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
 
             .timeline {
+
                 flex-direction: column;
+
                 gap: 30px;
             }
 
@@ -415,49 +616,73 @@
             }
 
             .timeline-item {
+
                 width: 100%;
             }
 
             .timeline-dot {
+
                 margin-bottom: 10px;
             }
         }
 
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
         @media (max-width: 600px) {
 
             .hero {
+
                 min-height: 600px;
-                padding: 70px 20px;
+
+                padding:
+                    70px 20px;
             }
 
             .characters {
+
                 gap: 20px;
+
                 font-size: 13px;
             }
 
             .ship-name {
+
                 font-size: 13px;
+
                 letter-spacing: 3px;
             }
 
             .tagline {
+
                 font-size: 22px;
             }
 
             .cards {
+
                 grid-template-columns: 1fr;
             }
 
             section {
-                padding: 65px 20px;
+
+                padding:
+                    65px 20px;
             }
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- NAVIGATION -->
+
+    <!-- =====================================
+         NAVIGATION
+    ====================================== -->
 
     <nav>
 
@@ -467,25 +692,64 @@
 
         <ul class="nav-links">
 
-            <li><a href="#home">HOME</a></li>
-            <li><a href="#history">HISTORY</a></li>
-            <li><a href="#canon">CANON</a></li>
-            <li><a href="#fanworks">FANWORKS</a></li>
-            <li><a href="#community">COMMUNITY</a></li>
-            <li><a href="#timeline">TIMELINE</a></li>
+            <li>
+                <a href="#home">
+                    HOME
+                </a>
+            </li>
+
+            <li>
+                <a href="#history">
+                    HISTORY
+                </a>
+            </li>
+
+            <li>
+                <a href="#canon">
+                    CANON
+                </a>
+            </li>
+
+            <li>
+                <a href="#fanworks">
+                    FANWORKS
+                </a>
+            </li>
+
+            <li>
+                <a href="#community">
+                    COMMUNITY
+                </a>
+            </li>
+
+            <li>
+                <a href="#timeline">
+                    TIMELINE
+                </a>
+            </li>
 
         </ul>
 
     </nav>
 
 
-    <!-- HERO -->
 
-    <section class="hero" id="home">
+    <!-- =====================================
+         HERO
+    ====================================== -->
+
+    <section
+        class="hero"
+        id="home"
+    >
 
         <div class="hero-content">
 
-            <div class="heart">♥</div>
+
+            <div class="heart">
+                ♥
+            </div>
+
 
             <div class="characters">
 
@@ -493,7 +757,9 @@
                     DARK PRINCE
                 </span>
 
-                <span>×</span>
+                <span>
+                    ×
+                </span>
 
                 <span class="bandit">
                     BANDIT
@@ -501,34 +767,49 @@
 
             </div>
 
-            <h1>DARKBANDIT</h1>
+
+            <h1>
+                DARKBANDIT
+            </h1>
+
 
             <div class="ship-name">
                 DARK PRINCE × BANDIT
             </div>
 
+
             <div class="tagline">
                 Two worlds. One connection.
             </div>
 
+
             <p class="description">
 
-                An independent archive documenting the history,
-                fanworks, official appearances and community
-                surrounding Dark Prince × Bandit from Clash Royale.
+                An independent archive documenting
+                the history, fanworks, official
+                appearances and community surrounding
+                Dark Prince × Bandit from Clash Royale.
 
             </p>
 
-            <a class="button" href="#history">
+
+            <a
+                class="button"
+                href="#history"
+            >
                 EXPLORE THE ARCHIVE ♥
             </a>
+
 
         </div>
 
     </section>
 
 
-    <!-- ARCHIVE SECTIONS -->
+
+    <!-- =====================================
+         ARCHIVE
+    ====================================== -->
 
     <section>
 
@@ -536,19 +817,31 @@
             THE ARCHIVE
         </h2>
 
+
         <div class="cards">
 
 
-            <div class="card history" id="history">
+            <!-- HISTORY -->
 
-                <div class="card-icon">♜</div>
+            <div
+                class="card history"
+                id="history"
+            >
 
-                <h3>History</h3>
+                <div class="card-icon">
+                    ♜
+                </div>
+
+                <h3>
+                    History
+                </h3>
 
                 <p>
-                    Explore the journey of DarkBandit
-                    through the years, from its earliest
-                    traces to today.
+
+                    Explore the journey of
+                    DarkBandit through the years,
+                    from its earliest traces to today.
+
                 </p>
 
                 <a href="#">
@@ -558,16 +851,28 @@
             </div>
 
 
-            <div class="card canon" id="canon">
 
-                <div class="card-icon">⚔</div>
+            <!-- CANON -->
 
-                <h3>Canon & Official</h3>
+            <div
+                class="card canon"
+                id="canon"
+            >
+
+                <div class="card-icon">
+                    ⚔
+                </div>
+
+                <h3>
+                    Canon & Official
+                </h3>
 
                 <p>
+
                     Discover official appearances,
-                    interactions and everything connecting
-                    Dark Prince and Bandit.
+                    interactions and everything
+                    connecting Dark Prince and Bandit.
+
                 </p>
 
                 <a href="#">
@@ -577,16 +882,28 @@
             </div>
 
 
-            <div class="card fanworks" id="fanworks">
 
-                <div class="card-icon">✦</div>
+            <!-- FANWORKS -->
 
-                <h3>Fanworks</h3>
+            <div
+                class="card fanworks"
+                id="fanworks"
+            >
+
+                <div class="card-icon">
+                    ✦
+                </div>
+
+                <h3>
+                    Fanworks
+                </h3>
 
                 <p>
-                    A collection of fanart, comics,
-                    edits and creations from artists
-                    around the fandom.
+
+                    A collection of fanart,
+                    comics, edits and creations
+                    from artists around the fandom.
+
                 </p>
 
                 <a href="#">
@@ -596,15 +913,28 @@
             </div>
 
 
-            <div class="card community" id="community">
 
-                <div class="card-icon">♧</div>
+            <!-- COMMUNITY -->
 
-                <h3>Community</h3>
+            <div
+                class="card community"
+                id="community"
+            >
+
+                <div class="card-icon">
+                    ♧
+                </div>
+
+                <h3>
+                    Community
+                </h3>
 
                 <p>
-                    Discover DarkBandit across Reddit,
-                    X, TikTok and other communities.
+
+                    Discover DarkBandit across
+                    Reddit, X, TikTok and other
+                    communities.
+
                 </p>
 
                 <a href="#">
@@ -613,18 +943,26 @@
 
             </div>
 
+
         </div>
 
     </section>
 
 
-    <!-- TIMELINE -->
 
-    <section class="timeline-section" id="timeline">
+    <!-- =====================================
+         TIMELINE
+    ====================================== -->
+
+    <section
+        class="timeline-section"
+        id="timeline"
+    >
 
         <h2 class="section-title">
             THE JOURNEY THROUGH TIME
         </h2>
+
 
         <div class="timeline">
 
@@ -638,11 +976,14 @@
                 <div class="timeline-dot"></div>
 
                 <div class="timeline-text">
+
                     The first documented traces
                     of DarkBandit appear.
+
                 </div>
 
             </div>
+
 
 
             <div class="timeline-item">
@@ -654,11 +995,14 @@
                 <div class="timeline-dot"></div>
 
                 <div class="timeline-text">
+
                     Early fanworks and
                     growing interest.
+
                 </div>
 
             </div>
+
 
 
             <div class="timeline-item">
@@ -670,11 +1014,14 @@
                 <div class="timeline-dot"></div>
 
                 <div class="timeline-text">
+
                     More creators join
                     the community.
+
                 </div>
 
             </div>
+
 
 
             <div class="timeline-item">
@@ -686,11 +1033,14 @@
                 <div class="timeline-dot"></div>
 
                 <div class="timeline-text">
+
                     The ship gains
                     wider visibility.
+
                 </div>
 
             </div>
+
 
 
             <div class="timeline-item">
@@ -702,11 +1052,14 @@
                 <div class="timeline-dot"></div>
 
                 <div class="timeline-text">
+
                     DarkBandit reaches
                     new audiences.
+
                 </div>
 
             </div>
+
 
 
             <div class="timeline-item">
@@ -718,26 +1071,37 @@
                 <div class="timeline-dot"></div>
 
                 <div class="timeline-text">
+
                     The story
                     continues...
+
                 </div>
 
             </div>
+
 
         </div>
 
     </section>
 
 
-    <!-- QUOTE -->
+
+    <!-- =====================================
+         QUOTE
+    ====================================== -->
 
     <section class="quote">
 
         <p>
+
             In darkness, a prince.<br>
+
             In the shadows, a thief.<br>
+
             Together, a legend.
+
         </p>
+
 
         <div class="quote-heart">
             ♥
@@ -746,7 +1110,10 @@
     </section>
 
 
-    <!-- FOOTER -->
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
 
     <footer>
 
@@ -754,5 +1121,7 @@
 
     </footer>
 
+
 </body>
+
 </html>
