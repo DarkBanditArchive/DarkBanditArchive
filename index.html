@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>DarkBandit Archive</title>
+    <title>Dark Bandit Archive</title>
 
     <style>
 
@@ -120,7 +120,7 @@
         }
 
 
-        /* HEART */
+        /* PINK ROMANTIC HEART */
 
         .heart {
             color: #e99aab;
@@ -174,7 +174,7 @@
 
         h1 {
 
-            font-size: clamp(55px, 10vw, 110px);
+            font-size: clamp(50px, 9vw, 100px);
 
             letter-spacing: 8px;
 
@@ -185,11 +185,37 @@
         }
 
 
+        /* HEARTS UNDER TITLE */
+
+        .title-hearts {
+
+            margin-top: 12px;
+
+            font-size: 25px;
+
+            letter-spacing: 12px;
+        }
+
+        .dark-heart {
+            color: #b92f3d;
+
+            text-shadow:
+                0 0 12px rgba(185, 47, 61, 0.25);
+        }
+
+        .green-heart {
+            color: #55a85a;
+
+            text-shadow:
+                0 0 12px rgba(85, 168, 90, 0.25);
+        }
+
+
         /* SHIP NAME */
 
         .ship-name {
 
-            margin-top: 10px;
+            margin-top: 18px;
 
             color: #d9c38b;
 
@@ -330,7 +356,7 @@
         }
 
 
-        /* DARK PRINCE / HISTORY */
+        /* HISTORY */
 
         .card.history {
 
@@ -345,7 +371,7 @@
         }
 
 
-        /* GOLD / CANON */
+        /* CANON */
 
         .card.canon {
 
@@ -360,7 +386,7 @@
         }
 
 
-        /* BANDIT / FANWORKS */
+        /* FANWORKS */
 
         .card.fanworks {
 
@@ -375,7 +401,7 @@
         }
 
 
-        /* COMMUNITY / BLUE */
+        /* COMMUNITY */
 
         .card.community {
 
@@ -660,6 +686,13 @@
                 font-size: 22px;
             }
 
+            .title-hearts {
+
+                font-size: 21px;
+
+                letter-spacing: 8px;
+            }
+
             .cards {
 
                 grid-template-columns: 1fr;
@@ -746,10 +779,14 @@
         <div class="hero-content">
 
 
+            <!-- ROMANTIC HEART -->
+
             <div class="heart">
                 ♥
             </div>
 
+
+            <!-- CHARACTER NAMES -->
 
             <div class="characters">
 
@@ -768,20 +805,43 @@
             </div>
 
 
+            <!-- MAIN TITLE -->
+
             <h1>
-                DARKBANDIT
+                DARK BANDIT
             </h1>
 
+
+            <!-- CHARACTER HEARTS -->
+
+            <div class="title-hearts">
+
+                <span class="dark-heart">
+                    🖤
+                </span>
+
+                <span class="green-heart">
+                    💚
+                </span>
+
+            </div>
+
+
+            <!-- SHIP NAME -->
 
             <div class="ship-name">
                 DARK PRINCE × BANDIT
             </div>
 
 
+            <!-- TAGLINE -->
+
             <div class="tagline">
                 Two worlds. One connection.
             </div>
 
+
+            <!-- DESCRIPTION -->
 
             <p class="description">
 
@@ -792,6 +852,8 @@
 
             </p>
 
+
+            <!-- BUTTON -->
 
             <a
                 class="button"
