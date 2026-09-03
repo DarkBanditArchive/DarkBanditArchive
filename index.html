@@ -579,6 +579,270 @@
 
 
         /* =========================================
+           HISTORY PAGE / VISUAL ARCHIVE
+        ========================================= */
+
+        .history-section {
+            padding: 110px 7%;
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(145, 25, 40, 0.10),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 85% 70%,
+                    rgba(40, 115, 55, 0.08),
+                    transparent 35%
+                ),
+                #0a0c11;
+            border-top: 1px solid #252731;
+            border-bottom: 1px solid #252731;
+        }
+
+        .history-intro {
+            max-width: 760px;
+            margin: -25px auto 70px;
+            text-align: center;
+            color: #aaa59d;
+            font-size: 17px;
+        }
+
+        .history-entry {
+            max-width: 1120px;
+            margin: 0 auto 105px;
+            position: relative;
+        }
+
+        .history-entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .history-year {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .history-year::before {
+            content: "";
+            width: 55px;
+            height: 1px;
+            background: #9e303c;
+        }
+
+        .history-year span {
+            color: #d8ad5a;
+            font-size: 18px;
+            letter-spacing: 4px;
+            font-weight: bold;
+        }
+
+        .history-entry h3 {
+            color: #e7d2a0;
+            font-size: 25px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .history-entry p {
+            color: #aaa59d;
+            font-size: 15px;
+            max-width: 780px;
+            margin-bottom: 25px;
+        }
+
+        .history-date {
+            color: #d14b55 !important;
+            font-size: 12px !important;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px !important;
+        }
+
+        .history-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+            margin-top: 25px;
+        }
+
+        .history-gallery.single {
+            grid-template-columns: minmax(0, 760px);
+        }
+
+        .history-image-card {
+            overflow: hidden;
+            border: 1px solid #34363d;
+            background: #101218;
+        }
+
+        .history-image-card img {
+            display: block;
+            width: 100%;
+            height: 330px;
+            object-fit: contain;
+            background: #08090d;
+            transition: transform 0.4s ease;
+        }
+
+        .history-image-card:hover img {
+            transform: scale(1.025);
+        }
+
+        .history-caption {
+            padding: 18px 20px 20px;
+            border-top: 1px solid #2a2c32;
+        }
+
+        .history-caption strong {
+            display: block;
+            color: #dfc47f;
+            font-size: 15px;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .history-caption span {
+            color: #817e78;
+            font-size: 13px;
+        }
+
+        .history-divider {
+            width: 100%;
+            height: 1px;
+            margin-top: 80px;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                #51442c,
+                transparent
+            );
+        }
+
+        .history-note {
+            margin-top: 18px;
+            color: #77736d !important;
+            font-size: 12px !important;
+            font-style: italic;
+        }
+
+        .history-feature {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .history-feature.reverse .history-feature-image {
+            order: 2;
+        }
+
+        .history-feature-image {
+            overflow: hidden;
+            border: 1px solid #3d3b39;
+            background: #08090d;
+        }
+
+        .history-feature-image img {
+            display: block;
+            width: 100%;
+            height: 390px;
+            object-fit: contain;
+        }
+
+        .history-feature-text {
+            padding: 10px 10px 10px 5px;
+        }
+
+        .official-badge {
+            display: inline-block;
+            margin-bottom: 15px;
+            padding: 5px 10px;
+            border: 1px solid #9b7839;
+            color: #d7b35f;
+            font-size: 10px;
+            letter-spacing: 2px;
+        }
+
+        .fanwork-gallery {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 14px;
+            margin-top: 25px;
+        }
+
+        .fanwork-gallery .history-image-card img {
+            height: 260px;
+        }
+
+        .history-end {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 55px 30px;
+            text-align: center;
+            border: 1px solid #37343a;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(145, 25, 40, 0.08),
+                    rgba(40, 115, 55, 0.08)
+                ),
+                #101218;
+        }
+
+        .history-end h3 {
+            margin-bottom: 12px;
+        }
+
+        @media (max-width: 900px) {
+            .history-feature {
+                grid-template-columns: 1fr;
+            }
+
+            .history-feature.reverse .history-feature-image {
+                order: 0;
+            }
+
+            .fanwork-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .history-section {
+                padding: 75px 20px;
+            }
+
+            .history-gallery,
+            .history-gallery.single {
+                grid-template-columns: 1fr;
+            }
+
+            .history-image-card img {
+                height: 280px;
+            }
+
+            .history-feature-image img {
+                height: 300px;
+            }
+
+            .fanwork-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .fanwork-gallery .history-image-card img {
+                height: 330px;
+            }
+
+            .history-entry {
+                margin-bottom: 75px;
+            }
+        }
+
+
+        /* =========================================
            QUOTE
         ========================================= */
 
@@ -663,7 +927,7 @@
             }
 
             .timeline {
-                min-width: 1080px;
+                min-width: 1120px;
             }
         }
 
@@ -732,7 +996,7 @@
             }
 
             .timeline {
-                min-width: 1080px;
+                min-width: 1120px;
             }
         }
 
@@ -900,151 +1164,9 @@
 
 
 
-    <!-- =====================================
-         ARCHIVE
-    ====================================== -->
-
-    <section>
-
-        <h2 class="section-title">
-            THE ARCHIVE
-        </h2>
-
-
-        <div class="cards">
-
-
-            <!-- HISTORY -->
-
-            <div
-                class="card history"
-                id="history"
-            >
-
-                <div class="card-icon">
-                    ♜
-                </div>
-
-                <h3>
-                    History
-                </h3>
-
-                <p>
-
-                    Explore the journey of
-                    DarkBandit through the years,
-                    from its earliest traces to today.
-
-                </p>
-
-                <a href="#">
-                    VIEW HISTORY →
-                </a>
-
-            </div>
-
-
-
-            <!-- CANON -->
-
-            <div
-                class="card canon"
-                id="canon"
-            >
-
-                <div class="card-icon">
-                    ⚔
-                </div>
-
-                <h3>
-                    Canon & Official
-                </h3>
-
-                <p>
-
-                    Discover official appearances,
-                    interactions and everything
-                    connecting Dark Prince and Bandit.
-
-                </p>
-
-                <a href="#">
-                    VIEW CANON →
-                </a>
-
-            </div>
-
-
-
-            <!-- FANWORKS -->
-
-            <div
-                class="card fanworks"
-                id="fanworks"
-            >
-
-                <div class="card-icon">
-                    ✦
-                </div>
-
-                <h3>
-                    Fanworks
-                </h3>
-
-                <p>
-
-                    A collection of fanart,
-                    comics, edits and creations
-                    from artists around the fandom.
-
-                </p>
-
-                <a href="#">
-                    VIEW FANWORKS →
-                </a>
-
-            </div>
-
-
-
-            <!-- COMMUNITY -->
-
-            <div
-                class="card community"
-                id="community"
-            >
-
-                <div class="card-icon">
-                    ♧
-                </div>
-
-                <h3>
-                    Community
-                </h3>
-
-                <p>
-
-                    Discover DarkBandit across
-                    Reddit, X, TikTok and other
-                    communities.
-
-                </p>
-
-                <a href="#">
-                    VIEW COMMUNITY →
-                </a>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
 
     <!-- =====================================
-         TIMELINE
+         HISTORY
     ====================================== -->
 
     <section
@@ -1245,6 +1367,630 @@
     </section>
 
 
+    <section class="history-section" id="history">
+
+        <h2 class="section-title">
+            THE DARKBANDIT HISTORY
+        </h2>
+
+        <p class="history-intro">
+            From two cards in the Arena to a pairing documented by
+            fanworks and official appearances — this is the story
+            of Dark Prince × Bandit through the years.
+        </p>
+
+
+        <!-- 2016 -->
+
+        <div class="history-entry">
+
+            <div class="history-year">
+                <span>2016</span>
+            </div>
+
+            <div class="history-feature">
+
+                <div class="history-feature-text">
+
+                    <h3>CLASH ROYALE</h3>
+
+                    <p>
+                        Clash Royale arrives, introducing the Arena
+                        where the story of Dark Prince and Bandit
+                        will eventually begin.
+                    </p>
+
+                </div>
+
+                <div class="history-feature-image">
+                    <img
+                        src="images/clash-royale-logo.png"
+                        alt="Clash Royale logo"
+                    >
+                </div>
+
+            </div>
+
+            <div class="history-divider"></div>
+
+            <div class="history-feature reverse" style="margin-top: 55px;">
+
+                <div class="history-feature-text">
+
+                    <p class="history-date">
+                        February 29, 2016
+                    </p>
+
+                    <h3>DARK PRINCE RELEASED</h3>
+
+                    <p>
+                        Dark Prince joins Clash Royale as one of
+                        the game's original cards.
+                    </p>
+
+                </div>
+
+                <div class="history-feature-image">
+                    <img
+                        src="images/dark-prince-card.png"
+                        alt="Dark Prince original Clash Royale card"
+                    >
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 2017 -->
+
+        <div class="history-entry">
+
+            <div class="history-year">
+                <span>2017</span>
+            </div>
+
+            <div class="history-feature">
+
+                <div class="history-feature-text">
+
+                    <p class="history-date">
+                        March 24, 2017
+                    </p>
+
+                    <h3>BANDIT RELEASED</h3>
+
+                    <p>
+                        The Bandit enters the Arena, creating the
+                        duo that would later become one of the most
+                        recognizable DarkBandit pairings in the fandom.
+                    </p>
+
+                </div>
+
+                <div class="history-feature-image">
+                    <img
+                        src="images/bandit-old-card.png"
+                        alt="Bandit's original Clash Royale card"
+                    >
+                </div>
+
+            </div>
+
+            <div class="history-divider"></div>
+
+            <div style="margin-top: 55px;">
+
+                <h3>THE EARLIEST DOCUMENTED FANART</h3>
+
+                <p>
+                    An early 2017 deck artwork by Jus121 is currently
+                    the earliest documented Dark Prince × Bandit fanart
+                    in the archive.
+                </p>
+
+                <div class="history-gallery single">
+
+                    <div class="history-image-card">
+
+                        <img
+                            src="images/jus121-darkbandit.png"
+                            alt="Jus121 Dark Prince and Bandit deck fanart"
+                        >
+
+                        <div class="history-caption">
+                            <strong>Dark Prince × Bandit</strong>
+                            <span>Jus121 · 2017 · Deck fanart</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <p class="history-note">
+                    “Earliest documented” refers to the oldest work
+                    currently identified for this archive and may not
+                    represent the first DarkBandit artwork ever created.
+                </p>
+
+            </div>
+
+            <div class="history-divider"></div>
+
+            <div style="margin-top: 55px;">
+
+                <h3>THE BRIDGE SPAM DUO</h3>
+
+                <p>
+                    Dark Prince and Bandit became a classic Bridge Spam
+                    pairing. In the early Bridge Spam era, the two were
+                    frequently played together, combining Bandit's dash
+                    with Dark Prince's charge and area damage.
+                </p>
+
+                <div class="history-gallery single">
+
+                    <div class="history-image-card">
+
+                        <img
+                            src="images/classic-bridge-spam.png"
+                            alt="Classic Bridge Spam deck featuring Dark Prince and Bandit"
+                        >
+
+                        <div class="history-caption">
+                            <strong>Classic Bridge Spam</strong>
+                            <span>Dark Prince + Bandit · Early Bridge Spam era</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 2021 -->
+
+        <div class="history-entry">
+
+            <div class="history-year">
+                <span>2021</span>
+            </div>
+
+            <div class="history-feature">
+
+                <div class="history-feature-text">
+
+                    <span class="official-badge">
+                        FANWORK
+                    </span>
+
+                    <h3>THE SHIP EMERGES</h3>
+
+                    <p>
+                        Dark Prince and Bandit begin appearing explicitly
+                        as a romantic pairing in documented fanworks.
+                        ArtTheMayo's artwork marks an important early
+                        point in the ship's documented history.
+                    </p>
+
+                </div>
+
+                <div class="history-feature-image">
+                    <img
+                        src="images/artthemayo-darkbandit.png"
+                        alt="Dark Prince and Bandit fanart by ArtTheMayo"
+                    >
+                </div>
+
+            </div>
+
+            <div class="history-divider"></div>
+
+            <div class="history-feature reverse" style="margin-top: 55px;">
+
+                <div class="history-feature-text">
+
+                    <span class="official-badge">
+                        CLASH MINI
+                    </span>
+
+                    <h3>TOGETHER IN CLASH MINI</h3>
+
+                    <p>
+                        Clash Mini gives fans another official visual
+                        featuring Dark Prince and Bandit together,
+                        adding to the many ways the two characters
+                        have appeared side by side across the Clash universe.
+                    </p>
+
+                </div>
+
+                <div class="history-feature-image">
+                    <img
+                        src="images/clash-mini-darkbandit.png"
+                        alt="Dark Prince and Bandit Clash Mini render"
+                    >
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 2023 -->
+
+        <div class="history-entry">
+
+            <div class="history-year">
+                <span>2023</span>
+            </div>
+
+            <span class="official-badge">
+                OFFICIAL ANIMATIONS
+            </span>
+
+            <h3>LITTLE PRINCE</h3>
+
+            <p>
+                In the official Little Prince trailer, Dark Prince
+                and Bandit appear in the same tavern and team up with
+                other characters during the story.
+            </p>
+
+            <div class="history-gallery single">
+
+                <div class="history-image-card">
+
+                    <img
+                        src="images/little-prince-darkbandit.png"
+                        alt="Dark Prince and Bandit in the Little Prince trailer"
+                    >
+
+                    <div class="history-caption">
+                        <strong>Little Prince Trailer</strong>
+                        <span>Official Clash Royale animation · 2023</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="history-divider"></div>
+
+            <div style="margin-top: 55px;">
+
+                <span class="official-badge">
+                    OFFICIAL ANIMATION
+                </span>
+
+                <h3>PERFECT YOUR STRATEGY</h3>
+
+                <p>
+                    Dark Prince and Bandit are shown sitting side by side
+                    and cheering during the Hall of Champions sequence
+                    in the official “Perfect Your Strategy” animation.
+                </p>
+
+                <div class="history-gallery single">
+
+                    <div class="history-image-card">
+
+                        <img
+                            src="images/perfect-your-strategy.png"
+                            alt="Dark Prince and Bandit in Perfect Your Strategy"
+                        >
+
+                        <div class="history-caption">
+                            <strong>Perfect Your Strategy</strong>
+                            <span>Official Clash Royale animation · 2023</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 2024 -->
+
+        <div class="history-entry">
+
+            <div class="history-year">
+                <span>2024</span>
+            </div>
+
+            <span class="official-badge">
+                NOVEMBER 2024
+            </span>
+
+            <h3>OUTLAWS &amp; PARTNERS IN CRIME</h3>
+
+            <p>
+                During the November 2024 season, Dark Prince and Bandit
+                are depicted together as outlaws and partners in crime,
+                strengthening their recurring visual connection in
+                official Clash Royale promotional material.
+            </p>
+
+            <div class="history-gallery">
+
+                <div class="history-image-card">
+
+                    <img
+                        src="images/2024-banner.png"
+                        alt="Dark Prince and Bandit 2024 banner"
+                    >
+
+                    <div class="history-caption">
+                        <strong>Battle Banner</strong>
+                        <span>November 2024</span>
+                    </div>
+
+                </div>
+
+                <div class="history-image-card">
+
+                    <img
+                        src="images/2024-loading-screen.png"
+                        alt="Dark Prince and Bandit 2024 loading screen"
+                    >
+
+                    <div class="history-caption">
+                        <strong>Loading Screen</strong>
+                        <span>November 2024</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- 2025 -->
+
+        <div class="history-entry">
+
+            <div class="history-year">
+                <span>2025</span>
+            </div>
+
+            <h3>THE FANDOM GROWS</h3>
+
+            <p>
+                DarkBandit fanworks continue to appear across the community.
+                This gallery preserves five major works from 2025 as part
+                of the archive's visual record.
+            </p>
+
+            <div class="fanwork-gallery">
+
+                <div class="history-image-card">
+                    <img
+                        src="images/fanwork-2025-1.png"
+                        alt="DarkBandit fanart 2025, artwork 1"
+                    >
+                </div>
+
+                <div class="history-image-card">
+                    <img
+                        src="images/fanwork-2025-2.png"
+                        alt="DarkBandit fanart 2025, artwork 2"
+                    >
+                </div>
+
+                <div class="history-image-card">
+                    <img
+                        src="images/fanwork-2025-3.png"
+                        alt="DarkBandit fanart 2025, artwork 3"
+                    >
+                </div>
+
+                <div class="history-image-card">
+                    <img
+                        src="images/fanwork-2025-4.png"
+                        alt="DarkBandit fanart 2025, artwork 4"
+                    >
+                </div>
+
+                <div class="history-image-card">
+                    <img
+                        src="images/fanwork-2025-5.png"
+                        alt="DarkBandit fanart 2025, artwork 5"
+                    >
+                </div>
+
+            </div>
+
+            <p class="history-note">
+                Artist names and original post links can be added to each
+                artwork once the final gallery credits are prepared.
+            </p>
+
+        </div>
+
+
+        <!-- 2026 -->
+
+        <div class="history-entry">
+
+            <div class="history-year">
+                <span>2026</span>
+            </div>
+
+            <div class="history-end">
+
+                <h3>THE STORY CONTINUES</h3>
+
+                <p>
+                    Dark Prince enters a new chapter as a Hero, while
+                    DarkBandit fanworks and discussions continue to grow.
+                    The archive remains open for the next chapter.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         ARCHIVE
+    ====================================== -->
+
+    <section>
+
+        <h2 class="section-title">
+            THE ARCHIVE
+        </h2>
+
+
+        <div class="cards">
+
+
+            <!-- HISTORY -->
+
+            <div
+                class="card history"
+                id="history-card"
+            >
+
+                <div class="card-icon">
+                    ♜
+                </div>
+
+                <h3>
+                    History
+                </h3>
+
+                <p>
+
+                    Explore the journey of
+                    DarkBandit through the years,
+                    from its earliest traces to today.
+
+                </p>
+
+                <a href="#history">
+                    VIEW HISTORY →
+                </a>
+
+            </div>
+
+
+
+            <!-- CANON -->
+
+            <div
+                class="card canon"
+                id="canon"
+            >
+
+                <div class="card-icon">
+                    ⚔
+                </div>
+
+                <h3>
+                    Canon & Official
+                </h3>
+
+                <p>
+
+                    Discover official appearances,
+                    interactions and everything
+                    connecting Dark Prince and Bandit.
+
+                </p>
+
+                <a href="#">
+                    VIEW CANON →
+                </a>
+
+            </div>
+
+
+
+            <!-- FANWORKS -->
+
+            <div
+                class="card fanworks"
+                id="fanworks"
+            >
+
+                <div class="card-icon">
+                    ✦
+                </div>
+
+                <h3>
+                    Fanworks
+                </h3>
+
+                <p>
+
+                    A collection of fanart,
+                    comics, edits and creations
+                    from artists around the fandom.
+
+                </p>
+
+                <a href="#">
+                    VIEW FANWORKS →
+                </a>
+
+            </div>
+
+
+
+            <!-- COMMUNITY -->
+
+            <div
+                class="card community"
+                id="community"
+            >
+
+                <div class="card-icon">
+                    ♧
+                </div>
+
+                <h3>
+                    Community
+                </h3>
+
+                <p>
+
+                    Discover DarkBandit across
+                    Reddit, X, TikTok and other
+                    communities.
+
+                </p>
+
+                <a href="#">
+                    VIEW COMMUNITY →
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         TIMELINE
+    ====================================== -->
+
+    
+
+
 
     <!-- =====================================
          QUOTE
@@ -1277,7 +2023,7 @@
 
     <footer>
 
-        Dark Bandit Archive · 2026
+        DarkBandit Archive · 2026
 
     </footer>
 
