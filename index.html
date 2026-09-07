@@ -1487,6 +1487,133 @@
             }
         }
 
+    
+        /* =========================================
+           ARCHIVE CHAPTER VISUAL SEPARATION
+        ========================================= */
+
+        .timeline-section,
+        .history-section,
+        .canon-section,
+        .fanworks-section {
+            position: relative;
+        }
+
+        .timeline-section::after,
+        .history-section::after,
+        .canon-section::after,
+        .fanworks-section::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -1px;
+            transform: translateX(-50%);
+            width: min(520px, 70%);
+            height: 1px;
+            opacity: 0.65;
+        }
+
+        .timeline-section {
+            background:
+                radial-gradient(circle at 50% 0%, rgba(196,154,74,0.055), transparent 42%),
+                #0d0f15;
+        }
+
+        .timeline-section::after {
+            background: linear-gradient(90deg, transparent, #8d6b32, transparent);
+        }
+
+        .history-section {
+            background:
+                radial-gradient(circle at 12% 18%, rgba(145,25,40,0.13), transparent 36%),
+                radial-gradient(circle at 88% 82%, rgba(145,25,40,0.055), transparent 34%),
+                #090b10;
+            border-top: 1px solid #4a252b;
+        }
+
+        .history-section::after {
+            background: linear-gradient(90deg, transparent, #8f303c, transparent);
+        }
+
+        .canon-section {
+            background:
+                radial-gradient(circle at 50% 0%, rgba(196,154,74,0.085), transparent 38%),
+                radial-gradient(circle at 85% 78%, rgba(50,75,110,0.08), transparent 35%),
+                #090c12;
+            border-top: 1px solid #3f3b30;
+        }
+
+        .canon-section::after {
+            background: linear-gradient(90deg, transparent, #9b7839, transparent);
+        }
+
+        .fanworks-section {
+            background:
+                radial-gradient(circle at 14% 18%, rgba(40,115,55,0.13), transparent 36%),
+                radial-gradient(circle at 86% 78%, rgba(233,154,171,0.055), transparent 34%),
+                #090d0c;
+            border-top: 1px solid #284732;
+        }
+
+        .fanworks-section::after {
+            background: linear-gradient(90deg, transparent, #3e9b58, #a76b7b, transparent);
+        }
+
+        /* Elegant chapter markers above the main headings */
+        .history-section .section-title::before {
+            content: "CHAPTER I  ·  THE STORY";
+        }
+
+        .canon-section .section-title::before {
+            content: "CHAPTER II  ·  THE EVIDENCE";
+        }
+
+        .fanworks-section .section-title::before {
+            content: "CHAPTER III  ·  THE FANDOM";
+        }
+
+        .timeline-section .section-title::before {
+            content: "THE ARCHIVE  ·  OVERVIEW";
+        }
+
+        .history-section .section-title::before,
+        .canon-section .section-title::before,
+        .fanworks-section .section-title::before,
+        .timeline-section .section-title::before {
+            display: block;
+            margin-bottom: 11px;
+            color: #77736d;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 10px;
+            font-weight: normal;
+            letter-spacing: 3px;
+        }
+
+        /* A little more breathing room where chapters meet */
+        .history-section,
+        .canon-section,
+        .fanworks-section {
+            padding-top: 125px;
+            padding-bottom: 125px;
+        }
+
+        @media (max-width: 600px) {
+            .history-section,
+            .canon-section,
+            .fanworks-section {
+                padding-top: 90px;
+                padding-bottom: 90px;
+            }
+
+            .history-section .section-title::before,
+            .canon-section .section-title::before,
+            .fanworks-section .section-title::before,
+            .timeline-section .section-title::before {
+                font-size: 9px;
+                letter-spacing: 2px;
+            }
+        }
+
     </style>
 
 </head>
@@ -1677,7 +1804,7 @@
         </h2>
 
         <p class="timeline-intro">
-            DarkBandit's story, alongside the history of Clash Royale.
+            Dark Bandit's story, alongside the history of Clash Royale.
         </p>
 
         <div class="timeline-wrapper">
@@ -1961,7 +2088,7 @@
                     <p>
                         The Bandit enters the Arena, creating the
                         duo that would later become one of the most
-                        recognizable DarkBandit pairings in the fandom.
+                        recognizable Dark Bandit pairings in the fandom.
                     </p>
 
                 </div>
@@ -2008,7 +2135,7 @@
                 <p class="history-note">
                     “Earliest documented” refers to the oldest work
                     currently identified for this archive and may not
-                    represent the first DarkBandit artwork ever created.
+                    represent the first Dark Bandit artwork ever created.
                 </p>
 
             </div>
@@ -2262,7 +2389,7 @@
             <h3>THE FANDOM GROWS</h3>
 
             <p>
-                DarkBandit fanworks continue to appear across the community.
+                Dark Bandit fanworks continue to appear across the community.
                 2025 and 2026 mark a period of growing fan activity, with
                 artists, discussions and interpretations continuing to keep
                 the pairing alive and evolving.
@@ -2273,55 +2400,55 @@
                 <div class="history-image-card">
                     <img
                         src="images/fanwork-2025-1.png"
-                        alt="DarkBandit fanart by VicStatus"
+                        alt="Dark Bandit fanart by VicStatus"
                     >
                     <div class="history-caption">
                         <strong>VicStatus</strong>
-                        <span>2025 · DarkBandit fanwork</span>
+                        <span>2025 · Dark Bandit fanwork</span>
                     </div>
                 </div>
 
                 <div class="history-image-card">
                     <img
                         src="images/fanwork-2025-2.png"
-                        alt="DarkBandit fanart by Zun_Pal"
+                        alt="Dark Bandit fanart by Zun_Pal"
                     >
                     <div class="history-caption">
                         <strong>Zun_Pal</strong>
-                        <span>2025 · DarkBandit fanwork</span>
+                        <span>2025 · Dark Bandit fanwork</span>
                     </div>
                 </div>
 
                 <div class="history-image-card">
                     <img
                         src="images/fanwork-2025-3.png"
-                        alt="DarkBandit fanart by KujiKawaii"
+                        alt="Dark Bandit fanart by KujiKawaii"
                     >
                     <div class="history-caption">
                         <strong>KujiKawaii</strong>
-                        <span>2026 · DarkBandit fanwork</span>
+                        <span>2026 · Dark Bandit fanwork</span>
                     </div>
                 </div>
 
                 <div class="history-image-card">
                     <img
                         src="images/fanwork-2025-4.png"
-                        alt="DarkBandit fanart by Milkman"
+                        alt="Dark Bandit fanart by Milkman"
                     >
                     <div class="history-caption">
                         <strong>Milkman</strong>
-                        <span>2026 · DarkBandit fanwork</span>
+                        <span>2026 · Dark Bandit fanwork</span>
                     </div>
                 </div>
 
                 <div class="history-image-card">
                     <img
                         src="images/fanwork-2025-5.png"
-                        alt="DarkBandit fanart by MenaTheRandom"
+                        alt="Dark Bandit fanart by MenaTheRandom"
                     >
                     <div class="history-caption">
                         <strong>MenaTheRandom</strong>
-                        <span>2026 · DarkBandit fanwork</span>
+                        <span>2026 · Dark Bandit fanwork</span>
                     </div>
                 </div>
 
@@ -2682,7 +2809,7 @@
 
         <p class="fanworks-intro">
             A selection of the stories, artworks, edits and discussions
-            created by the DarkBandit community. This section is curated
+            created by the Dark Bandit community. This section is curated
             rather than exhaustive — there are many more works across the internet.
         </p>
 
@@ -2755,62 +2882,62 @@
                 <div class="artwork-card">
                     <img
                         src="images/fanwork-11.png"
-                        alt="DarkBandit fanwork 11"
+                        alt="Dark Bandit fanwork 11"
                     >
                     <div class="history-caption">
-                        <strong>Fanwork 11</strong>
-                        <span>Let'sDrawForFun · DarkBandit fanwork</span>
+                        <strong>Let'sDrawForFun</strong>
+                        <span>Dark Bandit fanwork</span>
                     </div>
                 </div>
 
                 <div class="artwork-card">
                     <img
                         src="images/fanwork-12.png"
-                        alt="DarkBandit fanwork 12"
+                        alt="Dark Bandit fanwork 12"
                     >
                     <div class="history-caption">
-                        <strong>Fanwork 12</strong>
-                        <span>Garou_FGC · DarkBandit fanwork</span>
+                        <strong>Garou_FGC</strong>
+                        <span>Dark Bandit fanwork</span>
                     </div>
                 </div>
 
                 <div class="artwork-card">
                     <img
                         src="images/fanwork-13.png"
-                        alt="DarkBandit fanwork 13"
+                        alt="Dark Bandit fanwork 13"
                     >
                     <div class="history-caption">
-                        <strong>Fanwork 13</strong>
-                        <span>TheDarkPrince · DarkBandit fanwork</span>
+                        <strong>TheDarkPrince</strong>
+                        <span>Dark Bandit fanwork</span>
                     </div>
                 </div>
 
                 <div class="artwork-card">
                     <img
                         src="images/fanwork-14.png"
-                        alt="DarkBandit fanwork 14"
+                        alt="Dark Bandit fanwork 14"
                     >
                     <div class="history-caption">
-                        <strong>Fanwork 14</strong>
-                        <span>Dark_Dusty · DarkBandit fanwork</span>
+                        <strong>Dark_Dusty</strong>
+                        <span>Dark Bandit fanwork</span>
                     </div>
                 </div>
 
                 <div class="artwork-card">
                     <img
                         src="images/fanwork-15.png"
-                        alt="DarkBandit fanwork 15"
+                        alt="Dark Bandit fanwork 15"
                     >
                     <div class="history-caption">
-                        <strong>Fanwork 15</strong>
-                        <span>Gui_Animado · DarkBandit fanwork</span>
+                        <strong>Gui_Animado</strong>
+                        <span>Dark Bandit fanwork</span>
                     </div>
                 </div>
 
             </div>
 
             <p class="archive-note">
-                Plenty of other DarkBandit artworks are available online,
+                Plenty of other Dark Bandit artworks are available online,
                 but this archive cannot realistically compile every work ever created.
             </p>
 
