@@ -1614,6 +1614,129 @@
             }
         }
 
+    
+        /* =========================================
+           COMMUNITY
+        ========================================= */
+
+        .community-section {
+            position: relative;
+            padding: 125px 7%;
+            background:
+                radial-gradient(circle at 18% 22%, rgba(50,105,125,0.10), transparent 36%),
+                radial-gradient(circle at 82% 78%, rgba(196,154,74,0.055), transparent 35%),
+                #090c11;
+            border-top: 1px solid #293842;
+            border-bottom: 1px solid #252731;
+        }
+
+        .community-section::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -1px;
+            transform: translateX(-50%);
+            width: min(520px, 70%);
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #4c7d8d, #9b7839, transparent);
+            opacity: 0.65;
+        }
+
+        .community-section .section-title::before {
+            content: "CHAPTER IV  ·  THE COMMUNITY";
+            display: block;
+            margin-bottom: 11px;
+            color: #77736d;
+            font-size: 10px;
+            font-weight: normal;
+            letter-spacing: 3px;
+        }
+
+        .community-intro {
+            max-width: 760px;
+            margin: -25px auto 70px;
+            text-align: center;
+            color: #aaa59d;
+            font-size: 17px;
+        }
+
+        .community-grid {
+            max-width: 1120px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .community-card {
+            padding: 30px 28px;
+            border: 1px solid #343b40;
+            background: linear-gradient(145deg, rgba(50,105,125,0.07), #101218 60%);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .community-card:hover {
+            transform: translateY(-5px);
+            border-color: #648d9b;
+        }
+
+        .community-type {
+            display: inline-block;
+            margin-bottom: 14px;
+            padding: 5px 9px;
+            border: 1px solid #496b76;
+            color: #83a9b3;
+            font-size: 9px;
+            letter-spacing: 2px;
+        }
+
+        .community-card h3 {
+            color: #dfc47f;
+            font-size: 19px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .community-card p {
+            color: #99958e;
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        .community-card a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #d5a64f;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+        }
+
+        .community-card a:hover {
+            color: #e5c57b;
+        }
+
+        .community-note {
+            max-width: 760px;
+            margin: 35px auto 0;
+            text-align: center;
+            color: #77736d;
+            font-size: 12px;
+            font-style: italic;
+        }
+
+        @media (max-width: 900px) {
+            .community-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .community-section { padding: 90px 20px; }
+            .community-section .section-title::before {
+                font-size: 9px;
+                letter-spacing: 2px;
+            }
+        }
+
     </style>
 
 </head>
@@ -2873,8 +2996,8 @@
 
             <p>
                 A curated collection of artworks from different artists and
-                interpretations. The numbered works below are separate from
-                the artworks already documented in the History section.
+                interpretations. These works are separate from the artworks
+                already documented in the History section.
             </p>
 
             <div class="artwork-grid">
@@ -2921,7 +3044,99 @@
                         <strong>Dark_Dusty</strong>
                         <span>Dark Bandit fanwork</span>
                     </div>
-                </div>
+               
+    <!-- =====================================
+         COMMUNITY
+    ====================================== -->
+
+    <section class="community-section" id="community">
+
+        <h2 class="section-title">
+            THE COMMUNITY
+        </h2>
+
+        <p class="community-intro">
+            A directory of communities and reference pages surrounding
+            Dark Prince, Bandit and the Dark Bandit fandom.
+        </p>
+
+        <div class="community-grid">
+
+            <div class="community-card">
+                <span class="community-type">REDDIT · COMMUNITY</span>
+                <h3>The Dark Prince Enjoyers</h3>
+                <p>
+                    A community dedicated to Dark Prince, with fanart,
+                    discussions, deck ideas and community posts.
+                </p>
+                <a href="https://www.reddit.com/r/TheDarkPrinceEnjoyers/"
+                   target="_blank" rel="noopener noreferrer">
+                    VISIT COMMUNITY →
+                </a>
+            </div>
+
+            <div class="community-card">
+                <span class="community-type">REDDIT · COMMUNITY</span>
+                <h3>The Dark Bandit Shippers</h3>
+                <p>
+                    A community centered specifically around Dark Prince × Bandit
+                    and the fans who enjoy their pairing.
+                </p>
+                <a href="#" aria-label="The Dark Bandit Shippers subreddit — link to be added">
+                    LINK TO BE ADDED →
+                </a>
+            </div>
+
+            <div class="community-card">
+                <span class="community-type">WIKI · SHIPPING</span>
+                <h3>DarkBandit · Shipping Wiki</h3>
+                <p>
+                    A fan-maintained reference page documenting the Dark Prince ×
+                    Bandit ship, its appearances and fandom history.
+                </p>
+                <a href="https://shipping.fandom.com/wiki/DarkBandit"
+                   target="_blank" rel="noopener noreferrer">
+                    VISIT WIKI →
+                </a>
+            </div>
+
+            <div class="community-card">
+                <span class="community-type">WIKI · CHARACTER</span>
+                <h3>Dark Prince · Clash Royale Wiki</h3>
+                <p>
+                    A detailed reference page covering Dark Prince's card,
+                    abilities, history and gameplay.
+                </p>
+                <a href="https://clashroyale.fandom.com/wiki/Dark_Prince"
+                   target="_blank" rel="noopener noreferrer">
+                    VISIT WIKI →
+                </a>
+            </div>
+
+            <div class="community-card">
+                <span class="community-type">WIKI · CHARACTER</span>
+                <h3>Bandit · Clash Royale Wiki</h3>
+                <p>
+                    A detailed reference page covering Bandit's card,
+                    abilities, history and gameplay.
+                </p>
+                <a href="https://clashroyale.fandom.com/wiki/Bandit"
+                   target="_blank" rel="noopener noreferrer">
+                    VISIT WIKI →
+                </a>
+            </div>
+
+        </div>
+
+        <p class="community-note">
+            Community links lead to external websites and remain separate from
+            the original fanworks hosted in this archive.
+        </p>
+
+    </section>
+
+
+ </div>
 
                 <div class="artwork-card">
                     <img
@@ -2983,49 +3198,6 @@
         </div>
 
 
-        <!-- COMMUNITY DISCUSSIONS -->
-
-        <div class="fanworks-entry">
-
-            <div class="fanworks-heading">
-                <span>COMMUNITY DISCUSSIONS</span>
-            </div>
-
-            <h3>REDDIT &amp; X / TWITTER</h3>
-
-            <p>
-                The fandom is not only expressed through finished artwork.
-                Discussions, theories, polls and reactions are also part of
-                DarkBandit's history.
-            </p>
-
-            <div class="external-grid">
-
-                <div class="external-card">
-                    <h4>REDDIT</h4>
-                    <p>
-                        Selected Reddit posts and discussions can be featured here,
-                        with a short explanation of what made each discussion notable
-                        and a link to the original thread.
-                    </p>
-                </div>
-
-                <div class="external-card">
-                    <h4>X / TWITTER</h4>
-                    <p>
-                        Notable posts, threads, polls and community moments can be
-                        archived here with the original creator credited and linked.
-                    </p>
-                </div>
-
-            </div>
-
-            <p class="archive-note">
-                Community links should point to the original posts whenever possible,
-                so creators retain the context and visibility of their work.
-            </p>
-
-        </div>
 
     </section>
 
@@ -3154,13 +3326,13 @@
 
                 <p>
 
-                    Discover DarkBandit across
-                    Reddit, X, TikTok and other
-                    communities.
+                    Explore communities, shipping
+                    resources and character wikis
+                    surrounding Dark Bandit.
 
                 </p>
 
-                <a href="#">
+                <a href="#community">
                     VIEW COMMUNITY →
                 </a>
 
