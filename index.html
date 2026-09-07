@@ -398,6 +398,73 @@
         }
 
 
+        .section-note {
+            max-width: 1100px;
+            margin: 0 auto 28px;
+            padding: 0 24px;
+        }
+
+        .inline-note {
+            margin-top: 24px;
+        }
+
+        .did-you-know small {
+            display: block;
+            margin-top: 8px;
+            opacity: .7;
+        }
+
+        .did-you-know small a {
+            color: inherit;
+        }
+
+        .battle-tip-grid {
+            max-width: 1100px;
+            margin: 28px auto 36px;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .battle-tip {
+            padding: 20px 22px;
+            border: 1px solid rgba(210, 177, 96, .22);
+            background: rgba(255, 255, 255, .025);
+        }
+
+        .single-battle-tip {
+            margin: 42px 0;
+        }
+
+        .battle-tip-spaced {
+            margin-top: 72px;
+        }
+
+        .post-history-note {
+            margin-top: 34px;
+            margin-bottom: 34px;
+        }
+
+        .post-history-note + .post-history-note {
+            margin-top: 64px;
+        }
+
+        .fanwork-note {
+            margin-top: 42px;
+            margin-bottom: 42px;
+        }
+
+        .battle-tip p {
+            margin: 8px 0 0;
+        }
+
+        @media (max-width: 700px) {
+            .battle-tip-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         /* HISTORY */
 
         .card.history {
@@ -2416,12 +2483,6 @@
 
     <div class="section-divider" aria-hidden="true"><span>◆</span></div>
 
-    <section class="archive-note-strip">
-        <div class="did-you-know">
-            <span class="mini-label">DID YOU KNOW?</span>
-            <p>Dark Prince and Bandit were released during Clash Royale's early years, making their shared history part of the game's long-running story.</p>
-        </div>
-    </section>
 <section class="archive-section" id="archive">
 
         <h2 class="section-title">
@@ -2851,6 +2912,14 @@
         </div>
 
 
+        <section class="archive-note-strip section-note post-history-note">
+            <div class="did-you-know">
+                <span class="mini-label">DID YOU KNOW?</span>
+                <p>The first documented Dark Bandit shippers appeared in 2021.</p>
+            </div>
+        </section>
+
+
         <!-- 2023 -->
 
         <div class="history-entry">
@@ -3088,11 +3157,18 @@
 
 
 
+    <section class="archive-note-strip section-note post-history-note">
+        <div class="did-you-know">
+            <span class="mini-label">DID YOU KNOW?</span>
+            <p>As soon as Bandit was released, she was paired with Dark Prince and Battle Ram, forming the classic Bridge Spam archetype.</p>
+        </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"><span>◆</span></div>
+
     <!-- =====================================
          CANON & OFFICIAL
     ====================================== -->
-
-    <div class="section-divider" aria-hidden="true"><span>◆</span></div>
 
 <section class="canon-section" id="canon">
 
@@ -3277,6 +3353,19 @@
         </div>
 
 
+        <section class="archive-note-strip section-note post-history-note">
+            <div class="did-you-know">
+                <span class="mini-label">DID YOU KNOW?</span>
+                <p>A Dark Bandit Cart Log Bait deck appeared as early as 2020 — and was still reaching the Top 200 in mid-2026.</p>
+            </div>
+        </section>
+
+        <div class="battle-tip single-battle-tip battle-tip-spaced">
+            <span class="mini-label">BATTLE TIP</span>
+            <p>Play Dark Prince and Bandit in the same lane to combine their damage, splash, and charge abilities.</p>
+        </div>
+
+
         <!-- OUTLAWS -->
 
         <div class="canon-entry">
@@ -3404,7 +3493,10 @@
         </div>
 
 
-    
+        <div class="battle-tip single-battle-tip battle-tip-spaced">
+            <span class="mini-label">BATTLE TIP</span>
+            <p>Send them down opposite lanes to keep the pressure on — and overwhelm your opponent.</p>
+        </div>
 
         <div class="back-to-archive"><a href="#archive">↑ RETURN TO THE ARCHIVE</a></div>
 </section>
@@ -3497,6 +3589,14 @@
                 <span>ARTWORKS</span>
             </div>
 
+        <section class="archive-note-strip section-note post-history-note">
+            <div class="did-you-know">
+                <span class="mini-label">DID YOU KNOW?</span>
+                <p>In August 2026, Bandit was the 10th most-used card alongside Hero Dark Prince, with a 15% usage rate when paired together.</p>
+                <small>Source: <a href="https://royaleapi.com/card/dark-prince-hero?lang=en" target="_blank" rel="noopener noreferrer">RoyaleAPI</a></small>
+            </div>
+        </section>
+
             <h3>SELECTED FANWORKS</h3>
 
             <p>
@@ -3504,6 +3604,13 @@
                 interpretations. These works are separate from the artworks
                 already documented in the History section.
             </p>
+
+            <div class="archive-note-strip section-note fanwork-note">
+                <div class="did-you-know">
+                    <span class="mini-label">DID YOU KNOW?</span>
+                    <p>ArtTheMayo and TheDarkPrince are the first documented Dark Bandit shippers.</p>
+                </div>
+            </div>
 
             <div class="artwork-grid">
 
@@ -3632,9 +3739,15 @@
         </h2>
 
         <p class="ships-intro">
-            Dark Prince has inspired more than one pairing across the community.
-            This section gives space to other ships and the artists who have
-            brought those interpretations to life.
+            Dark Prince is shipped with a variety of characters across the Clash Universe,
+            not only within Clash Royale. From fellow Royals and warriors to characters
+            from other Clash games, fans have explored many different dynamics around the
+            Dark Prince.
+        </p>
+
+        <p class="ships-intro ships-intro-note">
+            This section highlights a few of them, preserving fanworks and celebrating
+            the different interpretations that have grown around the character.
         </p>
 
 
