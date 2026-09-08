@@ -1376,7 +1376,44 @@
             gap: 20px;
         }
 
-        .external-card {
+        .tiktok-edit-list {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.25rem;
+}
+
+.tiktok-edit-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(0,0,0,0.18);
+}
+
+.tiktok-edit-item strong {
+    color: #e7c66a;
+    font-size: 0.95rem;
+}
+
+.tiktok-edit-item span {
+    color: #bdbdbd;
+    font-size: 0.82rem;
+}
+
+.tiktok-edit-item a {
+    margin-top: 0.35rem;
+    color: #d9d9d9;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+}
+
+.tiktok-edit-item a:hover {
+    color: #e7c66a;
+}
+
+.external-card {
             padding: 28px;
             border: 1px solid #34363d;
             background: #101218;
@@ -3720,10 +3757,23 @@
 
                 <div class="external-card">
                     <h4>FEATURED TIKTOK EDITS</h4>
-                    <p>
-                        Selected DarkBandit edits can be presented here with the
-                        creator's name, a short description and a link to the original TikTok.
-                    </p>
+                    <div class="tiktok-edit-list">
+                        <div class="tiktok-edit-item">
+                            <strong>Wah wah wah</strong>
+                            <span>by TheDarkPrince</span>
+                            <a href="https://vt.tiktok.com/ZSqrNyQDp/" target="_blank" rel="noopener noreferrer">WATCH ON TIKTOK →</a>
+                        </div>
+                        <div class="tiktok-edit-item">
+                            <strong>Dark Prince x Bandit Drawings</strong>
+                            <span>by Sneakerus</span>
+                            <a href="https://vt.tiktok.com/ZSqrNG41h/" target="_blank" rel="noopener noreferrer">WATCH ON TIKTOK →</a>
+                        </div>
+                        <div class="tiktok-edit-item">
+                            <strong>Go away — Weezer</strong>
+                            <span>Edit by Lollipopp_71</span>
+                            <a href="https://vt.tiktok.com/ZSqrNoduF/" target="_blank" rel="noopener noreferrer">WATCH ON TIKTOK →</a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="external-card">
