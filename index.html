@@ -1496,6 +1496,119 @@
             }
         }
 
+
+        /* =========================================
+           ABOUT THE ARCHIVE
+        ========================================= */
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .button-secondary {
+            background: transparent;
+            border: 1px solid #5a574f;
+        }
+
+        .button-secondary:hover {
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .card.about {
+            border-color: #4b463c;
+        }
+
+        .card.about .card-icon {
+            color: #c7a85a;
+        }
+
+        .about-section {
+            background:
+                radial-gradient(
+                    circle at 50% 20%,
+                    rgba(120, 105, 75, 0.08),
+                    transparent 55%
+                ),
+                #0a0b0f;
+        }
+
+        .about-intro {
+            max-width: 820px;
+            margin: -10px auto 45px;
+            text-align: center;
+            color: #aaa59d;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .about-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .about-card {
+            padding: 28px 30px;
+            border: 1px solid rgba(210, 177, 96, .16);
+            background: rgba(255, 255, 255, .018);
+        }
+
+        .about-card h3 {
+            margin: 0 0 14px;
+            color: #d5a64f;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .about-card p {
+            margin: 0;
+            color: #96928b;
+            font-size: 14px;
+            line-height: 1.75;
+        }
+
+        .about-principle {
+            max-width: 760px;
+            margin: 45px auto 0;
+            padding: 25px 30px;
+            border-left: 2px solid #8d6b32;
+            background: rgba(255, 255, 255, .015);
+            text-align: center;
+        }
+
+        .about-principle strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #c9c0b5;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .about-principle span {
+            color: #817d76;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 700px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-card {
+                padding: 24px;
+            }
+        }
+
         /* =========================================
            QUOTE
         ========================================= */
@@ -2228,6 +2341,12 @@
             </li>
 
             <li>
+                <a href="#about">
+                    ABOUT
+                </a>
+            </li>
+
+            <li>
                 <a href="#timeline">
                     TIMELINE
                 </a>
@@ -2341,14 +2460,23 @@
             </div>
 
 
-            <!-- BUTTON -->
+            <!-- BUTTONS -->
 
-            <a
-                class="button"
-                href="#archive"
-            >
-                EXPLORE THE ARCHIVE ♥
-            </a>
+            <div class="hero-buttons">
+                <a
+                    class="button"
+                    href="#archive"
+                >
+                    EXPLORE THE ARCHIVE ♥
+                </a>
+
+                <a
+                    class="button button-secondary"
+                    href="#about"
+                >
+                    ABOUT THE ARCHIVE
+                </a>
+            </div>
 
 
         </div>
@@ -2723,13 +2851,41 @@
             </div>
 
 
+            <!-- ABOUT THE ARCHIVE -->
+
+            <div
+                class="card about"
+                id="about-card"
+            >
+
+                <div class="card-icon">
+                    ✧
+                </div>
+
+                <h3>
+                    About the Archive
+                </h3>
+
+                <p>
+                    Learn what this archive is, how it treats
+                    fanworks and official material, and the
+                    principles behind its documentation.
+                </p>
+
+                <a href="#about">
+                    ABOUT THE ARCHIVE →
+                </a>
+
+            </div>
+
+
         </div>
 
     
 
         <div class="archive-stats" aria-label="Archive statistics">
             <div><strong>10+</strong><span>YEARS OF CLASH ROYALE</span></div>
-            <div><strong>5</strong><span>ARCHIVE SECTIONS</span></div>
+            <div><strong>6</strong><span>ARCHIVE SECTIONS</span></div>
             <div><strong>3</strong><span>OTHER DARK PRINCE SHIPS</span></div>
             <div><strong>∞</strong><span>FANWORKS TO DISCOVER</span></div>
         </div></section>
@@ -4084,6 +4240,79 @@
     
 
 
+
+
+
+    <!-- =====================================
+         ABOUT THE ARCHIVE
+    ====================================== -->
+
+    <div class="section-divider" aria-hidden="true"><span>◆</span></div>
+
+    <section class="about-section" id="about">
+
+        <h2 class="section-title">
+            ABOUT THE ARCHIVE
+        </h2>
+
+        <p class="about-intro">
+            Dark Bandit Archive is an independent fan-made archive dedicated to
+            documenting the history, official appearances, fanworks and community
+            surrounding Dark Prince × Bandit. The archive also preserves selected
+            fanworks and information about other ships involving the Dark Prince.
+        </p>
+
+        <div class="about-grid">
+
+            <div class="about-card">
+                <h3>Independent Archive</h3>
+                <p>
+                    Dark Bandit Archive is created and maintained by fans. It is not
+                    affiliated with, endorsed by, or officially connected to Supercell.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <h3>Fanworks &amp; Artist Credit</h3>
+                <p>
+                    Fanworks remain the property of their respective creators. The
+                    archive does not claim ownership of fan-created artwork, writing,
+                    edits or other works. Artists and creators are credited whenever
+                    their work is documented here.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <h3>Official Material</h3>
+                <p>
+                    Clash Royale, Dark Prince, Bandit and related characters, artwork
+                    and assets belong to their respective rights holders. Official
+                    material is documented here for archival, informational and fan
+                    community purposes.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <h3>Archive Philosophy</h3>
+                <p>
+                    The archive aims to distinguish official material from community
+                    interpretation. Historical claims are presented as documented
+                    discoveries where possible, while fan interpretations are treated
+                    as part of the fandom rather than as canon.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="about-principle">
+            <strong>Document, Don't Declare.</strong>
+            <span>
+                Dark Bandit Archive preserves what the fandom has created and
+                documented without speaking for the entire community.
+            </span>
+        </div>
+
+    </section>
 
     <!-- =====================================
          QUOTE
