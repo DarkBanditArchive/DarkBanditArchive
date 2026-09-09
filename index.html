@@ -682,21 +682,22 @@
         }
 
         .timeline-event {
-            max-width: 125px;
+            max-width: 150px;
             margin: 0 auto;
+            padding: 0 5px;
         }
 
         .timeline-top {
-            min-height: 95px;
+            min-height: 118px;
         }
 
         .timeline-bottom {
             padding-top: 28px;
-            min-height: 95px;
+            min-height: 118px;
         }
 
         .timeline-event h3 {
-            margin-bottom: 5px;
+            margin-bottom: 7px;
             color: #d8ad5a;
             font-size: 15px;
             line-height: 1.3;
@@ -708,12 +709,67 @@
             line-height: 1.45;
         }
 
+        .darkbandit-event {
+            position: relative;
+        }
+
+        .darkbandit-event::before {
+            content: "♥ DARK BANDIT";
+            display: block;
+            margin-bottom: 8px;
+            color: #8f777a;
+            font-family: Arial, sans-serif;
+            font-size: 8px;
+            font-weight: bold;
+            letter-spacing: 1.4px;
+        }
+
         .darkbandit-event h3 {
             color: #d14b55;
         }
 
+        .world-event::before {
+            content: "CLASH ROYALE";
+            display: block;
+            margin-bottom: 8px;
+            color: #657564;
+            font-family: Arial, sans-serif;
+            font-size: 8px;
+            font-weight: bold;
+            letter-spacing: 1.4px;
+        }
+
         .world-event h3 {
             color: #63b85f;
+        }
+
+        .timeline-key {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 18px;
+            color: #77736d;
+            font-family: Arial, sans-serif;
+            font-size: 9px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .timeline-key span:first-child {
+            color: #d14b55;
+        }
+
+        .timeline-key span:last-child {
+            color: #63b85f;
+        }
+
+        .timeline-note {
+            max-width: 620px;
+            margin: 20px auto 0;
+            text-align: center;
+            color: #66635d;
+            font-size: 11px;
+            line-height: 1.5;
         }
 
         .timeline-scroll-hint {
@@ -2492,186 +2548,127 @@
         </h2>
 
         <p class="timeline-intro">
-            Dark Bandit's story, alongside the history of Clash Royale.
+            Dark Bandit's journey at a glance.
         </p>
 
         <div class="timeline-wrapper">
+            <div class="timeline timeline-minimal">
 
-            <div class="timeline">
-
-                <!-- 2016 -->
                 <div class="timeline-column">
-
                     <div class="timeline-event timeline-top darkbandit-event">
-                        <h3>Dark Prince</h3>
+                        <h3>Dark Prince arrives</h3>
                         <p>Released</p>
                     </div>
-
                     <div class="timeline-year">2016</div>
                     <div class="timeline-dot"></div>
-
                     <div class="timeline-event timeline-bottom world-event">
                         <h3>Clash Royale</h3>
                         <p>Launch</p>
                     </div>
-
                 </div>
 
-
-                <!-- 2017 -->
                 <div class="timeline-column">
-
                     <div class="timeline-event timeline-top darkbandit-event">
-                        <h3>Bandit released</h3>
-                        <p>And the first Dark Prince × Bandit drawing appears</p>
+                        <h3>Bandit arrives</h3>
+                        <p>First documented traces</p>
                     </div>
-
                     <div class="timeline-year">2017</div>
                     <div class="timeline-dot"></div>
-
                     <div class="timeline-event timeline-bottom world-event">
-                        <h3>2v2 arrives</h3>
-                        <p>Clash Royale introduces team battles</p>
+                        <h3>2v2</h3>
+                        <p>Team battles arrive</p>
                     </div>
-
                 </div>
 
-
-                <!-- 2018–2020 -->
                 <div class="timeline-column">
-
                     <div class="timeline-event timeline-top darkbandit-event">
                         <h3>Bridge Spam</h3>
-                        <p>Played together</p>
+                        <p>A recognizable duo</p>
                     </div>
-
                     <div class="timeline-year">2018–20</div>
                     <div class="timeline-dot"></div>
-
                     <div class="timeline-event timeline-bottom world-event">
-                        <h3>COVID-19</h3>
-                        <p>A changing world</p>
+                        <h3>Clan Wars</h3>
+                        <p>Clans take the battlefield</p>
                     </div>
-
                 </div>
 
-
-                <!-- 2021 -->
                 <div class="timeline-column">
-
                     <div class="timeline-event timeline-top darkbandit-event">
-                        <h3>Shipping fanart</h3>
-                        <p>First documented works</p>
+                        <h3>Fandom grows</h3>
+                        <p>Documented fanworks</p>
                     </div>
-
                     <div class="timeline-year">2021</div>
                     <div class="timeline-dot"></div>
-
                     <div class="timeline-event timeline-bottom world-event">
                         <h3>Champions</h3>
                         <p>Introduced</p>
                     </div>
-
                 </div>
 
-
-                <!-- 2022 -->
                 <div class="timeline-column">
-
                     <div class="timeline-event timeline-top darkbandit-event">
-                        <h3>Growing fandom</h3>
-                        <p>More discussions</p>
+                        <h3>More discussions</h3>
+                        <p>Community activity</p>
                     </div>
-
                     <div class="timeline-year">2022</div>
                     <div class="timeline-dot"></div>
-
                     <div class="timeline-event timeline-bottom world-event">
-                        <h3>Queen Elizabeth II</h3>
-                        <p>Dies September 8</p>
+                        <h3>Path of Legends</h3>
+                        <p>Competitive Clash evolves</p>
                     </div>
-
                 </div>
 
-
-                <!-- 2023 -->
                 <div class="timeline-column">
-
                     <div class="timeline-event timeline-top darkbandit-event">
-                        <h3>TikTok</h3>
-                        <p>More fan edits</p>
+                        <h3>Official appearances</h3>
+                        <p>Shared promotional material</p>
                     </div>
-
                     <div class="timeline-year">2023</div>
                     <div class="timeline-dot"></div>
-
                     <div class="timeline-event timeline-bottom world-event">
                         <h3>Evolutions</h3>
                         <p>Introduced</p>
                     </div>
-
                 </div>
 
-
-                <!-- 2024 -->
                 <div class="timeline-column">
-
                     <div class="timeline-event timeline-top darkbandit-event">
-                        <h3>Community</h3>
-                        <p>Dark Prince Enjoyers</p>
+                        <h3>Outlaws & partners</h3>
+                        <p>Official outlaw-themed material</p>
                     </div>
-
                     <div class="timeline-year">2024</div>
                     <div class="timeline-dot"></div>
-
                     <div class="timeline-event timeline-bottom world-event">
-                        <h3>Boycotts</h3>
-                        <p>Community protests</p>
+                        <h3>Community reactions</h3>
+                        <p>A changing community</p>
                     </div>
-
                 </div>
 
-
-                <!-- 2025 -->
                 <div class="timeline-column">
-
                     <div class="timeline-event timeline-top darkbandit-event">
-                        <h3>More fanworks</h3>
-                        <p>Artists & lore</p>
+                        <h3>Still growing</h3>
+                        <p>Artists, edits & lore</p>
                     </div>
-
-                    <div class="timeline-year">2025</div>
+                    <div class="timeline-year">2025–26</div>
                     <div class="timeline-dot"></div>
-
                     <div class="timeline-event timeline-bottom world-event">
-                        <h3>Heroes</h3>
-                        <p>Introduced</p>
+                        <h3>Heroes introduced</h3>
+                        <p>A new chapter for Clash Royale</p>
                     </div>
-
-                </div>
-
-
-                <!-- 2026 -->
-                <div class="timeline-column">
-
-                    <div class="timeline-event timeline-top darkbandit-event">
-                        <h3>The story continues</h3>
-                        <p>Still growing</p>
-                    </div>
-
-                    <div class="timeline-year">2026</div>
-                    <div class="timeline-dot"></div>
-
-                    <div class="timeline-event timeline-bottom world-event">
-                        <h3>Clash Royale</h3>
-                        <p>Still writing history</p>
-                    </div>
-
                 </div>
 
             </div>
-
         </div>
+
+        <div class="timeline-key" aria-label="Timeline legend">
+            <span>♥ DARK BANDIT / FANDOM</span>
+            <span>◆ CLASH ROYALE</span>
+        </div>
+
+        <p class="timeline-note">
+            The Timeline is an overview. For detailed documentation, explore the individual archive sections below.
+        </p>
 
         <div class="timeline-scroll-hint">
             ← SCROLL TO EXPLORE →
