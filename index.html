@@ -327,6 +327,141 @@
             color: #a99568;
         }
 
+
+        /* THEME TOGGLE */
+        .theme-toggle {
+            display:inline-flex; align-items:center; gap:7px; margin-left:28px;
+            padding:7px 11px; border:1px solid #8d6b32; background:transparent;
+            color:#d9c38b; font-family:Georgia,"Times New Roman",serif;
+            font-size:10px; letter-spacing:1.5px; cursor:pointer; transition:.25s;
+        }
+        .theme-toggle:hover { background:rgba(196,154,74,.10); color:#e3a54a; }
+        .theme-icon { font-size:13px; line-height:1; }
+
+        /* LIGHT MODE: default */
+        body.light-mode { background:#f2eee6; color:#282723; }
+        body.light-mode nav { background:rgba(248,245,238,.97); border-bottom-color:#9b7839; }
+        body.light-mode .logo { color:#8a641f; }
+        body.light-mode .logo span { color:#3e7d3d; }
+        body.light-mode .nav-links a { color:#514d46; }
+        body.light-mode .nav-links a:hover { color:#9b6e24; }
+        body.light-mode .theme-toggle { color:#665a45; background:rgba(255,255,255,.35); }
+        body.light-mode .hero {
+            background:radial-gradient(circle at 18% 50%,rgba(169,52,64,.12),transparent 40%),
+                       radial-gradient(circle at 82% 50%,rgba(55,125,62,.12),transparent 40%),#f5f1e9;
+        }
+        body.light-mode .heart { color:#c75a6b; text-shadow:none; }
+        body.light-mode .dark-prince { color:#9f2635; text-shadow:none; }
+        body.light-mode .bandit { color:#3f8b42; text-shadow:none; }
+        body.light-mode h1 { color:#8c671f; text-shadow:none; }
+        body.light-mode .dark-heart { color:#a92f3d; text-shadow:none; }
+        body.light-mode .green-heart { color:#3e8b42; text-shadow:none; }
+        body.light-mode .ship-name { color:#6d5a36; }
+        body.light-mode .description { color:#5e5a54; }
+        body.light-mode .button { border-color:#9b7839; color:#79591f; }
+        body.light-mode .button:hover { background:#b99148; color:#fffaf0; }
+        body.light-mode .button-secondary { border-color:#aaa093; }
+        body.light-mode .button-secondary:hover { background:rgba(90,75,50,.06); }
+
+        body.light-mode .section-title { color:#8c671f; }
+        body.light-mode .card { border-color:#c8c0b3; background:#faf7f0; }
+        body.light-mode .card:hover { border-color:#a87d37; }
+        body.light-mode .card h3 { color:#76591f; }
+        body.light-mode .card p { color:#625e57; }
+        body.light-mode .card a { color:#8a641f; }
+        body.light-mode .card.history { background:linear-gradient(180deg,rgba(169,47,61,.07),#faf7f0); }
+        body.light-mode .card.canon { background:linear-gradient(180deg,rgba(196,154,74,.08),#faf7f0); }
+        body.light-mode .card.decks { background:linear-gradient(180deg,rgba(110,75,145,.07),#faf7f0); }
+        body.light-mode .card.fanworks { background:linear-gradient(180deg,rgba(40,120,60,.07),#faf7f0); }
+        body.light-mode .card.community { background:linear-gradient(180deg,rgba(30,100,120,.07),#faf7f0); }
+        body.light-mode .card.ships { background:linear-gradient(180deg,rgba(140,70,100,.07),#faf7f0); }
+
+        body.light-mode .timeline-section { background:#ebe6dc; border-color:#d0c8bb; }
+        body.light-mode .timeline-year { background:#ebe6dc; color:#806020; }
+        body.light-mode .timeline-dot { background:#faf7f0; border-color:#b18439; }
+        body.light-mode .timeline-event h3 { color:#866322; }
+        body.light-mode .timeline-event p, body.light-mode .timeline-intro { color:#68635b; }
+        body.light-mode .darkbandit-event h3 { color:#a72f3e; }
+        body.light-mode .world-event h3 { color:#3f8b42; }
+        body.light-mode .darkbandit-event::before { color:#936b73; }
+        body.light-mode .world-event::before { color:#5e7960; }
+        body.light-mode .timeline-key, body.light-mode .timeline-note, body.light-mode .timeline-scroll-hint { color:#777169; }
+
+        body.light-mode .history-section, body.light-mode .canon-section,
+        body.light-mode .fanworks-section, body.light-mode .about-section {
+            background:#f2eee6; border-color:#d3cbbf;
+        }
+        body.light-mode .history-intro, body.light-mode .canon-intro,
+        body.light-mode .fanworks-intro, body.light-mode .about-intro,
+        body.light-mode .history-entry p, body.light-mode .canon-entry > p,
+        body.light-mode .alternate-universe-text p, body.light-mode .fanworks-entry > p { color:#625e57; }
+        body.light-mode .history-year::before, body.light-mode .canon-heading::before { background:#a77a2d; }
+        body.light-mode .history-year span, body.light-mode .canon-heading span, body.light-mode .fanworks-heading span { color:#806020; }
+        body.light-mode .history-entry h3, body.light-mode .canon-entry h3, body.light-mode .fanworks-entry h3 { color:#403c36; }
+
+        body.light-mode .history-image-card, body.light-mode .canon-card,
+        body.light-mode .artwork-card, body.light-mode .fanfic-card,
+        body.light-mode .external-card, body.light-mode .tips-box,
+        body.light-mode .deck-card, body.light-mode .about-card {
+            border-color:#cbc3b7; background:#faf7f0;
+        }
+        body.light-mode .history-caption { border-top-color:#ddd5c9; }
+        body.light-mode .history-caption strong, body.light-mode .canon-card-text h4,
+        body.light-mode .external-card h4, body.light-mode .fanfic-card h4,
+        body.light-mode .deck-card h3, body.light-mode .about-card h3 { color:#76591f; }
+        body.light-mode .history-caption span, body.light-mode .canon-card-text p,
+        body.light-mode .external-card p, body.light-mode .fanfic-card p,
+        body.light-mode .deck-card p, body.light-mode .deck-block ul,
+        body.light-mode .deck-principle span, body.light-mode .about-card p { color:#625e57; }
+        body.light-mode .history-divider, body.light-mode .canon-divider { background:linear-gradient(90deg,transparent,#b9aa8d,transparent); }
+        body.light-mode .history-note, body.light-mode .archive-note { color:#777168 !important; }
+        body.light-mode .official-badge, body.light-mode .canon-badge { border-color:#a77a2d; color:#806020; }
+        body.light-mode .tip { border-top-color:#ded7cc; }
+        body.light-mode .tip strong { color:#a72f3e; }
+        body.light-mode .tip p { color:#625e57; }
+        body.light-mode .tips-box h4, body.light-mode .deck-block h4 { color:#806020; }
+        body.light-mode .deck-image { background:#f3efe7; border-bottom-color:#d7cfc3; }
+        body.light-mode .deck-subtitle { color:#775b8e; }
+        body.light-mode .deck-number { color:#76598f; }
+        body.light-mode .deck-block { border-top-color:#ddd5c9; }
+        body.light-mode .decks-section { background:#eee9e0; border-color:#d3cbbf; }
+        body.light-mode .decks-intro, body.light-mode .decks-note { color:#625e57; }
+
+        body.light-mode .tiktok-edit-item { border-color:#d6cec2; background:rgba(60,50,40,.035); }
+        body.light-mode .tiktok-edit-item strong { color:#806020; }
+        body.light-mode .tiktok-edit-item span, body.light-mode .tiktok-edit-item a { color:#666159; }
+        body.light-mode .tiktok-edit-item a:hover { color:#806020; }
+        body.light-mode .mature-content-note { border-color:rgba(120,90,45,.22); background:rgba(70,55,35,.025); }
+        body.light-mode .mature-content-note p { color:#6b665e; }
+
+        body.light-mode .archive-note-strip, body.light-mode .section-divider { background:#ebe6dc; }
+        body.light-mode .did-you-know { border-left-color:#a77a2d; background:rgba(196,154,74,.07); }
+        body.light-mode .did-you-know p { color:#625e57; }
+        body.light-mode .mini-label { color:#8a6a2e; }
+        body.light-mode .archive-status { color:#746f67; }
+        body.light-mode .archive-status span:first-child { color:#806020; }
+        body.light-mode .archive-stats { border-top-color:#d3cbbf; }
+        body.light-mode .archive-stats div { border-right-color:#d3cbbf; }
+        body.light-mode .archive-stats strong { color:#806020; }
+        body.light-mode .archive-stats span { color:#777168; }
+
+        body.light-mode .featured-fanwork, body.light-mode .history-end { border-color:#cbc3b7; background:#faf7f0; }
+        body.light-mode .featured-fanwork-image { background:#f1ede5; }
+        body.light-mode .featured-fanwork-text h3 { color:#403c36; }
+        body.light-mode .featured-fanwork-text p { color:#625e57; }
+        body.light-mode .featured-credit, body.light-mode .back-to-archive a { color:#777168; }
+        body.light-mode .back-to-archive a:hover { color:#806020; }
+        body.light-mode .about-principle { border-left-color:#a77a2d; background:rgba(70,55,35,.025); }
+        body.light-mode .about-principle strong { color:#554f47; }
+        body.light-mode .about-principle span { color:#777168; }
+        body.light-mode .quote { background:radial-gradient(circle,rgba(110,35,55,.07),transparent 60%),#eee9e0; }
+        body.light-mode .quote p { color:#5c554d; }
+        body.light-mode .quote-heart { color:#c75a6b; }
+        body.light-mode footer { border-top-color:#d3cbbf; color:#777168; background:#eee9e0; }
+
+        @media (max-width:900px) { .theme-toggle { margin-left:12px; } }
+        @media (max-width:600px) { .theme-toggle { margin-left:0; padding:6px 9px; font-size:9px; } }
+
         /* =========================================
            GENERAL SECTIONS
         ========================================= */
@@ -2599,6 +2734,9 @@
                         </li>
 
         </ul>
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+            <span class="theme-icon">☀</span><span class="theme-label">LIGHT</span>
+        </button>
     </nav>
 
 
@@ -4705,6 +4843,37 @@
 
     </footer>
 
+
+
+    <script>
+        (function () {
+            const toggle = document.getElementById("themeToggle");
+            const body = document.body;
+
+            function updateThemeButton() {
+                const dark = body.classList.contains("dark-mode");
+                toggle.querySelector(".theme-icon").textContent = dark ? "☾" : "☀";
+                toggle.querySelector(".theme-label").textContent = dark ? "DARK" : "LIGHT";
+                toggle.setAttribute("aria-pressed", dark ? "true" : "false");
+                toggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+            }
+
+            const savedTheme = localStorage.getItem("darkBanditTheme");
+            if (savedTheme === "dark") {
+                body.classList.add("dark-mode");
+            } else {
+                body.classList.add("light-mode");
+            }
+            updateThemeButton();
+
+            toggle.addEventListener("click", function () {
+                const dark = body.classList.toggle("dark-mode");
+                body.classList.toggle("light-mode", !dark);
+                localStorage.setItem("darkBanditTheme", dark ? "dark" : "light");
+                updateThemeButton();
+            });
+        })();
+    </script>
 
 </body>
 
