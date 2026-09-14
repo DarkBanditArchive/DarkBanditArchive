@@ -2767,6 +2767,17 @@ body.light-mode .nav-links .theme-toggle { color:#6f5b32; border-color:#a58b55; 
   }
 }
 
+
+/* SMART STICKY HEADER */
+nav {
+  transition: transform 0.28s ease, opacity 0.28s ease;
+}
+nav.header-hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
 </style>
 
 </head>
@@ -3016,5 +3027,50 @@ body.light-mode .nav-links .theme-toggle { color:#6f5b32; border-color:#a58b55; 
   });
 })();
 </script>
+
+<!-- SMART HEADER SCRIPT -->
+<!-- SMART HEADER SCRIPT -->
+<!-- SMART HEADER SCRIPT -->
+<!-- SMART HEADER SCRIPT -->
+<!-- SMART HEADER SCRIPT -->
+<!-- SMART HEADER SCRIPT -->
+<script>
+(function () {
+  const nav = document.querySelector("nav");
+  if (!nav) return;
+
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+
+  function updateHeader() {
+    const currentY = window.scrollY;
+    const difference = currentY - lastScrollY;
+
+    /* Always show the header at the very top. */
+    if (currentY <= 10) {
+      nav.classList.remove("header-hidden");
+    }
+    /* Scrolling down: hide after a small movement. */
+    else if (difference > 6) {
+      nav.classList.add("header-hidden");
+    }
+    /* Scrolling up: immediately bring it back. */
+    else if (difference < -3) {
+      nav.classList.remove("header-hidden");
+    }
+
+    lastScrollY = currentY;
+    ticking = false;
+  }
+
+  window.addEventListener("scroll", function () {
+    if (!ticking) {
+      window.requestAnimationFrame(updateHeader);
+      ticking = true;
+    }
+  }, { passive: true });
+})();
+</script>
+
 </body>
 </html>
