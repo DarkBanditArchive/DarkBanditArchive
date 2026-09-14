@@ -2751,14 +2751,17 @@ body.light-mode .nav-links .theme-toggle { color:#6f5b32; border-color:#a58b55; 
 }
 
 
-/* SMART STICKY HEADER */
+
+/* SMART STICKY HEADER V2 */
 nav {
-  transition: transform 0.28s ease, opacity 0.28s ease;
+  transition: transform 0.25s ease !important;
+  will-change: transform;
 }
-nav.header-hidden {
-  transform: translateY(-100%);
-  opacity: 0;
-  pointer-events: none;
+body.smart-header-hidden nav {
+  transform: translate3d(0, -105%, 0) !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  nav { transition: none !important; }
 }
 
 </style></head><body><ul class="nav-links">
@@ -3246,42 +3249,60 @@ nav.header-hidden {
 </script>
 
 <!-- SMART HEADER SCRIPT -->
-<!-- SMART HEADER SCRIPT -->
+
+<!-- SMART HEADER SCRIPT V2 -->
 <script>
 (function () {
-  const nav = document.querySelector("nav");
+  var nav = document.querySelector("nav");
   if (!nav) return;
 
-  let lastScrollY = window.scrollY;
-  let ticking = false;
+  var lastY = window.pageYOffset || document.documentElement.scrollTop || 0;
+  var hidden = false;
+  var ticking = false;
 
-  function updateHeader() {
-    const currentY = window.scrollY;
-    const difference = currentY - lastScrollY;
+  function showHeader() {
+    if (hidden) {
+      document.body.classList.remove("smart-header-hidden");
+      hidden = false;
+    }
+  }
 
-    /* Always show the header at the very top. */
-    if (currentY <= 10) {
-      nav.classList.remove("header-hidden");
+  function hideHeader() {
+    if (!hidden) {
+      document.body.classList.add("smart-header-hidden");
+      hidden = true;
     }
-    /* Scrolling down: hide after a small movement. */
-    else if (difference > 6) {
-      nav.classList.add("header-hidden");
-    }
-    /* Scrolling up: immediately bring it back. */
-    else if (difference < -3) {
-      nav.classList.remove("header-hidden");
+  }
+
+  function onScroll() {
+    var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+
+    if (y <= 12) {
+      showHeader();
+    } else if (y < lastY - 2) {
+      // Any upward movement brings it back.
+      showHeader();
+    } else if (y > lastY + 8) {
+      // Hide only after a clear downward movement.
+      hideHeader();
     }
 
-    lastScrollY = currentY;
+    lastY = y;
     ticking = false;
   }
 
   window.addEventListener("scroll", function () {
     if (!ticking) {
-      window.requestAnimationFrame(updateHeader);
+      window.requestAnimationFrame(onScroll);
       ticking = true;
     }
   }, { passive: true });
+
+  // Mobile browsers can restore scroll position after loading.
+  setTimeout(function () {
+    lastY = window.pageYOffset || document.documentElement.scrollTop || 0;
+    showHeader();
+  }, 100);
 })();
 </script>
 
