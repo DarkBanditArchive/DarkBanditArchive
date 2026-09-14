@@ -2750,21 +2750,20 @@ body.light-mode .nav-links .theme-toggle { color:#6f5b32; border-color:#a58b55; 
   }
 }
 
-
-
-/* SMART STICKY HEADER V2 */
-nav {
-  transition: transform 0.25s ease !important;
-  will-change: transform;
+</style>
+<style id="smart-header-v3">
+/* SMART HEADER V3: works with the site's existing .nav-links element */
+.nav-links {
+  transition: transform 0.25s ease, opacity 0.25s ease !important;
+  will-change: transform, opacity;
 }
-body.smart-header-hidden nav {
-  transform: translate3d(0, -105%, 0) !important;
+.nav-links.smart-header-hidden {
+  transform: translate3d(0, -115%, 0) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
-@media (prefers-reduced-motion: reduce) {
-  nav { transition: none !important; }
-}
-
-</style></head><body><ul class="nav-links">
+</style>
+</head><body><ul class="nav-links">
 <li>
 <a href="index.html#home">
                                 HOME
@@ -3248,42 +3247,33 @@ body.smart-header-hidden nav {
 })();
 </script>
 
-<!-- SMART HEADER SCRIPT -->
-
-<!-- SMART HEADER SCRIPT V2 -->
-<script>
+<script id="smart-header-v3-script">
 (function () {
-  var nav = document.querySelector("nav");
-  if (!nav) return;
+  var header = document.querySelector('.nav-links');
+  if (!header) return;
 
   var lastY = window.pageYOffset || document.documentElement.scrollTop || 0;
-  var hidden = false;
   var ticking = false;
+  var touchStartY = null;
 
   function showHeader() {
-    if (hidden) {
-      document.body.classList.remove("smart-header-hidden");
-      hidden = false;
-    }
+    header.classList.remove('smart-header-hidden');
   }
 
   function hideHeader() {
-    if (!hidden) {
-      document.body.classList.add("smart-header-hidden");
-      hidden = true;
+    if ((window.pageYOffset || document.documentElement.scrollTop || 0) > 20) {
+      header.classList.add('smart-header-hidden');
     }
   }
 
-  function onScroll() {
+  function checkScrollDirection() {
     var y = window.pageYOffset || document.documentElement.scrollTop || 0;
 
-    if (y <= 12) {
+    if (y <= 15) {
       showHeader();
-    } else if (y < lastY - 2) {
-      // Any upward movement brings it back.
+    } else if (y < lastY - 3) {
       showHeader();
-    } else if (y > lastY + 8) {
-      // Hide only after a clear downward movement.
+    } else if (y > lastY + 5) {
       hideHeader();
     }
 
@@ -3291,19 +3281,50 @@ body.smart-header-hidden nav {
     ticking = false;
   }
 
-  window.addEventListener("scroll", function () {
+  window.addEventListener('scroll', function () {
     if (!ticking) {
-      window.requestAnimationFrame(onScroll);
+      window.requestAnimationFrame(checkScrollDirection);
       ticking = true;
     }
   }, { passive: true });
 
-  // Mobile browsers can restore scroll position after loading.
-  setTimeout(function () {
+  // Mobile fallback: detect the actual finger swipe direction.
+  document.addEventListener('touchstart', function (event) {
+    if (event.touches && event.touches.length) {
+      touchStartY = event.touches[0].clientY;
+    }
+  }, { passive: true });
+
+  document.addEventListener('touchend', function (event) {
+    if (touchStartY === null || !event.changedTouches || !event.changedTouches.length) return;
+
+    var touchEndY = event.changedTouches[0].clientY;
+    var delta = touchEndY - touchStartY;
+
+    if (Math.abs(delta) >= 18) {
+      if (delta > 0) {
+        // Finger moved down: user is going back up the page.
+        showHeader();
+      } else {
+        // Finger moved up: user is going down the page.
+        hideHeader();
+      }
+    }
+
+    touchStartY = null;
     lastY = window.pageYOffset || document.documentElement.scrollTop || 0;
-    showHeader();
-  }, 100);
+  }, { passive: true });
+
+  // Desktop fallback.
+  window.addEventListener('wheel', function (event) {
+    if (event.deltaY < -1) {
+      showHeader();
+    } else if (event.deltaY > 1) {
+      hideHeader();
+    }
+  }, { passive: true });
+
+  showHeader();
 })();
 </script>
-
 </body></html>
