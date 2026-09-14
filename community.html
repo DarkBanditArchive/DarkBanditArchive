@@ -2677,6 +2677,58 @@ body.light-mode .history-caption span, body.light-mode .community-card p, body.l
 body.light-mode .community-card a { color:#8c671f !important; }
 body.light-mode .back-to-archive a { color:#8c671f !important; }
 
+
+/* MOBILE NAVIGATION FIX */
+@media (max-width: 900px) {
+  nav {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    justify-content: flex-start !important;
+    gap: 18px !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .logo {
+    flex: 0 0 auto !important;
+  }
+
+  .nav-links {
+    display: flex !important;
+    flex: 0 0 auto !important;
+    flex-wrap: nowrap !important;
+    overflow: visible !important;
+    width: max-content !important;
+    margin-left: 0 !important;
+    justify-content: flex-start !important;
+    gap: 18px !important;
+  }
+
+  .nav-links li {
+    display: flex !important;
+    flex: 0 0 auto !important;
+  }
+
+  .nav-links a {
+    white-space: nowrap !important;
+  }
+
+  .nav-links .theme-toggle-item {
+    display: flex !important;
+    flex: 0 0 auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .nav-links .theme-toggle {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    white-space: nowrap !important;
+  }
+}
+
 </style>
 </head><style>
 .page-section{min-height:70vh;}
