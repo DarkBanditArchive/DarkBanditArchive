@@ -2662,7 +2662,13 @@
             }
         }
 
-    </style></head><body><ul class="nav-links">
+    
+/* THEME TOGGLE VISIBILITY FIX */
+.nav-links .theme-toggle-item { display:flex !important; align-items:center; margin-left:10px; }
+.nav-links .theme-toggle { display:inline-flex !important; align-items:center; justify-content:center; gap:7px; margin-left:0; padding:7px 11px; border:1px solid #8d6b32; background:transparent; color:#d9c38b; font-family:Georgia,"Times New Roman",serif; font-size:10px; letter-spacing:1.5px; cursor:pointer; white-space:nowrap; }
+body.light-mode .nav-links .theme-toggle { color:#6f5b32; border-color:#a58b55; background:rgba(255,255,255,.45); }
+@media (max-width:900px) { .nav-links .theme-toggle-item { margin-left:0; } }
+</style></head><body><ul class="nav-links">
 <li>
 <a href="index.html#home">
                                 HOME
@@ -2708,7 +2714,7 @@
                                 ABOUT
                             </a>
 </li>
-</ul><section class="timeline-section" id="timeline">
+<li class="theme-toggle-item"><button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><span class="theme-icon">☀</span><span class="theme-label">LIGHT</span></button></li></ul><section class="timeline-section" id="timeline">
 <h2 class="section-title">
             THE JOURNEY THROUGH TIME
         </h2>
@@ -3120,32 +3126,29 @@
             </p>
 </div>
 <div class="back-to-archive"><a href="index.html#archive">↑ RETURN TO THE ARCHIVE</a></div>
-</section><script>
-        (function () {
-            const toggle = document.getElementById("themeToggle");
-            const body = document.body;
-
-            function updateThemeButton() {
-                const dark = body.classList.contains("dark-mode");
-                toggle.querySelector(".theme-icon").textContent = dark ? "☾" : "☀";
-                toggle.querySelector(".theme-label").textContent = dark ? "DARK" : "LIGHT";
-                toggle.setAttribute("aria-pressed", dark ? "true" : "false");
-                toggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
-            }
-
-            const savedTheme = localStorage.getItem("darkBanditTheme");
-            if (savedTheme === "dark") {
-                body.classList.add("dark-mode");
-            } else {
-                body.classList.add("light-mode");
-            }
-            updateThemeButton();
-
-            toggle.addEventListener("click", function () {
-                const dark = body.classList.toggle("dark-mode");
-                body.classList.toggle("light-mode", !dark);
-                localStorage.setItem("darkBanditTheme", dark ? "dark" : "light");
-                updateThemeButton();
-            });
-        })();
-    </script></body></html>
+</section>
+<script>
+(function(){
+  const toggle=document.getElementById('themeToggle');
+  if(!toggle) return;
+  const body=document.body;
+  function update(){
+    const dark=body.classList.contains('dark-mode');
+    toggle.querySelector('.theme-icon').textContent=dark?'☾':'☀';
+    toggle.querySelector('.theme-label').textContent=dark?'DARK':'LIGHT';
+    toggle.setAttribute('aria-pressed',dark?'true':'false');
+    toggle.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');
+  }
+  const saved=localStorage.getItem('darkBanditTheme');
+  body.classList.remove('light-mode','dark-mode');
+  body.classList.add(saved==='dark'?'dark-mode':'light-mode');
+  update();
+  toggle.addEventListener('click',function(){
+    const dark=body.classList.toggle('dark-mode');
+    body.classList.toggle('light-mode',!dark);
+    localStorage.setItem('darkBanditTheme',dark?'dark':'light');
+    update();
+  });
+})();
+</script>
+</body></html>

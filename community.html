@@ -2681,6 +2681,12 @@ body.light-mode .back-to-archive a { color:#8c671f !important; }
 </head><style>
 .page-section{min-height:70vh;}
 .community-section,.about-section{min-height:70vh;}
+
+/* THEME TOGGLE VISIBILITY FIX */
+.nav-links .theme-toggle-item { display:flex !important; align-items:center; margin-left:10px; }
+.nav-links .theme-toggle { display:inline-flex !important; align-items:center; justify-content:center; gap:7px; margin-left:0; padding:7px 11px; border:1px solid #8d6b32; background:transparent; color:#d9c38b; font-family:Georgia,"Times New Roman",serif; font-size:10px; letter-spacing:1.5px; cursor:pointer; white-space:nowrap; }
+body.light-mode .nav-links .theme-toggle { color:#6f5b32; border-color:#a58b55; background:rgba(255,255,255,.45); }
+@media (max-width:900px) { .nav-links .theme-toggle-item { margin-left:0; } }
 </style></head><body><div class="logo">DARK<span>BANDIT</span></div>
 <ul class="nav-links">
 <li><a href="index.html#home">HOME</a></li>
@@ -2692,8 +2698,8 @@ body.light-mode .back-to-archive a { color:#8c671f !important; }
 <li><a href="ships.html#ships">SHIPS</a></li>
 <li><a href="community.html#community">COMMUNITY</a></li>
 <li><a href="about.html#about">ABOUT</a></li>
-</ul>
-<button aria-label="Switch to dark mode" aria-pressed="false" class="theme-toggle" id="themeToggle" type="button"><span class="theme-icon">☀</span><span class="theme-label">LIGHT</span></button>
+<li class="theme-toggle-item"><button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><span class="theme-icon">☀</span><span class="theme-label">LIGHT</span></button></li></ul>
+
 <div aria-hidden="true" class="section-divider"><span>◆</span></div><section class="community-section page-section" id="community">
 <h2 class="section-title">THE COMMUNITY</h2>
 <p class="community-intro">The wider Clash Royale and Dark Bandit communities contain discussions, wikis and spaces where fans share information, interpretations and discoveries. These external resources are not hosted by the Archive.</p>
@@ -2707,4 +2713,29 @@ body.light-mode .back-to-archive a { color:#8c671f !important; }
 <p class="community-note">External links lead to independent community resources. The Archive does not control or represent these communities.</p>
 <div class="back-to-archive"><a href="index.html#archive">↑ RETURN TO THE ARCHIVE</a></div>
 </section><footer>Dark Bandit Archive · 2026</footer>
-<script>(function(){const toggle=document.getElementById("themeToggle");const body=document.body;function updateThemeButton(){const dark=body.classList.contains("dark-mode");toggle.querySelector(".theme-icon").textContent=dark?"☾":"☀";toggle.querySelector(".theme-label").textContent=dark?"DARK":"LIGHT";toggle.setAttribute("aria-pressed",dark?"true":"false");toggle.setAttribute("aria-label",dark?"Switch to light mode":"Switch to dark mode");}const savedTheme=localStorage.getItem("darkBanditTheme");if(savedTheme==="dark"){body.classList.add("dark-mode");}else{body.classList.add("light-mode");}updateThemeButton();toggle.addEventListener("click",function(){const dark=body.classList.toggle("dark-mode");body.classList.toggle("light-mode",!dark);localStorage.setItem("darkBanditTheme",dark?"dark":"light");updateThemeButton();});})();</script></body></html>
+
+<script>
+(function(){
+  const toggle=document.getElementById('themeToggle');
+  if(!toggle) return;
+  const body=document.body;
+  function update(){
+    const dark=body.classList.contains('dark-mode');
+    toggle.querySelector('.theme-icon').textContent=dark?'☾':'☀';
+    toggle.querySelector('.theme-label').textContent=dark?'DARK':'LIGHT';
+    toggle.setAttribute('aria-pressed',dark?'true':'false');
+    toggle.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');
+  }
+  const saved=localStorage.getItem('darkBanditTheme');
+  body.classList.remove('light-mode','dark-mode');
+  body.classList.add(saved==='dark'?'dark-mode':'light-mode');
+  update();
+  toggle.addEventListener('click',function(){
+    const dark=body.classList.toggle('dark-mode');
+    body.classList.toggle('light-mode',!dark);
+    localStorage.setItem('darkBanditTheme',dark?'dark':'light');
+    update();
+  });
+})();
+</script>
+</body></html>
