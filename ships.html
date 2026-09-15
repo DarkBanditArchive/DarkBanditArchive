@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -2679,109 +2680,8 @@ body.light-mode .history-caption span, body.light-mode .community-card p, body.l
 body.light-mode .community-card a { color:#8c671f !important; }
 body.light-mode .back-to-archive a { color:#8c671f !important; }
 
-
-/* THEME TOGGLE VISIBILITY FIX */
-.nav-links .theme-toggle-item { display:flex !important; align-items:center; margin-left:10px; }
-.nav-links .theme-toggle { display:inline-flex !important; align-items:center; justify-content:center; gap:7px; margin-left:0; padding:7px 11px; border:1px solid #8d6b32; background:transparent; color:#d9c38b; font-family:Georgia,"Times New Roman",serif; font-size:10px; letter-spacing:1.5px; cursor:pointer; white-space:nowrap; }
-body.light-mode .nav-links .theme-toggle { color:#6f5b32; border-color:#a58b55; background:rgba(255,255,255,.45); }
-@media (max-width:900px) { .nav-links .theme-toggle-item { margin-left:0; } }
-
-
-/* CLEAN MOBILE NAVIGATION */
-@media (max-width: 900px) {
-  nav {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    justify-content: center !important;
-    gap: 12px !important;
-    padding: 14px 14px 12px !important;
-    overflow: visible !important;
-  }
-
-  .logo {
-    flex: 0 0 auto !important;
-    text-align: center !important;
-    font-size: 20px !important;
-    letter-spacing: 2.5px !important;
-  }
-
-  .nav-links {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    flex: 0 1 auto !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow: visible !important;
-    margin: 0 !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 8px 14px !important;
-  }
-
-  .nav-links li {
-    display: flex !important;
-    flex: 0 0 auto !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  .nav-links a {
-    white-space: nowrap !important;
-    font-size: 11px !important;
-    letter-spacing: 0.8px !important;
-  }
-
-  .nav-links .theme-toggle-item {
-    display: flex !important;
-    flex: 0 0 auto !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    margin-left: 2px !important;
-  }
-
-  .nav-links .theme-toggle {
-    display: inline-flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    white-space: nowrap !important;
-    padding: 5px 8px !important;
-    gap: 5px !important;
-    font-size: 9px !important;
-    letter-spacing: 1px !important;
-  }
-}
-
-@media (max-width: 420px) {
-  nav {
-    padding-left: 10px !important;
-    padding-right: 10px !important;
-  }
-
-  .nav-links {
-    gap: 7px 11px !important;
-  }
-
-  .nav-links a {
-    font-size: 10px !important;
-  }
-}
-
 </style>
 
-
-<style id="smart-header-v3">
-/* SMART HEADER V3: works with the site's existing .nav-links element */
-.nav-links {
-  transition: transform 0.25s ease, opacity 0.25s ease !important;
-  will-change: transform, opacity;
-}
-.nav-links.smart-header-hidden {
-  transform: translate3d(0, -115%, 0) !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
-</style>
 </head>
 <body>
 
@@ -2843,8 +2743,10 @@ body.light-mode .nav-links .theme-toggle { color:#6f5b32; border-color:#a58b55; 
                             </a>
                         </li>
 
-        <li class="theme-toggle-item"><button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><span class="theme-icon">☀</span><span class="theme-label">LIGHT</span></button></li></ul>
-            
+        </ul>
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+            <span class="theme-icon">☀</span><span class="theme-label">LIGHT</span>
+        </button>
     </nav>
     <div class="section-divider" aria-hidden="true"><span>◆</span></div>
 <section class="ships-section" id="ships">
@@ -3001,114 +2903,36 @@ body.light-mode .nav-links .theme-toggle { color:#6f5b32; border-color:#a58b55; 
 
 
 
-    
+    <script>
+        (function () {
+            const toggle = document.getElementById("themeToggle");
+            const body = document.body;
+
+            function updateThemeButton() {
+                const dark = body.classList.contains("dark-mode");
+                toggle.querySelector(".theme-icon").textContent = dark ? "☾" : "☀";
+                toggle.querySelector(".theme-label").textContent = dark ? "DARK" : "LIGHT";
+                toggle.setAttribute("aria-pressed", dark ? "true" : "false");
+                toggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+            }
+
+            const savedTheme = localStorage.getItem("darkBanditTheme");
+            if (savedTheme === "dark") {
+                body.classList.add("dark-mode");
+            } else {
+                body.classList.add("light-mode");
+            }
+            updateThemeButton();
+
+            toggle.addEventListener("click", function () {
+                const dark = body.classList.toggle("dark-mode");
+                body.classList.toggle("light-mode", !dark);
+                localStorage.setItem("darkBanditTheme", dark ? "dark" : "light");
+                updateThemeButton();
+            });
+        })();
+    </script>
 
 
-
-<script>
-(function(){
-  const toggle=document.getElementById('themeToggle');
-  if(!toggle) return;
-  const body=document.body;
-  function update(){
-    const dark=body.classList.contains('dark-mode');
-    toggle.querySelector('.theme-icon').textContent=dark?'☾':'☀';
-    toggle.querySelector('.theme-label').textContent=dark?'DARK':'LIGHT';
-    toggle.setAttribute('aria-pressed',dark?'true':'false');
-    toggle.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');
-  }
-  const saved=localStorage.getItem('darkBanditTheme');
-  body.classList.remove('light-mode','dark-mode');
-  body.classList.add(saved==='dark'?'dark-mode':'light-mode');
-  update();
-  toggle.addEventListener('click',function(){
-    const dark=body.classList.toggle('dark-mode');
-    body.classList.toggle('light-mode',!dark);
-    localStorage.setItem('darkBanditTheme',dark?'dark':'light');
-    update();
-  });
-})();
-</script>
-
-<script id="smart-header-v3-script">
-(function () {
-  var header = document.querySelector('.nav-links');
-  if (!header) return;
-
-  var lastY = window.pageYOffset || document.documentElement.scrollTop || 0;
-  var ticking = false;
-  var touchStartY = null;
-
-  function showHeader() {
-    header.classList.remove('smart-header-hidden');
-  }
-
-  function hideHeader() {
-    if ((window.pageYOffset || document.documentElement.scrollTop || 0) > 20) {
-      header.classList.add('smart-header-hidden');
-    }
-  }
-
-  function checkScrollDirection() {
-    var y = window.pageYOffset || document.documentElement.scrollTop || 0;
-
-    if (y <= 15) {
-      showHeader();
-    } else if (y < lastY - 3) {
-      showHeader();
-    } else if (y > lastY + 5) {
-      hideHeader();
-    }
-
-    lastY = y;
-    ticking = false;
-  }
-
-  window.addEventListener('scroll', function () {
-    if (!ticking) {
-      window.requestAnimationFrame(checkScrollDirection);
-      ticking = true;
-    }
-  }, { passive: true });
-
-  // Mobile fallback: detect the actual finger swipe direction.
-  document.addEventListener('touchstart', function (event) {
-    if (event.touches && event.touches.length) {
-      touchStartY = event.touches[0].clientY;
-    }
-  }, { passive: true });
-
-  document.addEventListener('touchend', function (event) {
-    if (touchStartY === null || !event.changedTouches || !event.changedTouches.length) return;
-
-    var touchEndY = event.changedTouches[0].clientY;
-    var delta = touchEndY - touchStartY;
-
-    if (Math.abs(delta) >= 18) {
-      if (delta > 0) {
-        // Finger moved down: user is going back up the page.
-        showHeader();
-      } else {
-        // Finger moved up: user is going down the page.
-        hideHeader();
-      }
-    }
-
-    touchStartY = null;
-    lastY = window.pageYOffset || document.documentElement.scrollTop || 0;
-  }, { passive: true });
-
-  // Desktop fallback.
-  window.addEventListener('wheel', function (event) {
-    if (event.deltaY < -1) {
-      showHeader();
-    } else if (event.deltaY > 1) {
-      hideHeader();
-    }
-  }, { passive: true });
-
-  showHeader();
-})();
-</script>
 </body>
 </html>
