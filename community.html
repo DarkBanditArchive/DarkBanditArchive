@@ -2351,25 +2351,28 @@
 
         /* Elegant chapter markers above the main headings */
         .history-section .section-title::before {
-            content: "CHAPTER I  ·  THE STORY";
+            content: "CHAPTER II  ·  THE STORY";
         }
 
         .canon-section .section-title::before {
-            content: "CHAPTER II  ·  THE EVIDENCE";
+            content: "CHAPTER III  ·  THE EVIDENCE";
         }
 
         .fanworks-section .section-title::before {
-            content: "CHAPTER III  ·  THE FANDOM";
+            content: "CHAPTER V  ·  THE FANDOM";
         }
 
         .timeline-section .section-title::before {
-            content: "THE ARCHIVE  ·  OVERVIEW";
+            content: "CHAPTER I  ·  THE CHRONICLE";
         }
 
         .history-section .section-title::before,
         .canon-section .section-title::before,
         .fanworks-section .section-title::before,
+        .decks-section .section-title::before,
         .ships-section .section-title::before,
+        .community-section .section-title::before,
+        .about-section .section-title::before,
         .timeline-section .section-title::before {
             display: block;
             margin-bottom: 11px;
@@ -2400,7 +2403,10 @@
             .history-section .section-title::before,
             .canon-section .section-title::before,
             .fanworks-section .section-title::before,
+            .decks-section .section-title::before,
             .ships-section .section-title::before,
+            .community-section .section-title::before,
+            .about-section .section-title::before,
             .timeline-section .section-title::before {
                 font-size: 9px;
                 letter-spacing: 2px;
@@ -2436,7 +2442,7 @@
         }
 
         .ships-section .section-title::before {
-            content: "CHAPTER IV  ·  OTHER STORIES";
+            content: "CHAPTER VI  ·  OTHER STORIES";
             display: block;
             margin-bottom: 11px;
             color: #77736d;
@@ -2574,7 +2580,7 @@
         }
 
         .community-section .section-title::before {
-            content: "CHAPTER V  ·  THE COMMUNITY";
+            content: "CHAPTER VII  ·  THE COMMUNITY";
             display: block;
             margin-bottom: 11px;
             color: #77736d;
@@ -2690,6 +2696,65 @@ nav.header-hidden {
     transform: translateY(-100%);
 }
 
+
+
+        /* FINAL ARCHIVE CHAPTER LABELS */
+        .timeline-section .section-title::before {
+            content: "CHAPTER I  ·  THE CHRONICLE";
+        }
+        .history-section .section-title::before {
+            content: "CHAPTER II  ·  THE STORY";
+        }
+        .canon-section .section-title::before {
+            content: "CHAPTER III  ·  THE EVIDENCE";
+        }
+        .decks-section .section-title::before {
+            content: "CHAPTER IV  ·  THE BATTLEFIELD";
+        }
+        .fanworks-section .section-title::before {
+            content: "CHAPTER V  ·  THE FANDOM";
+        }
+        .ships-section .section-title::before {
+            content: "CHAPTER VI  ·  OTHER STORIES";
+        }
+        .community-section .section-title::before {
+            content: "CHAPTER VII  ·  THE COMMUNITY";
+        }
+        .about-section .section-title::before {
+            content: "CHAPTER VIII  ·  THE ARCHIVE";
+        }
+
+        .timeline-section .section-title::before,
+        .history-section .section-title::before,
+        .canon-section .section-title::before,
+        .decks-section .section-title::before,
+        .fanworks-section .section-title::before,
+        .ships-section .section-title::before,
+        .community-section .section-title::before,
+        .about-section .section-title::before {
+            display: block;
+            margin-bottom: 11px;
+            color: #77736d;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 10px;
+            font-weight: normal;
+            letter-spacing: 3px;
+        }
+
+        @media (max-width: 600px) {
+            .timeline-section .section-title::before,
+            .history-section .section-title::before,
+            .canon-section .section-title::before,
+            .decks-section .section-title::before,
+            .fanworks-section .section-title::before,
+            .ships-section .section-title::before,
+            .community-section .section-title::before,
+            .about-section .section-title::before {
+                font-size: 9px;
+                letter-spacing: 2px;
+            }
+        }
+
 </style>
 </head><style>
 .page-section{min-height:70vh;}
@@ -2798,7 +2863,6 @@ nav.header-hidden {
 <h2 class="section-title">THE COMMUNITY</h2>
 <p class="community-intro">The wider Clash Royale and Dark Bandit communities contain discussions, wikis and spaces where fans share information, interpretations and discoveries. These external resources are not hosted by the Archive.</p>
 <div class="community-grid">
-<div class="community-card"><span class="community-type">REDDIT</span><h3>The Dark Prince Enjoyers</h3><p>A community dedicated to Dark Prince, including discussions, artwork and gameplay.</p><a href="https://www.reddit.com/r/TheDarkPrinceEnjoyers/" rel="noopener noreferrer" target="_blank">VISIT COMMUNITY →</a></div>
 <div class="community-card"><span class="community-type">REDDIT</span><h3>The Dark Bandit Shippers</h3><p>A dedicated community space for fans of the Dark Prince × Bandit pairing. Link to be added when a working community page is available.</p><a aria-disabled="true" href="#" onclick="return false;">LINK TO BE ADDED →</a></div>
 <div class="community-card"><span class="community-type">SHIPPING WIKI</span><h3>DarkBandit · Shipping Wiki</h3><p>A fan-run shipping reference documenting the DarkBandit pairing and its fandom classification.</p><a href="https://shipping.fandom.com/wiki/DarkBandit" rel="noopener noreferrer" target="_blank">VISIT WIKI →</a></div>
 <div class="community-card"><span class="community-type">CLASH WIKI</span><h3>Dark Prince · Clash Royale Wiki</h3><p>A community-maintained reference for Dark Prince, including his card history, abilities and lore information.</p><a href="https://clashroyale.fandom.com/wiki/Dark_Prince" rel="noopener noreferrer" target="_blank">VISIT WIKI →</a></div>

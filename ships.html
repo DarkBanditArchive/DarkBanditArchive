@@ -2353,25 +2353,28 @@
 
         /* Elegant chapter markers above the main headings */
         .history-section .section-title::before {
-            content: "CHAPTER I  ·  THE STORY";
+            content: "CHAPTER II  ·  THE STORY";
         }
 
         .canon-section .section-title::before {
-            content: "CHAPTER II  ·  THE EVIDENCE";
+            content: "CHAPTER III  ·  THE EVIDENCE";
         }
 
         .fanworks-section .section-title::before {
-            content: "CHAPTER III  ·  THE FANDOM";
+            content: "CHAPTER V  ·  THE FANDOM";
         }
 
         .timeline-section .section-title::before {
-            content: "THE ARCHIVE  ·  OVERVIEW";
+            content: "CHAPTER I  ·  THE CHRONICLE";
         }
 
         .history-section .section-title::before,
         .canon-section .section-title::before,
         .fanworks-section .section-title::before,
+        .decks-section .section-title::before,
         .ships-section .section-title::before,
+        .community-section .section-title::before,
+        .about-section .section-title::before,
         .timeline-section .section-title::before {
             display: block;
             margin-bottom: 11px;
@@ -2402,7 +2405,10 @@
             .history-section .section-title::before,
             .canon-section .section-title::before,
             .fanworks-section .section-title::before,
+            .decks-section .section-title::before,
             .ships-section .section-title::before,
+            .community-section .section-title::before,
+            .about-section .section-title::before,
             .timeline-section .section-title::before {
                 font-size: 9px;
                 letter-spacing: 2px;
@@ -2438,7 +2444,7 @@
         }
 
         .ships-section .section-title::before {
-            content: "CHAPTER IV  ·  OTHER STORIES";
+            content: "CHAPTER VI  ·  OTHER STORIES";
             display: block;
             margin-bottom: 11px;
             color: #77736d;
@@ -2576,7 +2582,7 @@
         }
 
         .community-section .section-title::before {
-            content: "CHAPTER V  ·  THE COMMUNITY";
+            content: "CHAPTER VII  ·  THE COMMUNITY";
             display: block;
             margin-bottom: 11px;
             color: #77736d;
@@ -2763,6 +2769,65 @@ nav {
 nav.header-hidden {
     transform: translateY(-100%);
 }
+
+
+
+        /* FINAL ARCHIVE CHAPTER LABELS */
+        .timeline-section .section-title::before {
+            content: "CHAPTER I  ·  THE CHRONICLE";
+        }
+        .history-section .section-title::before {
+            content: "CHAPTER II  ·  THE STORY";
+        }
+        .canon-section .section-title::before {
+            content: "CHAPTER III  ·  THE EVIDENCE";
+        }
+        .decks-section .section-title::before {
+            content: "CHAPTER IV  ·  THE BATTLEFIELD";
+        }
+        .fanworks-section .section-title::before {
+            content: "CHAPTER V  ·  THE FANDOM";
+        }
+        .ships-section .section-title::before {
+            content: "CHAPTER VI  ·  OTHER STORIES";
+        }
+        .community-section .section-title::before {
+            content: "CHAPTER VII  ·  THE COMMUNITY";
+        }
+        .about-section .section-title::before {
+            content: "CHAPTER VIII  ·  THE ARCHIVE";
+        }
+
+        .timeline-section .section-title::before,
+        .history-section .section-title::before,
+        .canon-section .section-title::before,
+        .decks-section .section-title::before,
+        .fanworks-section .section-title::before,
+        .ships-section .section-title::before,
+        .community-section .section-title::before,
+        .about-section .section-title::before {
+            display: block;
+            margin-bottom: 11px;
+            color: #77736d;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 10px;
+            font-weight: normal;
+            letter-spacing: 3px;
+        }
+
+        @media (max-width: 600px) {
+            .timeline-section .section-title::before,
+            .history-section .section-title::before,
+            .canon-section .section-title::before,
+            .decks-section .section-title::before,
+            .fanworks-section .section-title::before,
+            .ships-section .section-title::before,
+            .community-section .section-title::before,
+            .about-section .section-title::before {
+                font-size: 9px;
+                letter-spacing: 2px;
+            }
+        }
 
 </style>
 
