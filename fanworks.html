@@ -6,6 +6,8 @@
 
     <title>Dark Bandit Archive · Fanworks</title>
 
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
     <style>
 
         * {
@@ -25,6 +27,7 @@
             line-height: 1.6;
         }
 
+
         /* =========================================
            NAVIGATION
         ========================================= */
@@ -33,10 +36,13 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
+
             padding: 18px 6%;
+
             background: rgba(5, 6, 10, 0.97);
             border-bottom: 1px solid #8d6b32;
         }
@@ -46,6 +52,7 @@
             font-size: 23px;
             font-weight: bold;
             letter-spacing: 3px;
+            white-space: nowrap;
         }
 
         .logo span {
@@ -54,6 +61,7 @@
 
         .nav-links {
             display: flex;
+            align-items: center;
             gap: 28px;
             list-style: none;
             margin-left: auto;
@@ -72,171 +80,6 @@
             color: #e3a54a;
         }
 
-        /* =========================================
-           HERO
-        ========================================= */
-
-        .hero {
-            min-height: 720px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 100px 20px;
-
-            background:
-                radial-gradient(
-                    circle at 18% 50%,
-                    rgba(145, 25, 40, 0.38),
-                    transparent 40%
-                ),
-                radial-gradient(
-                    circle at 82% 50%,
-                    rgba(40, 115, 55, 0.30),
-                    transparent 40%
-                ),
-                #090a0f;
-        }
-
-        .hero-content {
-            max-width: 900px;
-        }
-
-        .heart {
-            color: #e99aab;
-            font-size: 45px;
-            margin-bottom: 20px;
-            text-shadow:
-                0 0 18px rgba(233, 154, 171, 0.25);
-        }
-
-        .characters {
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            margin-bottom: 15px;
-            font-size: 17px;
-            letter-spacing: 3px;
-            font-weight: bold;
-        }
-
-        .dark-prince {
-            color: #d14b55;
-            text-shadow:
-                0 0 12px rgba(209, 75, 85, 0.18);
-        }
-
-        .bandit {
-            color: #63b85f;
-            text-shadow:
-                0 0 12px rgba(99, 184, 95, 0.18);
-        }
-
-        h1 {
-            font-size: clamp(50px, 9vw, 100px);
-            letter-spacing: 8px;
-            color: #d8ad5a;
-            text-shadow:
-                0 0 20px rgba(216, 173, 90, 0.20);
-        }
-
-        .title-hearts {
-            margin-top: 12px;
-            font-size: 25px;
-            letter-spacing: 12px;
-        }
-
-        .dark-heart {
-            color: #b92f3d;
-            text-shadow:
-                0 0 12px rgba(185, 47, 61, 0.25);
-        }
-
-        .green-heart {
-            color: #55a85a;
-            text-shadow:
-                0 0 12px rgba(85, 168, 90, 0.25);
-        }
-
-        .ship-name {
-            margin-top: 18px;
-            color: #d9c38b;
-            font-size: 18px;
-            letter-spacing: 5px;
-        }
-
-        .tagline {
-            margin: 35px auto 20px;
-            font-size: 27px;
-            font-style: italic;
-
-            background: linear-gradient(
-                90deg,
-                #d34a54,
-                #e8d6b0,
-                #63b85f
-            );
-
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .description {
-            max-width: 650px;
-            margin: auto;
-            color: #bdb7ad;
-            font-size: 17px;
-        }
-
-        .button {
-            display: inline-block;
-            margin-top: 35px;
-            padding: 14px 35px;
-            border: 1px solid #b99148;
-            color: #dcb86c;
-            text-decoration: none;
-            letter-spacing: 2px;
-            transition: 0.3s;
-        }
-
-        .button:hover {
-            background: #b99148;
-            color: #08090d;
-        }
-
-        /* =========================================
-           HERO BANNER
-        ========================================= */
-
-        .hero-banner {
-            width: min(100%, 1200px);
-            margin: 0 auto 35px;
-        }
-
-        .hero-banner img {
-            display: block;
-            width: 100%;
-            aspect-ratio: 2.4 / 1;
-            object-fit: cover;
-            object-position: center;
-            border: 1px solid #4a4030;
-            background: #08090d;
-            box-shadow:
-                0 12px 35px rgba(0, 0, 0, 0.35),
-                0 0 25px rgba(196, 154, 74, 0.08);
-        }
-
-        .banner-credit {
-            margin-top: 8px;
-            text-align: right;
-            color: #77736d;
-            font-size: 11px;
-            letter-spacing: 1px;
-        }
-
-        .banner-credit strong {
-            color: #a99568;
-        }
 
         /* =========================================
            THEME TOGGLE
@@ -248,12 +91,15 @@
             gap: 7px;
             margin-left: 28px;
             padding: 7px 11px;
+
             border: 1px solid #8d6b32;
             background: transparent;
+
             color: #d9c38b;
             font-family: Georgia, "Times New Roman", serif;
             font-size: 10px;
             letter-spacing: 1.5px;
+
             cursor: pointer;
             transition: .25s;
         }
@@ -267,6 +113,537 @@
             font-size: 13px;
             line-height: 1;
         }
+
+
+        /* =========================================
+           SECTION DIVIDER
+        ========================================= */
+
+        .section-divider {
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #0d0f15;
+            color: #d4a653;
+
+            border-bottom: 1px solid #252731;
+        }
+
+        .section-divider span {
+            font-size: 12px;
+            opacity: .75;
+        }
+
+
+        /* =========================================
+           MAIN SECTION
+        ========================================= */
+
+        .fanworks-section {
+            padding: 95px 7% 100px;
+
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(40,120,60,.07),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 85% 80%,
+                    rgba(196,154,74,.05),
+                    transparent 35%
+                ),
+                #08090d;
+
+            border-bottom: 1px solid #252731;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+
+            font-size: 35px;
+            letter-spacing: 4px;
+
+            color: #d8ad5a;
+        }
+
+        .fanworks-intro {
+            max-width: 760px;
+            margin: -25px auto 65px;
+
+            text-align: center;
+
+            color: #99958e;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+
+        /* =========================================
+           FEATURED FANWORK
+        ========================================= */
+
+        .featured-fanwork {
+            max-width: 1100px;
+            margin: 0 auto 90px;
+
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+
+            border: 1px solid #3b3834;
+            background: #101218;
+
+            box-shadow: 0 12px 35px rgba(0,0,0,.18);
+        }
+
+        .featured-fanwork-image {
+            min-height: 380px;
+            background: #08090d;
+        }
+
+        .featured-fanwork-image img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 380px;
+
+            object-fit: contain;
+        }
+
+        .featured-fanwork-text {
+            padding: 50px 42px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .mini-label {
+            display: block;
+            margin-bottom: 10px;
+
+            color: #d4a653;
+
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .featured-fanwork-text h3 {
+            color: #e7d2a0;
+
+            font-size: 25px;
+            letter-spacing: 2px;
+
+            margin-bottom: 14px;
+        }
+
+        .featured-fanwork-text p {
+            color: #99958e;
+
+            font-size: 14px;
+            line-height: 1.8;
+
+            margin-bottom: 20px;
+        }
+
+        .featured-credit {
+            color: #77736d;
+
+            font-size: 11px;
+            letter-spacing: 1.2px;
+        }
+
+
+        /* =========================================
+           CONTENT ENTRIES
+        ========================================= */
+
+        .fanworks-entry {
+            max-width: 1100px;
+            margin: 0 auto 90px;
+        }
+
+        .fanworks-heading {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            margin-bottom: 28px;
+        }
+
+        .fanworks-heading::before {
+            content: "";
+            width: 35px;
+            height: 1px;
+
+            background: #a77a2d;
+        }
+
+        .fanworks-heading span {
+            color: #806020;
+
+            font-size: 11px;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        .fanworks-entry > h3 {
+            margin-bottom: 15px;
+
+            color: #e1c27a;
+
+            font-size: 25px;
+            letter-spacing: 2px;
+        }
+
+        .fanworks-entry > p {
+            max-width: 850px;
+
+            color: #99958e;
+
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+
+        /* =========================================
+           FANFICTION
+        ========================================= */
+
+        .fanfic-grid {
+            margin-top: 32px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .fanfic-card {
+            padding: 28px 24px;
+
+            border: 1px solid #343238;
+            background: #101218;
+        }
+
+        .fanfic-card h4 {
+            margin-bottom: 12px;
+
+            color: #d8ad5a;
+
+            font-size: 14px;
+            letter-spacing: 1.5px;
+        }
+
+        .fanfic-card p {
+            color: #99958e;
+
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           DID YOU KNOW
+        ========================================= */
+
+        .archive-note-strip {
+            margin: 35px 0 45px;
+        }
+
+        .did-you-know {
+            padding: 20px 23px;
+
+            border-left: 2px solid #a77a2d;
+
+            background: rgba(196,154,74,.055);
+        }
+
+        .did-you-know p {
+            color: #99958e;
+
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .did-you-know small {
+            display: block;
+            margin-top: 8px;
+
+            color: #77736d;
+
+            font-size: 11px;
+        }
+
+        .did-you-know a {
+            color: inherit;
+        }
+
+
+        /* =========================================
+           ARTWORK GALLERY
+        ========================================= */
+
+        .artwork-grid {
+            margin-top: 38px;
+
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .artwork-card {
+            overflow: hidden;
+
+            border: 1px solid #373541;
+            background: #101218;
+
+            transition:
+                transform .3s,
+                border-color .3s;
+        }
+
+        .artwork-card:hover {
+            transform: translateY(-5px);
+            border-color: #a87d37;
+        }
+
+        .artwork-card img {
+            display: block;
+
+            width: 100%;
+            height: 330px;
+
+            object-fit: contain;
+
+            background: #08090d;
+        }
+
+        .history-caption {
+            padding: 15px 17px;
+
+            border-top: 1px solid #302e36;
+        }
+
+        .history-caption strong {
+            display: block;
+
+            color: #e1c27a;
+
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .history-caption span {
+            display: block;
+            margin-top: 4px;
+
+            color: #77736d;
+
+            font-size: 11px;
+            letter-spacing: .8px;
+        }
+
+        .archive-note {
+            margin-top: 30px;
+
+            color: #77736d !important;
+
+            font-size: 12px !important;
+            font-style: italic;
+        }
+
+
+        /* =========================================
+           PLACEHOLDERS
+        ========================================= */
+
+        .artwork-placeholder {
+            min-height: 330px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background: rgba(255,255,255,.02);
+
+            border: 1px dashed rgba(212,166,83,.35);
+        }
+
+        .artwork-placeholder:hover {
+            transform: none;
+            border-color: rgba(212,166,83,.55);
+        }
+
+        .placeholder-mark {
+            font-size: 28px;
+
+            color: #d4a653;
+
+            opacity: .55;
+
+            margin-bottom: 18px;
+        }
+
+
+        /* =========================================
+           VIDEO & EXTERNAL LINKS
+        ========================================= */
+
+        .external-grid {
+            margin-top: 35px;
+
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+
+            gap: 22px;
+        }
+
+        .external-card {
+            padding: 28px 25px;
+
+            border: 1px solid #373541;
+            background: #101218;
+        }
+
+        .external-card h4 {
+            margin-bottom: 20px;
+
+            color: #d8ad5a;
+
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        .external-card > p {
+            color: #99958e;
+
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .tiktok-edit-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .tiktok-edit-item {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 4px 15px;
+
+            padding: 16px;
+
+            border: 1px solid #302e36;
+            background: rgba(255,255,255,.018);
+        }
+
+        .tiktok-edit-item strong {
+            color: #d8ad5a;
+
+            font-size: 13px;
+        }
+
+        .tiktok-edit-item span {
+            color: #77736d;
+
+            font-size: 11px;
+        }
+
+        .tiktok-edit-item a {
+            grid-column: 2;
+            grid-row: 1 / span 2;
+
+            align-self: center;
+
+            color: #aaa59d;
+
+            text-decoration: none;
+
+            font-size: 10px;
+            letter-spacing: 1px;
+        }
+
+        .tiktok-edit-item a:hover {
+            color: #d8ad5a;
+        }
+
+
+        /* =========================================
+           MATURE CONTENT NOTE
+        ========================================= */
+
+        .mature-content-note {
+            max-width: 900px;
+
+            margin: 20px auto 70px;
+
+            padding: 22px 26px;
+
+            border: 1px solid rgba(168,125,55,.28);
+            border-left: 2px solid #8d6b32;
+
+            background: rgba(255,255,255,.018);
+        }
+
+        .mature-content-note p {
+            margin: 0;
+
+            color: #99958e;
+
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           RETURN LINK
+        ========================================= */
+
+        .back-to-archive {
+            text-align: center;
+        }
+
+        .back-to-archive a {
+            color: #d5a64f;
+
+            text-decoration: none;
+
+            font-size: 12px;
+            letter-spacing: 1.5px;
+        }
+
+        .back-to-archive a:hover {
+            color: #e3a54a;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            padding: 30px 20px;
+
+            text-align: center;
+
+            border-top: 1px solid #252731;
+
+            color: #77736d;
+
+            background: #0d0f15;
+
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
 
         /* =========================================
            LIGHT MODE
@@ -303,108 +680,50 @@
             background: rgba(255,255,255,.35);
         }
 
-        body.light-mode .hero {
+        body.light-mode .section-divider {
+            background: #ebe6dc;
+            border-color: #d0c8bb;
+        }
+
+        body.light-mode .fanworks-section {
             background:
                 radial-gradient(
-                    circle at 18% 50%,
-                    rgba(169,52,64,.12),
-                    transparent 40%
+                    circle at 15% 20%,
+                    rgba(169,52,64,.06),
+                    transparent 35%
                 ),
                 radial-gradient(
-                    circle at 82% 50%,
-                    rgba(55,125,62,.12),
-                    transparent 40%
+                    circle at 85% 80%,
+                    rgba(55,125,62,.06),
+                    transparent 35%
                 ),
-                #f5f1e9;
-        }
+                #f2eee6;
 
-        body.light-mode .heart {
-            color: #c75a6b;
-            text-shadow: none;
-        }
-
-        body.light-mode .dark-prince {
-            color: #9f2635;
-            text-shadow: none;
-        }
-
-        body.light-mode .bandit {
-            color: #3f8b42;
-            text-shadow: none;
-        }
-
-        body.light-mode h1 {
-            color: #8c671f;
-            text-shadow: none;
-        }
-
-        body.light-mode .dark-heart {
-            color: #a92f3d;
-            text-shadow: none;
-        }
-
-        body.light-mode .green-heart {
-            color: #3e8b42;
-            text-shadow: none;
-        }
-
-        body.light-mode .ship-name {
-            color: #6d5a36;
-        }
-
-        body.light-mode .description {
-            color: #5e5a54;
-        }
-
-        body.light-mode .button {
-            border-color: #9b7839;
-            color: #79591f;
-        }
-
-        body.light-mode .button:hover {
-            background: #b99148;
-            color: #fffaf0;
+            border-color: #d3cbbf;
         }
 
         body.light-mode .section-title {
             color: #8c671f;
         }
 
-        body.light-mode .history-caption {
-            border-top-color: #ddd5c9;
-        }
-
-        body.light-mode .history-caption strong {
-            color: #76591f;
-        }
-
-        body.light-mode .history-caption span {
+        body.light-mode .fanworks-intro {
             color: #625e57;
         }
 
-        body.light-mode .fanworks-section {
-            background: #f2eee6;
-            border-color: #d3cbbf;
-        }
-
-        body.light-mode .fanworks-intro,
-        body.light-mode .fanworks-entry > p {
-            color: #625e57;
+        body.light-mode .fanworks-heading::before {
+            background: #a77a2d;
         }
 
         body.light-mode .fanworks-heading span {
             color: #806020;
         }
 
-        body.light-mode .fanworks-entry h3 {
+        body.light-mode .fanworks-entry > h3 {
             color: #403c36;
         }
 
-        body.light-mode .artwork-card,
-        body.light-mode .fanfic-card,
-        body.light-mode .external-card {
-            border-color: #cbc3b7;
-            background: #faf7f0;
+        body.light-mode .fanworks-entry > p {
+            color: #625e57;
         }
 
         body.light-mode .featured-fanwork {
@@ -428,9 +747,8 @@
             color: #777168;
         }
 
-        body.light-mode .archive-note-strip,
-        body.light-mode .section-divider {
-            background: #ebe6dc;
+        body.light-mode .mini-label {
+            color: #8a6a2e;
         }
 
         body.light-mode .did-you-know {
@@ -442,8 +760,50 @@
             color: #625e57;
         }
 
-        body.light-mode .mini-label {
-            color: #8a6a2e;
+        body.light-mode .did-you-know small {
+            color: #777168;
+        }
+
+        body.light-mode .fanfic-card,
+        body.light-mode .artwork-card,
+        body.light-mode .external-card {
+            border-color: #cbc3b7;
+            background: #faf7f0;
+        }
+
+        body.light-mode .fanfic-card h4,
+        body.light-mode .external-card h4 {
+            color: #76591f;
+        }
+
+        body.light-mode .fanfic-card p,
+        body.light-mode .external-card > p {
+            color: #625e57;
+        }
+
+        body.light-mode .history-caption {
+            border-top-color: #ddd5c9;
+        }
+
+        body.light-mode .history-caption strong {
+            color: #76591f;
+        }
+
+        body.light-mode .history-caption span {
+            color: #777168;
+        }
+
+        body.light-mode .artwork-card img {
+            background: #f3efe7;
+        }
+
+        body.light-mode .artwork-placeholder {
+            background: rgba(255,255,255,.42);
+            border-color: rgba(177,132,57,.38);
+        }
+
+        body.light-mode .placeholder-mark {
+            color: #b18439;
         }
 
         body.light-mode .archive-note {
@@ -477,490 +837,8 @@
             color: #6b665e;
         }
 
-        body.light-mode .artwork-placeholder {
-            background: rgba(255,255,255,0.42);
-            border-color: rgba(177,132,57,0.38);
-        }
-
-        body.light-mode .placeholder-mark {
-            color: #b18439;
-        }
-
-        /* =========================================
-           GENERAL SECTIONS
-        ========================================= */
-
-        section {
-            padding: 90px 7%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 55px;
-            font-size: 35px;
-            letter-spacing: 4px;
-            color: #d8ad5a;
-        }
-
-        /* =========================================
-           FANWORKS
-        ========================================= */
-
-        .fanworks-section {
-            position: relative;
-            padding-top: 125px;
-            padding-bottom: 125px;
-
-            background:
-                radial-gradient(
-                    circle at 14% 18%,
-                    rgba(40,115,55,0.13),
-                    transparent 36%
-                ),
-                radial-gradient(
-                    circle at 86% 78%,
-                    rgba(233,154,171,0.055),
-                    transparent 34%
-                ),
-                #090d0c;
-
-            border-top: 1px solid #284732;
-        }
-
-        .fanworks-section::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            bottom: -1px;
-            transform: translateX(-50%);
-            width: min(520px, 70%);
-            height: 1px;
-            background:
-                linear-gradient(
-                    90deg,
-                    transparent,
-                    #3e9b58,
-                    #a76b7b,
-                    transparent
-                );
-            opacity: 0.65;
-        }
-
-        .fanworks-section .section-title::before {
-            content: "CHAPTER III  ·  THE FANDOM";
-            display: block;
-            margin-bottom: 11px;
-            color: #77736d;
-            font-size: 10px;
-            font-weight: normal;
-            letter-spacing: 3px;
-        }
-
-        .fanworks-intro {
-            max-width: 760px;
-            margin: -25px auto 70px;
-            text-align: center;
-            color: #aaa59d;
-            font-size: 17px;
-        }
-
-        .fanworks-entry {
-            max-width: 1120px;
-            margin: 0 auto 105px;
-            padding-bottom: 80px;
-            border-bottom: 1px solid #292b33;
-        }
-
-        .fanworks-entry:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .fanworks-heading {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .fanworks-heading::before {
-            content: "";
-            width: 55px;
-            height: 1px;
-            background: #8d6b32;
-        }
-
-        .fanworks-heading span {
-            color: #d8ad5a;
-            font-size: 18px;
-            letter-spacing: 4px;
-            font-weight: bold;
-        }
-
-        .fanworks-entry h3 {
-            color: #e7d2a0;
-            font-size: 27px;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-        }
-
-        .fanworks-entry > p {
-            color: #aaa59d;
-            font-size: 15px;
-            line-height: 1.75;
-            max-width: 860px;
-            margin-bottom: 30px;
-        }
-
-        /* =========================================
-           FEATURED FANWORK
-        ========================================= */
-
-        .featured-fanwork {
-            max-width: 1000px;
-            margin: 0 auto 80px;
-            display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
-            border: 1px solid #34363d;
-            background: #0d1015;
-        }
-
-        .featured-fanwork-image {
-            min-height: 330px;
-            background: #08090d;
-        }
-
-        .featured-fanwork-image img {
-            width: 100%;
-            height: 100%;
-            min-height: 330px;
-            display: block;
-            object-fit: contain;
-        }
-
-        .featured-fanwork-text {
-            padding: 45px 38px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .featured-fanwork-text h3 {
-            color: #e7d2a0;
-            font-size: 24px;
-            letter-spacing: 2px;
-            margin: 4px 0 12px;
-        }
-
-        .featured-fanwork-text p {
-            color: #99958e;
-            font-size: 14px;
-            line-height: 1.7;
-            margin: 0 0 18px;
-        }
-
-        .featured-credit {
-            color: #77736d;
-            font-size: 11px;
-            letter-spacing: 1px;
-        }
-
-        /* =========================================
-           FANFICTIONS
-        ========================================= */
-
-        .fanfic-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .fanfic-card {
-            padding: 28px 25px;
-            border: 1px solid #34363d;
-            background: #101218;
-        }
-
-        .fanfic-card h4 {
-            color: #dfc47f;
-            font-size: 17px;
-            letter-spacing: 1.5px;
-            margin-bottom: 12px;
-        }
-
-        .fanfic-card p {
-            color: #99958e;
-            font-size: 14px;
-            line-height: 1.7;
-        }
-
-        /* =========================================
-           ARTWORK GALLERY
-        ========================================= */
-
-        .artwork-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 35px;
-        }
-
-        .artwork-card {
-            overflow: hidden;
-            border: 1px solid #34363d;
-            background: #101218;
-        }
-
-        .artwork-card img {
-            display: block;
-            width: 100%;
-            height: 330px;
-            object-fit: contain;
-            background: #08090d;
-        }
-
-        .history-caption {
-            min-height: 66px;
-            padding: 15px 17px;
-            border-top: 1px solid #34363d;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .history-caption strong {
-            color: #dfc47f;
-            font-size: 13px;
-            letter-spacing: 1px;
-        }
-
-        .history-caption span {
-            color: #99958e;
-            font-size: 11px;
-            margin-top: 3px;
-        }
-
-        /* =========================================
-           PLACEHOLDERS
-        ========================================= */
-
-        .artwork-placeholder {
-            min-height: 396px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: rgba(255,255,255,0.02);
-            border: 1px dashed rgba(212,166,83,0.35);
-        }
-
-        .placeholder-mark {
-            font-size: 28px;
-            color: #d4a653;
-            opacity: .55;
-            margin-bottom: 18px;
-        }
-
-        .artwork-placeholder .history-caption {
-            border-top: none;
-            min-height: auto;
-        }
-
-        /* =========================================
-           ARCHIVE NOTES
-        ========================================= */
-
-        .archive-note-strip {
-            padding: 18px 20px 8px;
-            background: #080a0e;
-        }
-
-        .section-note {
-            max-width: 1100px;
-            margin: 0 auto 28px;
-            padding: 0 24px;
-        }
-
-        .did-you-know {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 18px 24px;
-            border-left: 2px solid #8d6b32;
-            background: rgba(196,154,74,0.035);
-            text-align: left;
-        }
-
-        .mini-label {
-            display: block;
-            margin-bottom: 7px;
-            color: #a88b50;
-            font-size: 9px;
-            letter-spacing: 3px;
-            font-weight: bold;
-        }
-
-        .did-you-know p {
-            margin: 0;
-            color: #918c84;
-            font-size: 13px;
-            line-height: 1.65;
-        }
-
-        .did-you-know small {
-            display: block;
-            margin-top: 8px;
-            opacity: .7;
-        }
-
-        .did-you-know small a {
-            color: inherit;
-        }
-
-        .fanwork-note {
-            margin-top: 42px;
-            margin-bottom: 42px;
-        }
-
-        .archive-note {
-            margin-top: 40px;
-            text-align: center;
-            color: #77736d !important;
-            font-size: 12px;
-            font-style: italic;
-        }
-
-        /* =========================================
-           VIDEO & EDITS
-        ========================================= */
-
-        .external-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .external-card {
-            padding: 28px 25px;
-            border: 1px solid #34363d;
-            background: #101218;
-        }
-
-        .external-card h4 {
-            color: #dfc47f;
-            font-size: 17px;
-            letter-spacing: 1.5px;
-            margin-bottom: 12px;
-        }
-
-        .external-card p {
-            color: #99958e;
-            font-size: 14px;
-            line-height: 1.7;
-        }
-
-        .tiktok-edit-item {
-            padding: 18px 20px;
-            margin-top: 12px;
-            border: 1px solid #3a3a40;
-            background: rgba(255,255,255,0.02);
-        }
-
-        .tiktok-edit-item strong {
-            display: block;
-            color: #d8ad5a;
-            margin-bottom: 5px;
-        }
-
-        .tiktok-edit-item span {
-            display: block;
-            color: #99958e;
-            font-size: 12px;
-            margin-bottom: 8px;
-        }
-
-        .tiktok-edit-item a {
-            color: #63b85f;
-            text-decoration: none;
-            font-size: 12px;
-        }
-
-        .tiktok-edit-item a:hover {
-            color: #d8ad5a;
-        }
-
-        /* =========================================
-           MATURE CONTENT NOTE
-        ========================================= */
-
-        .mature-content-note {
-            max-width: 900px;
-            margin: -30px auto 70px;
-            padding: 22px 26px;
-            border: 1px solid rgba(168,125,55,0.28);
-            border-left: 2px solid #8d6b32;
-            background: rgba(255,255,255,0.018);
-        }
-
-        .mature-content-note p {
-            margin: 0;
-            color: #99958e;
-            font-size: 14px;
-            line-height: 1.7;
-        }
-
-        /* =========================================
-           SECTION DIVIDER
-        ========================================= */
-
-        .section-divider {
-            height: 34px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #080a0e;
-            color: #8d6b32;
-            position: relative;
-        }
-
-        .section-divider::before,
-        .section-divider::after {
-            content: "";
-            width: min(220px, 25%);
-            height: 1px;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                #5d4b2b
-            );
-        }
-
-        .section-divider::after {
-            background: linear-gradient(
-                90deg,
-                #5d4b2b,
-                transparent
-            );
-        }
-
-        .section-divider span {
-            margin: 0 14px;
-            font-size: 9px;
-        }
-
-        /* =========================================
-           FOOTER
-        ========================================= */
-
-        footer {
-            padding: 30px;
-            text-align: center;
-            border-top: 1px solid #272932;
-            color: #77736d;
-            font-size: 13px;
+        body.light-mode .back-to-archive a {
+            color: #8c671f;
         }
 
         body.light-mode footer {
@@ -969,26 +847,54 @@
             background: #eee9e0;
         }
 
+
         /* =========================================
            RESPONSIVE
         ========================================= */
 
-        @media (max-width: 1000px) {
+        @media (max-width: 1100px) {
 
-            .artwork-grid {
-                grid-template-columns: repeat(2, 1fr);
+            nav {
+                padding: 16px 4%;
             }
 
-            .fanfic-grid {
-                grid-template-columns: 1fr;
+            .nav-links {
+                gap: 17px;
             }
 
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .theme-toggle {
+                margin-left: 15px;
+            }
         }
+
 
         @media (max-width: 900px) {
 
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .logo {
+                width: 100%;
+                text-align: center;
+            }
+
             .nav-links {
-                display: none;
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                margin-left: 0;
+                gap: 13px 18px;
+            }
+
+            .theme-toggle {
+                margin-left: 0;
             }
 
             .featured-fanwork {
@@ -997,57 +903,36 @@
 
             .featured-fanwork-image,
             .featured-fanwork-image img {
-                min-height: 280px;
+                min-height: 300px;
+            }
+
+            .fanfic-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .artwork-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .external-grid {
                 grid-template-columns: 1fr;
             }
-
-            .theme-toggle {
-                margin-left: 12px;
-            }
-
         }
+
 
         @media (max-width: 600px) {
 
-            .hero {
-                min-height: 600px;
-                padding: 70px 20px;
+            .fanworks-section {
+                padding: 75px 20px 80px;
             }
 
-            .characters {
-                gap: 20px;
-                font-size: 13px;
-            }
-
-            .ship-name {
-                font-size: 13px;
+            .section-title {
+                font-size: 29px;
                 letter-spacing: 3px;
             }
 
-            .tagline {
-                font-size: 22px;
-            }
-
-            .title-hearts {
-                font-size: 21px;
-                letter-spacing: 8px;
-            }
-
-            section {
-                padding: 65px 20px;
-            }
-
-            .fanworks-section {
-                padding-top: 90px;
-                padding-bottom: 90px;
-            }
-
-            .fanworks-section .section-title::before {
-                font-size: 9px;
-                letter-spacing: 2px;
+            .featured-fanwork-text {
+                padding: 30px 24px;
             }
 
             .artwork-grid {
@@ -1055,31 +940,30 @@
             }
 
             .artwork-card img {
-                height: 320px;
+                height: 360px;
             }
 
-            .featured-fanwork-text {
-                padding: 30px 24px;
+            .tiktok-edit-item {
+                grid-template-columns: 1fr;
             }
 
-            .section-divider::before,
-            .section-divider::after {
-                width: 18%;
+            .tiktok-edit-item a {
+                grid-column: 1;
+                grid-row: auto;
+                margin-top: 5px;
             }
 
             .theme-toggle {
-                margin-left: 0;
                 padding: 6px 9px;
                 font-size: 9px;
             }
-
         }
 
     </style>
-
 </head>
 
 <body>
+
 
     <!-- =====================================
          NAVIGATION
@@ -1094,39 +978,57 @@
         <ul class="nav-links">
 
             <li>
-                <a href="index.html#home">HOME</a>
+                <a href="index.html#home">
+                    HOME
+                </a>
             </li>
 
             <li>
-                <a href="index.html#timeline">TIMELINE</a>
+                <a href="index.html#timeline">
+                    TIMELINE
+                </a>
             </li>
 
             <li>
-                <a href="history.html#history">HISTORY</a>
+                <a href="history.html#history">
+                    HISTORY
+                </a>
             </li>
 
             <li>
-                <a href="canon.html#canon">CANON</a>
+                <a href="canon.html#canon">
+                    CANON
+                </a>
             </li>
 
             <li>
-                <a href="decks.html#decks">DECKS</a>
+                <a href="decks.html#decks">
+                    DECKS
+                </a>
             </li>
 
             <li>
-                <a href="fanworks.html#fanworks">FANWORKS</a>
+                <a href="fanworks.html#fanworks">
+                    FANWORKS
+                </a>
             </li>
 
             <li>
-                <a href="ships.html#ships">SHIPS</a>
+                <a href="ships.html#ships">
+                    SHIPS
+                </a>
             </li>
 
             <li>
-                <a href="community.html#community">COMMUNITY</a>
+                <a href="community.html#community">
+                    COMMUNITY
+                </a>
             </li>
 
             <li>
-                <a href="about.html#about">ABOUT</a>
+                <a href="about.html#about">
+                    ABOUT
+                </a>
             </li>
 
         </ul>
@@ -1143,6 +1045,7 @@
         </button>
 
     </nav>
+
 
     <div class="section-divider" aria-hidden="true">
         <span>◆</span>
@@ -1162,21 +1065,21 @@
         <p class="fanworks-intro">
             A selection of the stories, artworks, edits and discussions
             created by the Dark Bandit community. This section is curated
-            rather than exhaustive : there are many more works across the internet.
+            rather than exhaustive: there are many more works across the internet.
         </p>
 
 
-        <!-- FEATURED FANWORK -->
+        <!-- =====================================
+             FEATURED FANWORK
+        ====================================== -->
 
         <div class="featured-fanwork">
 
             <div class="featured-fanwork-image">
-
                 <img
                     src="images/fanwork-12.png"
                     alt="Featured Dark Bandit fanwork by Garou_FGC"
                 >
-
             </div>
 
             <div class="featured-fanwork-text">
@@ -1282,7 +1185,7 @@
             </div>
 
 
-            <section class="archive-note-strip section-note post-history-note">
+            <div class="archive-note-strip">
 
                 <div class="did-you-know">
 
@@ -1308,7 +1211,7 @@
 
                 </div>
 
-            </section>
+            </div>
 
 
             <h3>
@@ -1322,7 +1225,7 @@
             </p>
 
 
-            <div class="archive-note-strip section-note fanwork-note">
+            <div class="archive-note-strip">
 
                 <div class="did-you-know">
 
@@ -1340,10 +1243,14 @@
             </div>
 
 
+            <!-- =====================================
+                 ARTWORK GALLERY
+            ====================================== -->
+
             <div class="artwork-grid">
 
 
-                <!-- LET'S DRAW FOR FUN -->
+                <!-- FANART 11 -->
 
                 <div class="artwork-card">
 
@@ -1367,7 +1274,7 @@
                 </div>
 
 
-                <!-- GAROU_FGC -->
+                <!-- FANART 12 -->
 
                 <div class="artwork-card">
 
@@ -1391,7 +1298,7 @@
                 </div>
 
 
-                <!-- THE DARK PRINCE -->
+                <!-- FANART 13 -->
 
                 <div class="artwork-card">
 
@@ -1415,7 +1322,7 @@
                 </div>
 
 
-                <!-- DARK_DUSTY -->
+                <!-- FANART 14 -->
 
                 <div class="artwork-card">
 
@@ -1439,7 +1346,7 @@
                 </div>
 
 
-                <!-- GUI_ANIMADO -->
+                <!-- FANART 15 -->
 
                 <div class="artwork-card">
 
@@ -1463,7 +1370,7 @@
                 </div>
 
 
-                <!-- KUJIKAWAII -->
+                <!-- FANART 2025-3 -->
 
                 <div class="artwork-card">
 
@@ -1487,7 +1394,127 @@
                 </div>
 
 
-                <!-- ARCHIVE SLOT 07 -->
+                <!-- FANART 16 -->
+
+                <div class="artwork-card">
+
+                    <img
+                        src="images/fanwork-16.png"
+                        alt="Dark Bandit fanwork by DrewmanG"
+                    >
+
+                    <div class="history-caption">
+
+                        <strong>
+                            DrewmanG
+                        </strong>
+
+                        <span>
+                            Dark Bandit fanwork
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FANART 17 -->
+
+                <div class="artwork-card">
+
+                    <img
+                        src="images/fanwork-17.png"
+                        alt="Dark Bandit fanwork by And_Noir"
+                    >
+
+                    <div class="history-caption">
+
+                        <strong>
+                            And_Noir
+                        </strong>
+
+                        <span>
+                            Dark Bandit fanwork
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FANART 18 -->
+
+                <div class="artwork-card">
+
+                    <img
+                        src="images/fanwork-18.png"
+                        alt="Dark Bandit fanwork by Lollipopp_71"
+                    >
+
+                    <div class="history-caption">
+
+                        <strong>
+                            Lollipopp_71
+                        </strong>
+
+                        <span>
+                            Dark Bandit fanwork
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FANART 19 -->
+
+                <div class="artwork-card">
+
+                    <img
+                        src="images/fanwork-2025-5.png"
+                        alt="Dark Bandit fanwork by MenaTheRandom"
+                    >
+
+                    <div class="history-caption">
+
+                        <strong>
+                            MenaTheRandom
+                        </strong>
+
+                        <span>
+                            Dark Bandit fanwork
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FANART 20 -->
+
+                <div class="artwork-card">
+
+                    <img
+                        src="images/fanwork-20.png"
+                        alt="Dark Bandit fanwork by AlxArt"
+                    >
+
+                    <div class="history-caption">
+
+                        <strong>
+                            AlxArt
+                        </strong>
+
+                        <span>
+                            Dark Bandit fanwork
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FUTURE SLOT -->
 
                 <div class="artwork-card artwork-placeholder">
 
@@ -1498,7 +1525,7 @@
                     <div class="history-caption">
 
                         <strong>
-                            ARCHIVE SLOT 07
+                            ARCHIVE SLOT 21
                         </strong>
 
                         <span>
@@ -1510,7 +1537,7 @@
                 </div>
 
 
-                <!-- ARCHIVE SLOT 08 -->
+                <!-- FUTURE SLOT -->
 
                 <div class="artwork-card artwork-placeholder">
 
@@ -1521,7 +1548,7 @@
                     <div class="history-caption">
 
                         <strong>
-                            ARCHIVE SLOT 08
+                            ARCHIVE SLOT 22
                         </strong>
 
                         <span>
@@ -1532,106 +1559,13 @@
 
                 </div>
 
-
-                <!-- ARCHIVE SLOT 09 -->
-
-                <div class="artwork-card artwork-placeholder">
-
-                    <div class="placeholder-mark">
-                        ✦
-                    </div>
-
-                    <div class="history-caption">
-
-                        <strong>
-                            ARCHIVE SLOT 09
-                        </strong>
-
-                        <span>
-                            Fanwork to be added
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- ARCHIVE SLOT 10 -->
-
-                <div class="artwork-card artwork-placeholder">
-
-                    <div class="placeholder-mark">
-                        ✦
-                    </div>
-
-                    <div class="history-caption">
-
-                        <strong>
-                            ARCHIVE SLOT 10
-                        </strong>
-
-                        <span>
-                            Fanwork to be added
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- ARCHIVE SLOT 11 -->
-
-                <div class="artwork-card artwork-placeholder">
-
-                    <div class="placeholder-mark">
-                        ✦
-                    </div>
-
-                    <div class="history-caption">
-
-                        <strong>
-                            ARCHIVE SLOT 11
-                        </strong>
-
-                        <span>
-                            Fanwork to be added
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- ARCHIVE SLOT 12 -->
-
-                <div class="artwork-card artwork-placeholder">
-
-                    <div class="placeholder-mark">
-                        ✦
-                    </div>
-
-                    <div class="history-caption">
-
-                        <strong>
-                            ARCHIVE SLOT 12
-                        </strong>
-
-                        <span>
-                            Fanwork to be added
-                        </span>
-
-                    </div>
-
-                </div>
 
             </div>
 
 
             <p class="archive-note">
-
                 Plenty of other Dark Bandit artworks are available online,
                 but this archive cannot realistically compile every work ever created.
-
             </p>
 
         </div>
@@ -1657,35 +1591,81 @@
                 can feature selected creators and link visitors to the original posts.
             </p>
 
+
             <div class="external-grid">
 
+
                 <div class="external-card">
 
                     <h4>
-                        WAH WAH WAH
+                        FEATURED TIKTOK EDITS
                     </h4>
 
-                    <p>
-                        A Dark Prince fan edit by TheDarkPrince.
-                    </p>
+                    <div class="tiktok-edit-list">
 
-                    <div class="tiktok-edit-item">
 
-                        <strong>
-                            TheDarkPrince
-                        </strong>
+                        <div class="tiktok-edit-item">
 
-                        <span>
-                            Wah wah wah
-                        </span>
+                            <strong>
+                                Wah wah wah
+                            </strong>
 
-                        <a
-                            href="https://vt.tiktok.com/ZSqrNyQDp/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            VIEW ON TIKTOK →
-                        </a>
+                            <span>
+                                by TheDarkPrince
+                            </span>
+
+                            <a
+                                href="https://vt.tiktok.com/ZSqrNyQDp/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                WATCH ON TIKTOK →
+                            </a>
+
+                        </div>
+
+
+                        <div class="tiktok-edit-item">
+
+                            <strong>
+                                Dark Prince x Bandit Drawings
+                            </strong>
+
+                            <span>
+                                by Sneakerus
+                            </span>
+
+                            <a
+                                href="https://vt.tiktok.com/ZSqrNG41h/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                WATCH ON TIKTOK →
+                            </a>
+
+                        </div>
+
+
+                        <div class="tiktok-edit-item">
+
+                            <strong>
+                                Go away: Weezer
+                            </strong>
+
+                            <span>
+                                Edit by Lollipopp_71
+                            </span>
+
+                            <a
+                                href="https://vt.tiktok.com/ZSqrNoduF/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                WATCH ON TIKTOK →
+                            </a>
+
+                        </div>
+
 
                     </div>
 
@@ -1695,67 +1675,16 @@
                 <div class="external-card">
 
                     <h4>
-                        DARK PRINCE × BANDIT DRAWINGS
+                        FAN VIDEOS &amp; ANIMATIONS
                     </h4>
 
                     <p>
-                        A collection of Dark Bandit drawings by Sneakerus.
+                        Animations, fan trailers and other video creations can be
+                        documented here while keeping the original work on its source platform.
                     </p>
-
-                    <div class="tiktok-edit-item">
-
-                        <strong>
-                            Sneakerus
-                        </strong>
-
-                        <span>
-                            Dark Prince × Bandit Drawings
-                        </span>
-
-                        <a
-                            href="https://vt.tiktok.com/ZSqrNG41h/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            VIEW ON TIKTOK →
-                        </a>
-
-                    </div>
 
                 </div>
 
-
-                <div class="external-card">
-
-                    <h4>
-                        GO AWAY : WEEZER
-                    </h4>
-
-                    <p>
-                        A Dark Bandit fan edit by Lollipopp_71.
-                    </p>
-
-                    <div class="tiktok-edit-item">
-
-                        <strong>
-                            Lollipopp_71
-                        </strong>
-
-                        <span>
-                            Go away : Weezer
-                        </span>
-
-                        <a
-                            href="https://vt.tiktok.com/ZSqrNoduF/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            VIEW ON TIKTOK →
-                        </a>
-
-                    </div>
-
-                </div>
 
             </div>
 
@@ -1763,76 +1692,36 @@
 
 
         <!-- =====================================
-             FAN VIDEOS & ANIMATIONS
-        ====================================== -->
-
-        <div class="fanworks-entry">
-
-            <div class="fanworks-heading">
-                <span>FAN VIDEOS &amp; ANIMATIONS</span>
-            </div>
-
-            <h3>
-                MOVING ARTWORK
-            </h3>
-
-            <p>
-                Fan-made animations and video projects give the pairing another
-                form of expression. The archive can preserve references to these
-                works while directing visitors toward their original creators.
-            </p>
-
-        </div>
-
-
-        <!-- =====================================
-             MATURE CONTENT NOTE
+             MATURE CONTENT
         ====================================== -->
 
         <div class="mature-content-note">
 
             <span class="mini-label">
-                ARCHIVE NOTE
+                MATURE CONTENT
             </span>
 
             <p>
-                Some fanworks may contain mature themes or imagery.
-                Visitors should use their own discretion when following
-                external links.
+                NSFW fanworks surrounding Dark Bandit exist and remain a thriving
+                part of the wider fandom. They are not hosted, curated, or linked
+                through this archive.
             </p>
 
         </div>
 
 
         <!-- =====================================
-             BACK TO ARCHIVE
+             RETURN
         ====================================== -->
 
         <div class="back-to-archive">
 
             <a href="index.html#archive">
-                ← BACK TO THE ARCHIVE
+                ↑ RETURN TO THE ARCHIVE
             </a>
 
         </div>
 
-    </section>
-
-
-    <!-- =====================================
-         QUOTE
-    ====================================== -->
-
-    <section class="quote">
-
-        <p>
-            “In darkness, a prince. In the shadows, a thief.
-            Together, a legend.”
-        </p>
-
-        <div class="quote-heart">
-            🖤 💚
-        </div>
 
     </section>
 
@@ -1842,9 +1731,7 @@
     ====================================== -->
 
     <footer>
-
         Dark Bandit Archive · 2026
-
     </footer>
 
 
@@ -1854,17 +1741,16 @@
 
     <script>
 
-        (function() {
+        (function () {
 
             const toggle = document.getElementById("themeToggle");
-
-            if (!toggle) return;
-
             const body = document.body;
 
-            function update() {
 
-                const dark = body.classList.contains("dark-mode");
+            function updateThemeButton() {
+
+                const dark =
+                    body.classList.contains("dark-mode");
 
                 toggle.querySelector(".theme-icon").textContent =
                     dark ? "☾" : "☀";
@@ -1886,23 +1772,26 @@
 
             }
 
-            const saved =
+
+            const savedTheme =
                 localStorage.getItem("darkBanditTheme");
 
-            body.classList.remove(
-                "light-mode",
-                "dark-mode"
-            );
 
-            body.classList.add(
-                saved === "dark"
-                    ? "dark-mode"
-                    : "light-mode"
-            );
+            if (savedTheme === "dark") {
 
-            update();
+                body.classList.add("dark-mode");
 
-            toggle.addEventListener("click", function() {
+            } else {
+
+                body.classList.add("light-mode");
+
+            }
+
+
+            updateThemeButton();
+
+
+            toggle.addEventListener("click", function () {
 
                 const dark =
                     body.classList.toggle("dark-mode");
@@ -1917,13 +1806,14 @@
                     dark ? "dark" : "light"
                 );
 
-                update();
+                updateThemeButton();
 
             });
 
         })();
 
     </script>
+
 
 </body>
 </html>
