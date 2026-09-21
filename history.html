@@ -2735,6 +2735,18 @@
         font-size: 18px !important;
     }
 }
+
+
+/* SMART SCROLL HEADER */
+nav {
+    transition: transform 0.32s ease;
+    will-change: transform;
+}
+
+nav.header-hidden {
+    transform: translateY(-100%);
+}
+
 </style></head><body>
 
 <nav>
@@ -3203,4 +3215,45 @@
                 updateThemeButton();
             });
         })();
-    </script></body></html>
+    </script>
+
+<!-- SMART SCROLL HEADER SCRIPT -->
+<script>
+    (() => {
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+
+        function updateHeader() {
+            const nav = document.querySelector("nav");
+            if (!nav) return;
+
+            const currentScrollY = window.scrollY;
+            const scrollDifference = currentScrollY - lastScrollY;
+
+            // Always show the header at the very top.
+            if (currentScrollY <= 10) {
+                nav.classList.remove("header-hidden");
+            }
+            // Ignore tiny movements so the header does not flicker.
+            else if (Math.abs(scrollDifference) >= 8) {
+                if (scrollDifference > 0) {
+                    nav.classList.add("header-hidden");
+                } else {
+                    nav.classList.remove("header-hidden");
+                }
+                lastScrollY = currentScrollY;
+            }
+
+            ticking = false;
+        }
+
+        window.addEventListener("scroll", () => {
+            if (!ticking) {
+                window.requestAnimationFrame(updateHeader);
+                ticking = true;
+            }
+        }, { passive: true });
+    })();
+</script>
+
+</body></html>

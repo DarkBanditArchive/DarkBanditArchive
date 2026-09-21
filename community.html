@@ -2678,6 +2678,18 @@ body.light-mode .history-caption span, body.light-mode .community-card p, body.l
 body.light-mode .community-card a { color:#8c671f !important; }
 body.light-mode .back-to-archive a { color:#8c671f !important; }
 
+
+
+/* SMART SCROLL HEADER */
+nav {
+    transition: transform 0.32s ease;
+    will-change: transform;
+}
+
+nav.header-hidden {
+    transform: translateY(-100%);
+}
+
 </style>
 </head><style>
 .page-section{min-height:70vh;}
@@ -2795,4 +2807,45 @@ body.light-mode .back-to-archive a { color:#8c671f !important; }
 <p class="community-note">External links lead to independent community resources. The Archive does not control or represent these communities.</p>
 <div class="back-to-archive"><a href="index.html#archive">↑ RETURN TO THE ARCHIVE</a></div>
 </section><footer>Dark Bandit Archive · 2026</footer>
-<script>(function(){const toggle=document.getElementById("themeToggle");const body=document.body;function updateThemeButton(){const dark=body.classList.contains("dark-mode");toggle.querySelector(".theme-icon").textContent=dark?"☾":"☀";toggle.querySelector(".theme-label").textContent=dark?"DARK":"LIGHT";toggle.setAttribute("aria-pressed",dark?"true":"false");toggle.setAttribute("aria-label",dark?"Switch to light mode":"Switch to dark mode");}const savedTheme=localStorage.getItem("darkBanditTheme");if(savedTheme==="dark"){body.classList.add("dark-mode");}else{body.classList.add("light-mode");}updateThemeButton();toggle.addEventListener("click",function(){const dark=body.classList.toggle("dark-mode");body.classList.toggle("light-mode",!dark);localStorage.setItem("darkBanditTheme",dark?"dark":"light");updateThemeButton();});})();</script></body></html>
+<script>(function(){const toggle=document.getElementById("themeToggle");const body=document.body;function updateThemeButton(){const dark=body.classList.contains("dark-mode");toggle.querySelector(".theme-icon").textContent=dark?"☾":"☀";toggle.querySelector(".theme-label").textContent=dark?"DARK":"LIGHT";toggle.setAttribute("aria-pressed",dark?"true":"false");toggle.setAttribute("aria-label",dark?"Switch to light mode":"Switch to dark mode");}const savedTheme=localStorage.getItem("darkBanditTheme");if(savedTheme==="dark"){body.classList.add("dark-mode");}else{body.classList.add("light-mode");}updateThemeButton();toggle.addEventListener("click",function(){const dark=body.classList.toggle("dark-mode");body.classList.toggle("light-mode",!dark);localStorage.setItem("darkBanditTheme",dark?"dark":"light");updateThemeButton();});})();</script>
+
+<!-- SMART SCROLL HEADER SCRIPT -->
+<script>
+    (() => {
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+
+        function updateHeader() {
+            const nav = document.querySelector("nav");
+            if (!nav) return;
+
+            const currentScrollY = window.scrollY;
+            const scrollDifference = currentScrollY - lastScrollY;
+
+            // Always show the header at the very top.
+            if (currentScrollY <= 10) {
+                nav.classList.remove("header-hidden");
+            }
+            // Ignore tiny movements so the header does not flicker.
+            else if (Math.abs(scrollDifference) >= 8) {
+                if (scrollDifference > 0) {
+                    nav.classList.add("header-hidden");
+                } else {
+                    nav.classList.remove("header-hidden");
+                }
+                lastScrollY = currentScrollY;
+            }
+
+            ticking = false;
+        }
+
+        window.addEventListener("scroll", () => {
+            if (!ticking) {
+                window.requestAnimationFrame(updateHeader);
+                ticking = true;
+            }
+        }, { passive: true });
+    })();
+</script>
+
+</body></html>
