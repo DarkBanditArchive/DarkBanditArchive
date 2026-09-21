@@ -2670,10 +2670,245 @@
             }
         }
 
-    </style>
+    
+/* =========================================
+   SHARED SMART HEADER
+========================================= */
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10000;
+
+    background: rgba(5, 6, 10, 0.94);
+    border-bottom: 1px solid rgba(141, 107, 50, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    transform: translateY(0);
+    transition: transform .32s ease, background .25s ease;
+}
+
+.site-header.header-hidden {
+    transform: translateY(-100%);
+}
+
+.site-header-inner {
+    width: min(1400px, 100%);
+    min-height: 68px;
+    margin: 0 auto;
+    padding: 12px 4.5%;
+
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.site-logo {
+    flex: 0 0 auto;
+
+    color: #d9a441;
+    text-decoration: none;
+
+    font-size: 21px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    white-space: nowrap;
+}
+
+.site-logo span {
+    color: #63b85f;
+}
+
+.site-nav {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.site-nav .nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    gap: clamp(11px, 1.55vw, 25px);
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-nav .nav-links a {
+    color: #ddd5c9;
+    text-decoration: none;
+
+    font-size: clamp(10px, .78vw, 13px);
+    letter-spacing: 1px;
+    white-space: nowrap;
+
+    transition: color .25s ease;
+}
+
+.site-nav .nav-links a:hover {
+    color: #e3a54a;
+}
+
+.site-header .theme-toggle {
+    flex: 0 0 auto;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    margin: 0;
+    padding: 6px 9px;
+
+    border: 1px solid #8d6b32;
+    background: transparent;
+
+    color: #d9c38b;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 9px;
+    letter-spacing: 1.4px;
+
+    cursor: pointer;
+    transition: .25s;
+}
+
+.site-header .theme-toggle:hover {
+    background: rgba(196,154,74,.10);
+    color: #e3a54a;
+}
+
+.site-header .theme-icon {
+    font-size: 12px;
+    line-height: 1;
+}
+
+/* Give every page room for the fixed header */
+body {
+    padding-top: 68px;
+}
+
+body.light-mode .site-header {
+    background: rgba(248,245,238,.94);
+    border-bottom-color: #9b7839;
+}
+
+body.light-mode .site-logo {
+    color: #8a641f;
+}
+
+body.light-mode .site-logo span {
+    color: #3e7d3d;
+}
+
+body.light-mode .site-nav .nav-links a {
+    color: #514d46;
+}
+
+body.light-mode .site-nav .nav-links a:hover {
+    color: #9b6e24;
+}
+
+body.light-mode .site-header .theme-toggle {
+    color: #665a45;
+    background: rgba(255,255,255,.35);
+}
+
+@media (max-width: 1100px) {
+    .site-header-inner {
+        padding-left: 3%;
+        padding-right: 3%;
+        gap: 16px;
+    }
+
+    .site-logo {
+        font-size: 18px;
+        letter-spacing: 2px;
+    }
+
+    .site-nav .nav-links {
+        gap: 10px;
+    }
+
+    .site-nav .nav-links a {
+        font-size: 9px;
+        letter-spacing: .7px;
+    }
+}
+
+@media (max-width: 850px) {
+    .site-header {
+        overflow-x: auto;
+    }
+
+    .site-header-inner {
+        min-width: max-content;
+        justify-content: flex-start;
+        padding: 11px 18px;
+    }
+
+    .site-nav .nav-links {
+        gap: 13px;
+    }
+
+    .site-nav .nav-links a {
+        font-size: 10px;
+    }
+
+    body {
+        padding-top: 62px;
+    }
+}
+
+@media (max-width: 600px) {
+    .site-header-inner {
+        gap: 14px;
+    }
+
+    .site-logo {
+        font-size: 16px;
+    }
+
+    .site-header .theme-toggle {
+        padding: 5px 7px;
+        font-size: 8px;
+    }
+}
+
+</style>
 
 </head>
 <body>
+
+<header class="site-header" id="siteHeader">
+    <div class="site-header-inner">
+        <a class="site-logo" href="index.html#home" aria-label="Dark Bandit Archive home">
+            DARK<span>BANDIT</span>
+        </a>
+
+        <nav class="site-nav" aria-label="Main navigation">
+            <ul class="nav-links">
+                <li><a href="index.html#home">HOME</a></li>
+                <li><a href="index.html#timeline">TIMELINE</a></li>
+                <li><a href="history.html#history">HISTORY</a></li>
+                <li><a href="canon.html#canon">CANON</a></li>
+                <li><a href="decks.html#decks">DECKS</a></li>
+                <li><a href="fanworks.html#fanworks">FANWORKS</a></li>
+                <li><a href="ships.html#ships">SHIPS</a></li>
+                <li><a href="community.html#community">COMMUNITY</a></li>
+                <li><a href="about.html#about">ABOUT</a></li>
+            </ul>
+        </nav>
+
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+            <span class="theme-icon">☀</span><span class="theme-label">LIGHT</span>
+        </button>
+    </div>
+</header>
+
 <body>
 
 
@@ -2686,54 +2921,7 @@
             DARK<span>BANDIT</span>
         </div>
 
-        <ul class="nav-links">
-            <li>
-                            <a href="index.html#home">
-                                HOME
-                            </a>
-                        </li>
-            <li>
-                            <a href="index.html#timeline">
-                                TIMELINE
-                            </a>
-                        </li>
-            <li>
-                            <a href="history.html#history">
-                                HISTORY
-                            </a>
-                        </li>
-            <li>
-                            <a href="#canon">
-                                CANON
-                            </a>
-                        </li>
-            <li>
-                            <a href="decks.html#decks">
-                                DECKS
-                            </a>
-                        </li>
-            <li>
-                            <a href="fanworks.html#fanworks">
-                                FANWORKS
-                            </a>
-                        </li>
-            <li>
-                            <a href="ships.html#ships">
-                                SHIPS
-                            </a>
-                        </li>
-            <li>
-                            <a href="community.html#community">
-                                COMMUNITY
-                            </a>
-                        </li>
-            <li>
-                            <a href="about.html#about">
-                                ABOUT
-                            </a>
-                        </li>
-
-        </ul>
+        
             <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
             <span class="theme-icon">☀</span><span class="theme-label">LIGHT</span>
         </button>
@@ -3139,6 +3327,42 @@
         })();
     </script>
 
+
+
+/* =========================================
+   SHARED SMART HEADER
+========================================= */
+
+(function () {
+    const header = document.getElementById("siteHeader");
+
+    if (!header) return;
+
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function updateHeader() {
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY <= 12) {
+            header.classList.remove("header-hidden");
+        } else if (currentScrollY > lastScrollY + 4) {
+            header.classList.add("header-hidden");
+        } else if (currentScrollY < lastScrollY - 4) {
+            header.classList.remove("header-hidden");
+        }
+
+        lastScrollY = currentScrollY;
+        ticking = false;
+    }
+
+    window.addEventListener("scroll", function () {
+        if (!ticking) {
+            window.requestAnimationFrame(updateHeader);
+            ticking = true;
+        }
+    }, { passive: true });
+})();
 
 </body>
 </html>
