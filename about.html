@@ -2672,20 +2672,107 @@
 </head><style>
 .page-section{min-height:70vh;}
 .community-section,.about-section{min-height:70vh;}
-</style></head><body><div class="logo">DARK<span>BANDIT</span></div>
-<ul class="nav-links">
-<li><a href="index.html#home">HOME</a></li>
-<li><a href="index.html#timeline">TIMELINE</a></li>
-<li><a href="history.html#history">HISTORY</a></li>
-<li><a href="canon.html#canon">CANON</a></li>
-<li><a href="decks.html#decks">DECKS</a></li>
-<li><a href="fanworks.html#fanworks">FANWORKS</a></li>
-<li><a href="ships.html#ships">SHIPS</a></li>
-<li><a href="community.html#community">COMMUNITY</a></li>
-<li><a href="about.html#about">ABOUT</a></li>
-</ul>
-<button aria-label="Switch to dark mode" aria-pressed="false" class="theme-toggle" id="themeToggle" type="button"><span class="theme-icon">☀</span><span class="theme-label">LIGHT</span></button>
-<div aria-hidden="true" class="section-divider"><span>◆</span></div><section class="about-section page-section" id="about">
+
+
+/* SHARED MOBILE NAVIGATION */
+@media (max-width: 900px) {
+    nav {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        padding: 13px 12px 11px !important;
+        overflow: visible !important;
+    }
+
+    nav .logo {
+        display: block !important;
+        text-align: center !important;
+        font-size: 20px !important;
+        letter-spacing: 2.5px !important;
+        margin: 0 !important;
+    }
+
+    nav .nav-links {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 7px 13px !important;
+        list-style: none !important;
+        overflow: visible !important;
+    }
+
+    nav .nav-links li {
+        display: block !important;
+        flex: 0 0 auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    nav .nav-links a {
+        display: block !important;
+        white-space: nowrap !important;
+        font-size: 10px !important;
+        letter-spacing: .7px !important;
+        padding: 2px 0 !important;
+    }
+
+    nav .theme-toggle {
+        align-self: center !important;
+        margin: 0 !important;
+        padding: 5px 9px !important;
+        font-size: 9px !important;
+        gap: 5px !important;
+        white-space: nowrap !important;
+    }
+}
+
+@media (max-width: 420px) {
+    nav .nav-links {
+        gap: 6px 10px !important;
+    }
+    nav .nav-links a {
+        font-size: 9px !important;
+    }
+    nav .logo {
+        font-size: 18px !important;
+    }
+}
+</style></head><body>
+
+<nav>
+
+    <div class="logo">
+        DARK<span>BANDIT</span>
+    </div>
+
+    <ul class="nav-links">
+
+        <li><a href="index.html#home">HOME</a></li>
+        <li><a href="index.html#timeline">TIMELINE</a></li>
+        <li><a href="history.html#history">HISTORY</a></li>
+        <li><a href="canon.html#canon">CANON</a></li>
+        <li><a href="decks.html#decks">DECKS</a></li>
+        <li><a href="fanworks.html#fanworks">FANWORKS</a></li>
+        <li><a href="ships.html#ships">SHIPS</a></li>
+        <li><a href="community.html#community">COMMUNITY</a></li>
+        <li><a href="about.html#about">ABOUT</a></li>
+
+    </ul>
+
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+        <span class="theme-icon">☀</span>
+        <span class="theme-label">LIGHT</span>
+    </button>
+
+</nav>
+<section class="about-section page-section" id="about">
 <h2 class="section-title">ABOUT THE ARCHIVE</h2>
 <p class="about-intro">Dark Bandit Archive is an independent fan-made archive dedicated to documenting the history, official appearances, fanworks and community surrounding Dark Prince × Bandit. The archive also preserves selected fanworks and information about other ships involving the Dark Prince.</p>
 <div class="about-grid">

@@ -2844,6 +2844,78 @@ body.light-mode .nav-links .theme-toggle { color:#6f5b32; border-color:#a58b55; 
             .featured-home-text h3 { font-size:21px; }
         }
 
+
+
+/* SHARED MOBILE NAVIGATION */
+@media (max-width: 900px) {
+    nav {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        padding: 13px 12px 11px !important;
+        overflow: visible !important;
+    }
+
+    nav .logo {
+        display: block !important;
+        text-align: center !important;
+        font-size: 20px !important;
+        letter-spacing: 2.5px !important;
+        margin: 0 !important;
+    }
+
+    nav .nav-links {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 7px 13px !important;
+        list-style: none !important;
+        overflow: visible !important;
+    }
+
+    nav .nav-links li {
+        display: block !important;
+        flex: 0 0 auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    nav .nav-links a {
+        display: block !important;
+        white-space: nowrap !important;
+        font-size: 10px !important;
+        letter-spacing: .7px !important;
+        padding: 2px 0 !important;
+    }
+
+    nav .theme-toggle {
+        align-self: center !important;
+        margin: 0 !important;
+        padding: 5px 9px !important;
+        font-size: 9px !important;
+        gap: 5px !important;
+        white-space: nowrap !important;
+    }
+}
+
+@media (max-width: 420px) {
+    nav .nav-links {
+        gap: 6px 10px !important;
+    }
+    nav .nav-links a {
+        font-size: 9px !important;
+    }
+    nav .logo {
+        font-size: 18px !important;
+    }
+}
 </style></head><body>
 
 <nav>
@@ -2854,8 +2926,8 @@ body.light-mode .nav-links .theme-toggle { color:#6f5b32; border-color:#a58b55; 
 
     <ul class="nav-links">
 
-        <li><a href="#home">HOME</a></li>
-        <li><a href="#timeline">TIMELINE</a></li>
+        <li><a href="index.html#home">HOME</a></li>
+        <li><a href="index.html#timeline">TIMELINE</a></li>
         <li><a href="history.html#history">HISTORY</a></li>
         <li><a href="canon.html#canon">CANON</a></li>
         <li><a href="decks.html#decks">DECKS</a></li>
@@ -2872,7 +2944,6 @@ body.light-mode .nav-links .theme-toggle { color:#6f5b32; border-color:#a58b55; 
     </button>
 
 </nav>
-
 <section class="hero" id="home">
 <div class="hero-content">
 <!-- HOMEPAGE BANNER -->
