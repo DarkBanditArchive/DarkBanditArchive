@@ -1,1120 +1,1255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Dark Bandit Archive · Fanworks</title>
-
-    <link rel="icon" type="image/png" href="images/favicon.png">
-
-    <style>
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: #08090d;
-            color: #eee8df;
-            font-family: Georgia, "Times New Roman", serif;
-            line-height: 1.6;
-        }
-
-
-        /* =========================================
-           NAVIGATION
-        ========================================= */
-
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            padding: 18px 6%;
-
-            background: rgba(5, 6, 10, 0.97);
-            border-bottom: 1px solid #8d6b32;
-        }
-
-        .logo {
-            color: #d9a441;
-            font-size: 23px;
-            font-weight: bold;
-            letter-spacing: 3px;
-            white-space: nowrap;
-        }
-
-        .logo span {
-            color: #63b85f;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-            list-style: none;
-            margin-left: auto;
-            justify-content: flex-end;
-        }
-
-        .nav-links a {
-            color: #ddd5c9;
-            text-decoration: none;
-            font-size: 14px;
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #e3a54a;
-        }
-
-
-        /* =========================================
-           THEME TOGGLE
-        ========================================= */
-
-        .theme-toggle {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            margin-left: 28px;
-            padding: 7px 11px;
-
-            border: 1px solid #8d6b32;
-            background: transparent;
-
-            color: #d9c38b;
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 10px;
-            letter-spacing: 1.5px;
-
-            cursor: pointer;
-            transition: .25s;
-        }
-
-        .theme-toggle:hover {
-            background: rgba(196,154,74,.10);
-            color: #e3a54a;
-        }
-
-        .theme-icon {
-            font-size: 13px;
-            line-height: 1;
-        }
-
-
-        /* =========================================
-           SECTION DIVIDER
-        ========================================= */
-
-        .section-divider {
-            height: 42px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background: #0d0f15;
-            color: #d4a653;
-
-            border-bottom: 1px solid #252731;
-        }
-
-        .section-divider span {
-            font-size: 12px;
-            opacity: .75;
-        }
-
-
-        /* =========================================
-           MAIN SECTION
-        ========================================= */
-
-        .fanworks-section {
-            padding: 95px 7% 100px;
-
-            background:
-                radial-gradient(
-                    circle at 15% 20%,
-                    rgba(40,120,60,.07),
-                    transparent 35%
-                ),
-                radial-gradient(
-                    circle at 85% 80%,
-                    rgba(196,154,74,.05),
-                    transparent 35%
-                ),
-                #08090d;
-
-            border-bottom: 1px solid #252731;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 55px;
-
-            font-size: 35px;
-            letter-spacing: 4px;
-
-            color: #d8ad5a;
-        }
-
-        .fanworks-intro {
-            max-width: 760px;
-            margin: -25px auto 65px;
-
-            text-align: center;
-
-            color: #99958e;
-            font-size: 16px;
-            line-height: 1.8;
-        }
-
-
-        /* =========================================
-           FEATURED FANWORK
-        ========================================= */
-
-        .featured-fanwork {
-            max-width: 1100px;
-            margin: 0 auto 90px;
-
-            display: grid;
-            grid-template-columns: 1.15fr 1fr;
-
-            border: 1px solid #3b3834;
-            background: #101218;
-
-            box-shadow: 0 12px 35px rgba(0,0,0,.18);
-        }
-
-        .featured-fanwork-image {
-            min-height: 380px;
-            background: #08090d;
-        }
-
-        .featured-fanwork-image img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            min-height: 380px;
-
-            object-fit: contain;
-        }
-
-        .featured-fanwork-text {
-            padding: 50px 42px;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .mini-label {
-            display: block;
-            margin-bottom: 10px;
-
-            color: #d4a653;
-
-            font-size: 10px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        .featured-fanwork-text h3 {
-            color: #e7d2a0;
-
-            font-size: 25px;
-            letter-spacing: 2px;
-
-            margin-bottom: 14px;
-        }
-
-        .featured-fanwork-text p {
-            color: #99958e;
-
-            font-size: 14px;
-            line-height: 1.8;
-
-            margin-bottom: 20px;
-        }
-
-        .featured-credit {
-            color: #77736d;
-
-            font-size: 11px;
-            letter-spacing: 1.2px;
-        }
-
-
-        /* =========================================
-           CONTENT ENTRIES
-        ========================================= */
-
-        .fanworks-entry {
-            max-width: 1100px;
-            margin: 0 auto 90px;
-        }
-
-        .fanworks-heading {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-
-            margin-bottom: 28px;
-        }
-
-        .fanworks-heading::before {
-            content: "";
-            width: 35px;
-            height: 1px;
-
-            background: #a77a2d;
-        }
-
-        .fanworks-heading span {
-            color: #806020;
-
-            font-size: 11px;
-            letter-spacing: 3px;
-            font-weight: bold;
-        }
-
-        .fanworks-entry > h3 {
-            margin-bottom: 15px;
-
-            color: #e1c27a;
-
-            font-size: 25px;
-            letter-spacing: 2px;
-        }
-
-        .fanworks-entry > p {
-            max-width: 850px;
-
-            color: #99958e;
-
-            font-size: 15px;
-            line-height: 1.8;
-        }
-
-
-        /* =========================================
-           FANFICTION
-        ========================================= */
-
-        .fanfic-grid {
-            margin-top: 32px;
-
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .fanfic-card {
-            padding: 28px 24px;
-
-            border: 1px solid #343238;
-            background: #101218;
-        }
-
-        .fanfic-card h4 {
-            margin-bottom: 12px;
-
-            color: #d8ad5a;
-
-            font-size: 14px;
-            letter-spacing: 1.5px;
-        }
-
-        .fanfic-card p {
-            color: #99958e;
-
-            font-size: 13px;
-            line-height: 1.7;
-        }
-
-
-        /* =========================================
-           DID YOU KNOW
-        ========================================= */
-
-        .archive-note-strip {
-            margin: 35px 0 45px;
-        }
-
-        .did-you-know {
-            padding: 20px 23px;
-
-            border-left: 2px solid #a77a2d;
-
-            background: rgba(196,154,74,.055);
-        }
-
-        .did-you-know p {
-            color: #99958e;
-
-            font-size: 14px;
-            line-height: 1.7;
-        }
-
-        .did-you-know small {
-            display: block;
-            margin-top: 8px;
-
-            color: #77736d;
-
-            font-size: 11px;
-        }
-
-        .did-you-know a {
-            color: inherit;
-        }
-
-
-        /* =========================================
-           ARTWORK GALLERY
-        ========================================= */
-
-        .artwork-grid {
-            margin-top: 38px;
-
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 22px;
-        }
-
-        .artwork-card {
-            overflow: hidden;
-
-            border: 1px solid #373541;
-            background: #101218;
-
-            transition:
-                transform .3s,
-                border-color .3s;
-        }
-
-        .artwork-card:hover {
-            transform: translateY(-5px);
-            border-color: #a87d37;
-        }
-
-        .artwork-card img {
-            display: block;
-
-            width: 100%;
-            height: 330px;
-
-            object-fit: contain;
-
-            background: #08090d;
-        }
-
-        .history-caption {
-            padding: 15px 17px;
-
-            border-top: 1px solid #302e36;
-        }
-
-        .history-caption strong {
-            display: block;
-
-            color: #e1c27a;
-
-            font-size: 13px;
-            letter-spacing: 1px;
-        }
-
-        .history-caption span {
-            display: block;
-            margin-top: 4px;
-
-            color: #77736d;
-
-            font-size: 11px;
-            letter-spacing: .8px;
-        }
-
-        .archive-note {
-            margin-top: 30px;
-
-            color: #77736d !important;
-
-            font-size: 12px !important;
-            font-style: italic;
-        }
-
-
-        /* =========================================
-           PLACEHOLDERS
-        ========================================= */
-
-        .artwork-placeholder {
-            min-height: 330px;
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-
-            text-align: center;
-
-            background: rgba(255,255,255,.02);
-
-            border: 1px dashed rgba(212,166,83,.35);
-        }
-
-        .artwork-placeholder:hover {
-            transform: none;
-            border-color: rgba(212,166,83,.55);
-        }
-
-        .placeholder-mark {
-            font-size: 28px;
-
-            color: #d4a653;
-
-            opacity: .55;
-
-            margin-bottom: 18px;
-        }
-
-
-        /* =========================================
-           VIDEO & EXTERNAL LINKS
-        ========================================= */
-
-        .external-grid {
-            margin-top: 35px;
-
-            display: grid;
-            grid-template-columns: 1.4fr 1fr;
-
-            gap: 22px;
-        }
-
-        .external-card {
-            padding: 28px 25px;
-
-            border: 1px solid #373541;
-            background: #101218;
-        }
-
-        .external-card h4 {
-            margin-bottom: 20px;
-
-            color: #d8ad5a;
-
-            font-size: 13px;
-            letter-spacing: 2px;
-        }
-
-        .external-card > p {
-            color: #99958e;
-
-            font-size: 14px;
-            line-height: 1.8;
-        }
-
-        .tiktok-edit-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .tiktok-edit-item {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 4px 15px;
-
-            padding: 16px;
-
-            border: 1px solid #302e36;
-            background: rgba(255,255,255,.018);
-        }
-
-        .tiktok-edit-item strong {
-            color: #d8ad5a;
-
-            font-size: 13px;
-        }
-
-        .tiktok-edit-item span {
-            color: #77736d;
-
-            font-size: 11px;
-        }
-
-        .tiktok-edit-item a {
-            grid-column: 2;
-            grid-row: 1 / span 2;
-
-            align-self: center;
-
-            color: #aaa59d;
-
-            text-decoration: none;
-
-            font-size: 10px;
-            letter-spacing: 1px;
-        }
-
-        .tiktok-edit-item a:hover {
-            color: #d8ad5a;
-        }
-
-
-        /* =========================================
-           MATURE CONTENT NOTE
-        ========================================= */
-
-        .mature-content-note {
-            max-width: 900px;
-
-            margin: 20px auto 70px;
-
-            padding: 22px 26px;
-
-            border: 1px solid rgba(168,125,55,.28);
-            border-left: 2px solid #8d6b32;
-
-            background: rgba(255,255,255,.018);
-        }
-
-        .mature-content-note p {
-            margin: 0;
-
-            color: #99958e;
-
-            font-size: 14px;
-            line-height: 1.7;
-        }
-
-
-        /* =========================================
-           RETURN LINK
-        ========================================= */
-
-        .back-to-archive {
-            text-align: center;
-        }
-
-        .back-to-archive a {
-            color: #d5a64f;
-
-            text-decoration: none;
-
-            font-size: 12px;
-            letter-spacing: 1.5px;
-        }
-
-        .back-to-archive a:hover {
-            color: #e3a54a;
-        }
-
-
-        /* =========================================
-           FOOTER
-        ========================================= */
-
-        footer {
-            padding: 30px 20px;
-
-            text-align: center;
-
-            border-top: 1px solid #252731;
-
-            color: #77736d;
-
-            background: #0d0f15;
-
-            font-size: 12px;
-            letter-spacing: 1px;
-        }
-
-
-        /* =========================================
-           LIGHT MODE
-        ========================================= */
-
-        body.light-mode {
-            background: #f2eee6;
-            color: #282723;
-        }
-
-        body.light-mode nav {
-            background: rgba(248,245,238,.97);
-            border-bottom-color: #9b7839;
-        }
-
-        body.light-mode .logo {
-            color: #8a641f;
-        }
-
-        body.light-mode .logo span {
-            color: #3e7d3d;
-        }
-
-        body.light-mode .nav-links a {
-            color: #514d46;
-        }
-
-        body.light-mode .nav-links a:hover {
-            color: #9b6e24;
-        }
-
-        body.light-mode .theme-toggle {
-            color: #665a45;
-            background: rgba(255,255,255,.35);
-        }
-
-        body.light-mode .section-divider {
-            background: #ebe6dc;
-            border-color: #d0c8bb;
-        }
-
-        body.light-mode .fanworks-section {
-            background:
-                radial-gradient(
-                    circle at 15% 20%,
-                    rgba(169,52,64,.06),
-                    transparent 35%
-                ),
-                radial-gradient(
-                    circle at 85% 80%,
-                    rgba(55,125,62,.06),
-                    transparent 35%
-                ),
-                #f2eee6;
-
-            border-color: #d3cbbf;
-        }
-
-        body.light-mode .section-title {
-            color: #8c671f;
-        }
-
-        body.light-mode .fanworks-intro {
-            color: #625e57;
-        }
-
-        body.light-mode .fanworks-heading::before {
-            background: #a77a2d;
-        }
-
-        body.light-mode .fanworks-heading span {
-            color: #806020;
-        }
-
-        body.light-mode .fanworks-entry > h3 {
-            color: #403c36;
-        }
-
-        body.light-mode .fanworks-entry > p {
-            color: #625e57;
-        }
-
-        body.light-mode .featured-fanwork {
-            border-color: #cbc3b7;
-            background: #faf7f0;
-        }
-
-        body.light-mode .featured-fanwork-image {
-            background: #f1ede5;
-        }
-
-        body.light-mode .featured-fanwork-text h3 {
-            color: #403c36;
-        }
-
-        body.light-mode .featured-fanwork-text p {
-            color: #625e57;
-        }
-
-        body.light-mode .featured-credit {
-            color: #777168;
-        }
-
-        body.light-mode .mini-label {
-            color: #8a6a2e;
-        }
-
-        body.light-mode .did-you-know {
-            border-left-color: #a77a2d;
-            background: rgba(196,154,74,.07);
-        }
-
-        body.light-mode .did-you-know p {
-            color: #625e57;
-        }
-
-        body.light-mode .did-you-know small {
-            color: #777168;
-        }
-
-        body.light-mode .fanfic-card,
-        body.light-mode .artwork-card,
-        body.light-mode .external-card {
-            border-color: #cbc3b7;
-            background: #faf7f0;
-        }
-
-        body.light-mode .fanfic-card h4,
-        body.light-mode .external-card h4 {
-            color: #76591f;
-        }
-
-        body.light-mode .fanfic-card p,
-        body.light-mode .external-card > p {
-            color: #625e57;
-        }
-
-        body.light-mode .history-caption {
-            border-top-color: #ddd5c9;
-        }
-
-        body.light-mode .history-caption strong {
-            color: #76591f;
-        }
-
-        body.light-mode .history-caption span {
-            color: #777168;
-        }
-
-        body.light-mode .artwork-card img {
-            background: #f3efe7;
-        }
-
-        body.light-mode .artwork-placeholder {
-            background: rgba(255,255,255,.42);
-            border-color: rgba(177,132,57,.38);
-        }
-
-        body.light-mode .placeholder-mark {
-            color: #b18439;
-        }
-
-        body.light-mode .archive-note {
-            color: #777168 !important;
-        }
-
-        body.light-mode .tiktok-edit-item {
-            border-color: #d6cec2;
-            background: rgba(60,50,40,.035);
-        }
-
-        body.light-mode .tiktok-edit-item strong {
-            color: #806020;
-        }
-
-        body.light-mode .tiktok-edit-item span,
-        body.light-mode .tiktok-edit-item a {
-            color: #666159;
-        }
-
-        body.light-mode .tiktok-edit-item a:hover {
-            color: #806020;
-        }
-
-        body.light-mode .mature-content-note {
-            border-color: rgba(120,90,45,.22);
-            background: rgba(70,55,35,.025);
-        }
-
-        body.light-mode .mature-content-note p {
-            color: #6b665e;
-        }
-
-        body.light-mode .back-to-archive a {
-            color: #8c671f;
-        }
-
-        body.light-mode footer {
-            border-top-color: #d3cbbf;
-            color: #777168;
-            background: #eee9e0;
-        }
-
-
-        /* =========================================
-           RESPONSIVE
-        ========================================= */
-
-        @media (max-width: 1100px) {
-
-            nav {
-                padding: 16px 4%;
-            }
-
-            .nav-links {
-                gap: 17px;
-            }
-
-            .nav-links a {
-                font-size: 12px;
-            }
-
-            .theme-toggle {
-                margin-left: 15px;
-            }
-        }
-
-
-        @media (max-width: 900px) {
-
-            nav {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 12px;
-            }
-
-            .logo {
-                width: 100%;
-                text-align: center;
-            }
-
-            .nav-links {
-                width: 100%;
-                justify-content: center;
-                flex-wrap: wrap;
-                margin-left: 0;
-                gap: 13px 18px;
-            }
-
-            .theme-toggle {
-                margin-left: 0;
-            }
-
-            .featured-fanwork {
-                grid-template-columns: 1fr;
-            }
-
-            .featured-fanwork-image,
-            .featured-fanwork-image img {
-                min-height: 300px;
-            }
-
-            .fanfic-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .artwork-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .external-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-
-        @media (max-width: 600px) {
-
-            .fanworks-section {
-                padding: 75px 20px 80px;
-            }
-
-            .section-title {
-                font-size: 29px;
-                letter-spacing: 3px;
-            }
-
-            .featured-fanwork-text {
-                padding: 30px 24px;
-            }
-
-            .artwork-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .artwork-card img {
-                height: 360px;
-            }
-
-            .tiktok-edit-item {
-                grid-template-columns: 1fr;
-            }
-
-            .tiktok-edit-item a {
-                grid-column: 1;
-                grid-row: auto;
-                margin-top: 5px;
-            }
-
-            .theme-toggle {
-                padding: 6px 9px;
-                font-size: 9px;
-            }
-        }
-
-    
-
-/* SHARED MOBILE NAVIGATION */
-@media (max-width: 900px) {
-    nav {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: stretch !important;
-        justify-content: center !important;
-        gap: 10px !important;
-        padding: 13px 12px 11px !important;
-        overflow: visible !important;
-    }
-
-    nav .logo {
-        display: block !important;
-        text-align: center !important;
-        font-size: 20px !important;
-        letter-spacing: 2.5px !important;
-        margin: 0 !important;
-    }
-
-    nav .nav-links {
-        display: flex !important;
-        flex-wrap: wrap !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        justify-content: center !important;
-        align-items: center !important;
-        gap: 7px 13px !important;
-        list-style: none !important;
-        overflow: visible !important;
-    }
-
-    nav .nav-links li {
-        display: block !important;
-        flex: 0 0 auto !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    nav .nav-links a {
-        display: block !important;
-        white-space: nowrap !important;
-        font-size: 10px !important;
-        letter-spacing: .7px !important;
-        padding: 2px 0 !important;
-    }
-
-    nav .theme-toggle {
-        align-self: center !important;
-        margin: 0 !important;
-        padding: 5px 9px !important;
-        font-size: 9px !important;
-        gap: 5px !important;
-        white-space: nowrap !important;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fanworks · Dark Bandit Archive</title>
+<link rel="icon" type="image/png" href="images/favicon.png">
+
+<style>
+
+/* =========================================================
+   GENERAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-@media (max-width: 420px) {
-    nav .nav-links {
-        gap: 6px 10px !important;
-    }
-    nav .nav-links a {
-        font-size: 9px !important;
-    }
-    nav .logo {
-        font-size: 18px !important;
-    }
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #08090d;
+    color: #eee8df;
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
 }
 
 
-/* SMART SCROLL HEADER */
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
 nav {
-    transition: transform 0.32s ease;
-    will-change: transform;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 18px 6%;
+
+    background: rgba(5, 6, 10, 0.97);
+    border-bottom: 1px solid #8d6b32;
+
+    transition: transform 0.3s ease;
 }
 
 nav.header-hidden {
     transform: translateY(-100%);
 }
 
+.logo {
+    color: #d9a441;
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
 
-        .decks-section .section-title::before {
-            content: "CHAPTER IV  ·  THE BATTLEFIELD";
-        }
+.logo span {
+    color: #63b85f;
+}
 
-        .about-section .section-title::before {
-            content: "CHAPTER VIII  ·  THE ARCHIVE";
-        }
+.nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    margin-left: auto;
+    justify-content: flex-end;
+}
+
+.nav-links a {
+    color: #ddd5c9;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #e3a54a;
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    margin-left: 25px;
+
+    padding: 7px 11px;
+
+    background: transparent;
+    color: #ddd5c9;
+
+    border: 1px solid #6e572d;
+    border-radius: 3px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.theme-toggle:hover {
+    color: #e3a54a;
+    border-color: #a47a35;
+}
+
+.theme-icon {
+    font-size: 12px;
+}
 
 
+/* =========================================================
+   MAIN PAGE
+========================================================= */
 
-        /* FINAL ARCHIVE CHAPTER LABELS */
-        .timeline-section .section-title::before {
-            content: "CHAPTER I  ·  THE CHRONICLE";
-        }
-        .history-section .section-title::before {
-            content: "CHAPTER II  ·  THE STORY";
-        }
-        .canon-section .section-title::before {
-            content: "CHAPTER III  ·  THE EVIDENCE";
-        }
-        .decks-section .section-title::before {
-            content: "CHAPTER IV  ·  THE BATTLEFIELD";
-        }
-        .fanworks-section .section-title::before {
-            content: "CHAPTER V  ·  THE FANDOM";
-        }
-        .ships-section .section-title::before {
-            content: "CHAPTER VI  ·  OTHER STORIES";
-        }
-        .community-section .section-title::before {
-            content: "CHAPTER VII  ·  THE COMMUNITY";
-        }
-        .about-section .section-title::before {
-            content: "CHAPTER VIII  ·  THE ARCHIVE";
-        }
+.fanworks-page {
+    min-height: 100vh;
+}
 
-        .timeline-section .section-title::before,
-        .history-section .section-title::before,
-        .canon-section .section-title::before,
-        .decks-section .section-title::before,
-        .fanworks-section .section-title::before,
-        .ships-section .section-title::before,
-        .community-section .section-title::before,
-        .about-section .section-title::before {
-            display: block;
-            margin-bottom: 11px;
-            color: #77736d;
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 10px;
-            font-weight: normal;
-            letter-spacing: 3px;
-        }
 
-        @media (max-width: 600px) {
-            .timeline-section .section-title::before,
-            .history-section .section-title::before,
-            .canon-section .section-title::before,
-            .decks-section .section-title::before,
-            .fanworks-section .section-title::before,
-            .ships-section .section-title::before,
-            .community-section .section-title::before,
-            .about-section .section-title::before {
-                font-size: 9px;
-                letter-spacing: 2px;
-            }
-        }
+/* =========================================================
+   FANWORKS HERO
+========================================================= */
+
+.fanworks-hero {
+    padding: 115px 20px 90px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 20% 50%,
+            rgba(145, 25, 40, 0.24),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(40, 115, 55, 0.20),
+            transparent 38%
+        ),
+        #090a0f;
+}
+
+.fanworks-hero .chapter-label {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    color: #c9a75b;
+
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.fanworks-hero h1 {
+    color: #eee8df;
+
+    font-size: clamp(36px, 6vw, 68px);
+
+    letter-spacing: 6px;
+
+    margin-bottom: 22px;
+}
+
+.fanworks-hero h1 span {
+    color: #63b85f;
+}
+
+.fanworks-hero p {
+    max-width: 760px;
+    margin: 0 auto;
+
+    color: #aaa59d;
+
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   SECTION TITLES
+========================================================= */
+
+.section-title {
+    position: relative;
+
+    margin-bottom: 25px;
+
+    color: #d9a441;
+
+    font-size: 28px;
+    letter-spacing: 4px;
+
+    text-align: center;
+}
+
+.section-title::before {
+    content: "CHAPTER V";
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #6f8f68;
+
+    font-size: 10px;
+    letter-spacing: 4px;
+}
+
+
+/* =========================================================
+   FANWORKS SECTIONS
+========================================================= */
+
+.fanworks-section {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 100px 35px;
+}
+
+.fanworks-entry {
+    margin-top: 75px;
+}
+
+.fanworks-heading {
+    margin-bottom: 18px;
+
+    color: #c9a75b;
+
+    font-size: 10px;
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+.fanworks-entry h3 {
+    margin-bottom: 18px;
+
+    color: #e3d4b7;
+
+    font-size: 27px;
+    letter-spacing: 2px;
+}
+
+.fanworks-entry > p {
+    max-width: 850px;
+
+    margin-bottom: 30px;
+
+    color: #aaa59d;
+
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   FEATURED FANWORK
+========================================================= */
+
+.featured-fanwork {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+
+    gap: 50px;
+
+    align-items: center;
+
+    padding: 35px;
+
+    background: rgba(255,255,255,0.025);
+
+    border: 1px solid #3c3427;
+}
+
+.featured-fanwork-image img {
+    display: block;
+
+    width: 100%;
+
+    max-height: 650px;
+
+    object-fit: contain;
+
+    background: #050609;
+}
+
+.featured-fanwork-text {
+    padding: 10px 10px 10px 0;
+}
+
+.featured-label {
+    display: inline-block;
+
+    margin-bottom: 14px;
+
+    color: #63b85f;
+
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.featured-fanwork-text h3 {
+    margin-bottom: 15px;
+
+    color: #d9a441;
+
+    font-size: 30px;
+    letter-spacing: 3px;
+}
+
+.featured-fanwork-text p {
+    color: #aaa59d;
+
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.featured-credit {
+    display: block;
+
+    margin-top: 20px;
+
+    color: #817a70;
+
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   FANFICTION
+========================================================= */
+
+.fanfiction-box {
+    padding: 35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(145, 25, 40, 0.10),
+            rgba(40, 115, 55, 0.07)
+        );
+
+    border: 1px solid #3c3427;
+}
+
+.fanfiction-box h4 {
+    margin-bottom: 15px;
+
+    color: #d9a441;
+
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.fanfiction-box p {
+    color: #aaa59d;
+
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   ARTWORK GALLERY
+========================================================= */
+
+.artwork-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.artwork-card {
+    overflow: hidden;
+
+    background: #0d0f14;
+
+    border: 1px solid #393329;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.artwork-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #80652f;
+}
+
+.artwork-card img {
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+}
+
+.history-caption {
+    padding: 15px 17px 17px;
+}
+
+.history-caption strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #dfc47f;
+
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.history-caption span {
+    display: block;
+
+    color: #77736d;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   ARCHIVE NOTE
+========================================================= */
+
+.archive-note {
+    max-width: 800px;
+
+    margin: 35px auto 0;
+
+    color: #77736d;
+
+    font-size: 12px;
+    font-style: italic;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   VIDEO & EXTERNAL CONTENT
+========================================================= */
+
+.external-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.external-card {
+    padding: 30px;
+
+    background: rgba(255,255,255,0.025);
+
+    border: 1px solid #393329;
+}
+
+.external-card h4 {
+    margin-bottom: 15px;
+
+    color: #d9a441;
+
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.external-card p {
+    color: #99958e;
+
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.tiktok-edit-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+.tiktok-edit-item {
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid #302c26;
+}
+
+.tiktok-edit-item:last-child {
+    padding-bottom: 0;
+
+    border-bottom: 0;
+}
+
+.tiktok-edit-item strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #dfc47f;
+
+    font-size: 14px;
+}
+
+.tiktok-edit-item span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #77736d;
+
+    font-size: 11px;
+}
+
+.tiktok-edit-item a {
+    color: #63b85f;
+
+    font-size: 10px;
+    letter-spacing: 1px;
+
+    text-decoration: none;
+}
+
+.tiktok-edit-item a:hover {
+    color: #8bd487;
+}
+
+
+/* =========================================================
+   MATURE CONTENT
+========================================================= */
+
+.mature-content-note {
+    margin-top: 60px;
+
+    padding: 25px 30px;
+
+    background: rgba(145, 25, 40, 0.08);
+
+    border: 1px solid #4a2d32;
+}
+
+.mature-content-note .mini-label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #c96d77;
+
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.mature-content-note p {
+    color: #8f8881;
+
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   BACK TO ARCHIVE
+========================================================= */
+
+.back-to-archive {
+    margin-top: 70px;
+
+    text-align: center;
+}
+
+.back-to-archive a {
+    color: #d9a441;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    text-decoration: none;
+}
+
+.back-to-archive a:hover {
+    color: #f0c66d;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.section-divider {
+    max-width: 1100px;
+
+    height: 1px;
+
+    margin: 0 auto;
+
+    background: #332e27;
+
+    position: relative;
+
+    text-align: center;
+}
+
+.section-divider span {
+    position: relative;
+
+    top: -12px;
+
+    padding: 0 15px;
+
+    background: #08090d;
+
+    color: #c9a75b;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   COMMUNITY
+========================================================= */
+
+.community-section {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 100px 35px;
+}
+
+.community-intro {
+    max-width: 800px;
+
+    margin: 0 auto 45px;
+
+    color: #99958e;
+
+    font-size: 15px;
+
+    text-align: center;
+}
+
+.community-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.community-card {
+    padding: 30px;
+
+    background: rgba(255,255,255,0.025);
+
+    border: 1px solid #393329;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.community-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #648d9b;
+}
+
+.community-type {
+    display: inline-block;
+
+    margin-bottom: 14px;
+
+    padding: 5px 9px;
+
+    border: 1px solid #496b76;
+
+    color: #83a9b3;
+
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.community-card h3 {
+    margin-bottom: 10px;
+
+    color: #dfc47f;
+
+    font-size: 19px;
+    letter-spacing: 1px;
+}
+
+.community-card p {
+    color: #99958e;
+
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.community-card a {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    color: #d5a64f;
+
+    font-size: 12px;
+    letter-spacing: 1.5px;
+
+    text-decoration: none;
+}
+
+.community-card a:hover {
+    color: #e5c57b;
+}
+
+.community-note {
+    max-width: 760px;
+
+    margin: 35px auto 0;
+
+    color: #77736d;
+
+    font-size: 12px;
+    font-style: italic;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-section {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 100px 35px;
+}
+
+.about-intro {
+    max-width: 850px;
+
+    margin: 0 auto 45px;
+
+    color: #99958e;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    text-align: center;
+}
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.about-card {
+    padding: 30px;
+
+    background: rgba(255,255,255,0.025);
+
+    border: 1px solid #393329;
+}
+
+.about-card h3 {
+    margin-bottom: 12px;
+
+    color: #dfc47f;
+
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.about-card p {
+    color: #99958e;
+
+    font-size: 14px;
+
+    line-height: 1.75;
+}
+
+.about-principle {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-top: 35px;
+
+    padding: 25px 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(145, 25, 40, 0.08),
+            rgba(40, 115, 55, 0.06)
+        );
+
+    border: 1px solid #3d352a;
+
+    text-align: center;
+}
+
+.about-principle strong {
+    color: #d9a441;
+
+    font-size: 17px;
+    letter-spacing: 1px;
+}
+
+.about-principle span {
+    color: #88827a;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.quote {
+    padding: 100px 20px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(145, 25, 40, 0.10),
+            transparent 55%
+        );
+}
+
+.quote p {
+    color: #cfc7ba;
+
+    font-size: 24px;
+
+    line-height: 1.8;
+
+    font-style: italic;
+}
+
+.quote-heart {
+    margin-top: 25px;
+
+    color: #e99aab;
+
+    font-size: 24px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding: 35px 20px;
+
+    background: #050609;
+
+    border-top: 1px solid #332e27;
+
+    color: #706b64;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   LIGHT MODE
+========================================================= */
+
+body.light-mode {
+    background: #f5f1e8;
+
+    color: #39342d;
+}
+
+body.light-mode nav {
+    background: rgba(248, 245, 238, 0.97);
+
+    border-bottom-color: #9b7839;
+}
+
+body.light-mode .logo {
+    color: #806020;
+}
+
+body.light-mode .logo span {
+    color: #4f914b;
+}
+
+body.light-mode .nav-links a {
+    color: #514a40;
+}
+
+body.light-mode .nav-links a:hover {
+    color: #a77a2d;
+}
+
+body.light-mode .theme-toggle {
+    color: #514a40;
+    border-color: #b59a69;
+}
+
+body.light-mode .fanworks-hero {
+    background:
+        radial-gradient(
+            circle at 20% 50%,
+            rgba(145, 25, 40, 0.08),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(40, 115, 55, 0.08),
+            transparent 38%
+        ),
+        #eee9df;
+}
+
+body.light-mode .fanworks-hero h1 {
+    color: #40392f;
+}
+
+body.light-mode .fanworks-hero p {
+    color: #6d675e;
+}
+
+body.light-mode .section-title {
+    color: #806020;
+}
+
+body.light-mode .fanworks-heading {
+    color: #806020;
+}
+
+body.light-mode .fanworks-entry h3 {
+    color: #51483b;
+}
+
+body.light-mode .fanworks-entry > p {
+    color: #6d675e;
+}
+
+body.light-mode .featured-fanwork,
+body.light-mode .fanfiction-box,
+body.light-mode .external-card,
+body.light-mode .community-card,
+body.light-mode .about-card,
+body.light-mode .artwork-card {
+    background: rgba(255,255,255,0.55);
+
+    border-color: #d3c9b9;
+}
+
+body.light-mode .featured-fanwork-text h3,
+body.light-mode .fanfiction-box h4,
+body.light-mode .external-card h4 {
+    color: #806020;
+}
+
+body.light-mode .featured-fanwork-text p,
+body.light-mode .fanfiction-box p,
+body.light-mode .external-card p,
+body.light-mode .community-card p,
+body.light-mode .about-card p {
+    color: #6d675e;
+}
+
+body.light-mode .featured-credit,
+body.light-mode .archive-note,
+body.light-mode .community-note,
+body.light-mode .history-caption span {
+    color: #81796d;
+}
+
+body.light-mode .tiktok-edit-item strong,
+body.light-mode .history-caption strong,
+body.light-mode .community-card h3,
+body.light-mode .about-card h3 {
+    color: #65512f;
+}
+
+body.light-mode .tiktok-edit-item span {
+    color: #81796d;
+}
+
+body.light-mode .tiktok-edit-item {
+    border-bottom-color: #d8d0c3;
+}
+
+body.light-mode .section-divider {
+    background: #d2c9bb;
+}
+
+body.light-mode .section-divider span {
+    background: #f5f1e8;
+
+    color: #806020;
+}
+
+body.light-mode .mature-content-note {
+    background: rgba(145, 25, 40, 0.04);
+
+    border-color: #d8bfc3;
+}
+
+body.light-mode .mature-content-note p {
+    color: #777067;
+}
+
+body.light-mode .back-to-archive a {
+    color: #806020;
+}
+
+body.light-mode .about-principle {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(145, 25, 40, 0.04),
+            rgba(40, 115, 55, 0.04)
+        );
+
+    border-color: #d5ccbe;
+}
+
+body.light-mode .about-principle strong {
+    color: #806020;
+}
+
+body.light-mode .about-principle span {
+    color: #777067;
+}
+
+body.light-mode .quote {
+    background:
+        radial-gradient(
+            circle,
+            rgba(145, 25, 40, 0.05),
+            transparent 55%
+        );
+}
+
+body.light-mode .quote p {
+    color: #5b544b;
+}
+
+body.light-mode footer {
+    background: #ebe6dc;
+
+    border-top-color: #d0c7b8;
+
+    color: #777067;
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+@media (max-width: 900px) {
+
+    nav {
+        display: flex !important;
+
+        flex-direction: column !important;
+
+        align-items: stretch !important;
+        justify-content: center !important;
+
+        gap: 10px !important;
+
+        padding: 13px 12px 11px !important;
+
+        overflow: visible !important;
+    }
+
+    nav .logo {
+        display: block !important;
+
+        text-align: center !important;
+
+        font-size: 20px !important;
+
+        letter-spacing: 2.5px !important;
+
+        margin: 0 !important;
+    }
+
+    nav .nav-links {
+        display: flex !important;
+
+        flex-wrap: wrap !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        justify-content: center !important;
+        align-items: center !important;
+
+        gap: 7px 13px !important;
+
+        list-style: none !important;
+
+        overflow: visible !important;
+    }
+
+    nav .nav-links li {
+        display: block !important;
+
+        flex: 0 0 auto !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    nav .nav-links a {
+        display: block !important;
+
+        white-space: nowrap !important;
+
+        font-size: 10px !important;
+
+        letter-spacing: .7px !important;
+
+        padding: 2px 0 !important;
+    }
+
+    nav .theme-toggle {
+        align-self: center !important;
+
+        margin: 0 !important;
+
+        padding: 5px 9px !important;
+
+        font-size: 9px !important;
+
+        gap: 5px !important;
+
+        white-space: nowrap !important;
+    }
+
+    .featured-fanwork {
+        grid-template-columns: 1fr;
+    }
+
+    .artwork-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .external-grid,
+    .community-grid,
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fanworks-section,
+    .community-section,
+    .about-section {
+        padding: 80px 25px;
+    }
+}
+
+@media (max-width: 420px) {
+
+    nav .nav-links {
+        gap: 6px 10px !important;
+    }
+
+    nav .nav-links a {
+        font-size: 9px !important;
+    }
+
+    nav .logo {
+        font-size: 18px !important;
+    }
+
+    .fanworks-section,
+    .community-section,
+    .about-section {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .featured-fanwork {
+        padding: 20px;
+    }
+
+    .artwork-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fanworks-hero {
+        padding: 90px 20px 70px;
+    }
+}
 
 </style>
 </head>
 
+
 <body>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
 
 <nav>
 
@@ -1124,54 +1259,135 @@ nav.header-hidden {
 
     <ul class="nav-links">
 
-        <li><a href="index.html#home">HOME</a></li>
-        <li><a href="index.html#timeline">TIMELINE</a></li>
-        <li><a href="history.html#history">HISTORY</a></li>
-        <li><a href="canon.html#canon">CANON</a></li>
-        <li><a href="decks.html#decks">DECKS</a></li>
-        <li><a href="fanworks.html#fanworks">FANWORKS</a></li>
-        <li><a href="ships.html#ships">SHIPS</a></li>
-        <li><a href="community.html#community">COMMUNITY</a></li>
-        <li><a href="about.html#about">ABOUT</a></li>
+        <li>
+            <a href="index.html#home">
+                HOME
+            </a>
+        </li>
+
+        <li>
+            <a href="index.html#timeline">
+                TIMELINE
+            </a>
+        </li>
+
+        <li>
+            <a href="history.html#history">
+                HISTORY
+            </a>
+        </li>
+
+        <li>
+            <a href="canon.html#canon">
+                CANON
+            </a>
+        </li>
+
+        <li>
+            <a href="decks.html#decks">
+                DECKS
+            </a>
+        </li>
+
+        <li>
+            <a href="fanworks.html#fanworks">
+                FANWORKS
+            </a>
+        </li>
+
+        <li>
+            <a href="ships.html#ships">
+                SHIPS
+            </a>
+        </li>
+
+        <li>
+            <a href="community.html#community">
+                COMMUNITY
+            </a>
+        </li>
+
+        <li>
+            <a href="about.html#about">
+                ABOUT
+            </a>
+        </li>
 
     </ul>
 
-    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+    <button
+        class="theme-toggle"
+        id="themeToggle"
+        type="button"
+        aria-label="Switch to dark mode"
+        aria-pressed="false"
+    >
         <span class="theme-icon">☀</span>
         <span class="theme-label">LIGHT</span>
     </button>
 
 </nav>
-<section class="fanworks-section" id="fanworks">
-
-        <h2 class="section-title">
-            FANWORKS
-        </h2>
-
-        <p class="fanworks-intro">
-            A selection of the stories, artworks, edits and discussions
-            created by the Dark Bandit community. This section is curated
-            rather than exhaustive: there are many more works across the internet.
-        </p>
 
 
-        <!-- =====================================
-             FEATURED FANWORK
-        ====================================== -->
+<!-- =========================================================
+     FANWORKS HERO
+========================================================= -->
+
+<section class="fanworks-hero" id="fanworks">
+
+    <span class="chapter-label">
+        CHAPTER V · THE FANDOM
+    </span>
+
+    <h1>
+        FAN<span>WORKS</span>
+    </h1>
+
+    <p>
+        A collection of fanart, writing, edits, animations and other
+        creations documenting the many ways fans have interpreted
+        Dark Prince × Bandit.
+    </p>
+
+</section>
+
+
+<!-- =========================================================
+     FANWORKS CONTENT
+========================================================= -->
+
+<section class="fanworks-section">
+
+    <h2 class="section-title">
+        THE FANWORK ARCHIVE
+    </h2>
+
+
+    <!-- =====================================================
+         FEATURED FANWORK
+    ====================================================== -->
+
+    <div class="fanworks-entry">
+
+        <div class="fanworks-heading">
+            <span>FEATURED FANWORK</span>
+        </div>
 
         <div class="featured-fanwork">
 
             <div class="featured-fanwork-image">
+
                 <img
                     src="images/fanwork-12.png"
-                    alt="Featured Dark Bandit fanwork by Garou_FGC"
+                    alt="Dark Bandit fanwork by Garou_FGC"
                 >
+
             </div>
 
             <div class="featured-fanwork-text">
 
-                <span class="mini-label">
-                    FEATURED FANWORK
+                <span class="featured-label">
+                    FEATURED ARTIST
                 </span>
 
                 <h3>
@@ -1179,768 +1395,884 @@ nav.header-hidden {
                 </h3>
 
                 <p>
-                    A featured work from the curated Dark Bandit collection,
-                    highlighting the many artistic interpretations of the pairing.
+                    One of the works preserved in the Dark Bandit fanwork
+                    collection, showcasing the many artistic interpretations
+                    created around the pairing.
                 </p>
 
                 <span class="featured-credit">
-                    Dark Bandit fanwork by Garou_FGC
+                    Dark Bandit fanwork
                 </span>
 
             </div>
 
         </div>
 
+    </div>
 
-        <!-- =====================================
-             FANFICTIONS
-        ====================================== -->
 
-        <div class="fanworks-entry">
+    <!-- =====================================================
+         FANFICTION
+    ====================================================== -->
 
-            <div class="fanworks-heading">
-                <span>FANFICTIONS</span>
-            </div>
+    <div class="fanworks-entry">
 
-            <h3>
-                DIFFERENT INTERPRETATIONS
-            </h3>
+        <div class="fanworks-heading">
+            <span>WRITTEN WORKS</span>
+        </div>
+
+        <h3>
+            FANFICTION
+        </h3>
+
+        <div class="fanfiction-box">
+
+            <h4>
+                STORIES &amp; WRITTEN INTERPRETATIONS
+            </h4>
 
             <p>
-                Fanfiction gives the pairing many different forms. Rather than
-                attempting to catalogue every story, the archive highlights
-                recurring interpretations of Dark Prince and Bandit's relationship.
+                Dark Prince × Bandit has also inspired written works,
+                from short scenes and character interactions to longer
+                fanfiction. This section will preserve selected works
+                and document their creators as the archive grows.
             </p>
-
-            <div class="fanfic-grid">
-
-                <div class="fanfic-card">
-
-                    <h4>
-                        ENEMIES TO LOVERS
-                    </h4>
-
-                    <p>
-                        They begin on opposite sides, with rivalry and distrust
-                        gradually developing into affection and mutual respect.
-                    </p>
-
-                </div>
-
-
-                <div class="fanfic-card">
-
-                    <h4>
-                        PARTNERS IN CRIME
-                    </h4>
-
-                    <p>
-                        Two outlaws working side by side, sharing adventures,
-                        danger and the kind of partnership that can become something more.
-                    </p>
-
-                </div>
-
-
-                <div class="fanfic-card">
-
-                    <h4>
-                        LONG-BUILD CHEMISTRY
-                    </h4>
-
-                    <p>
-                        Their relationship develops slowly through repeated encounters,
-                        teamwork and an increasing understanding of one another.
-                    </p>
-
-                </div>
-
-            </div>
 
         </div>
 
+    </div>
 
-        <!-- =====================================
-             ARTWORKS
-        ====================================== -->
 
-        <div class="fanworks-entry">
+    <!-- =====================================================
+         ARTWORKS
+    ====================================================== -->
 
-            <div class="fanworks-heading">
-                <span>ARTWORKS</span>
+    <div class="fanworks-entry">
+
+        <div class="fanworks-heading">
+            <span>VISUAL ART</span>
+        </div>
+
+        <h3>
+            SELECTED FANWORKS
+        </h3>
+
+        <p>
+            The following artworks are preserved as part of the archive's
+            documented fanwork collection. Each creator remains credited
+            for their work.
+        </p>
+
+        <div class="artwork-grid">
+
+
+            <!-- FANWORK 01 -->
+
+            <div class="artwork-card">
+
+                <img
+                    src="images/fanwork-11.png"
+                    alt="Dark Bandit fanwork by Let'sDrawForFun"
+                >
+
+                <div class="history-caption">
+
+                    <strong>
+                        Let'sDrawForFun
+                    </strong>
+
+                    <span>
+                        Dark Bandit fanwork
+                    </span>
+
+                </div>
+
             </div>
 
 
-            <div class="archive-note-strip">
+            <!-- FANWORK 02 -->
 
-                <div class="did-you-know">
+            <div class="artwork-card">
 
-                    <span class="mini-label">
-                        DID YOU KNOW?
+                <img
+                    src="images/fanwork-13.png"
+                    alt="Dark Bandit fanwork by TheDarkPrince"
+                >
+
+                <div class="history-caption">
+
+                    <strong>
+                        TheDarkPrince
+                    </strong>
+
+                    <span>
+                        Dark Bandit fanwork
                     </span>
 
-                    <p>
-                        Dark Prince became a Hero in May 2026, introducing
-                        a new Hero ability and his Rhino companion.
-                    </p>
+                </div>
 
-                    <small>
-                        Source:
+            </div>
+
+
+            <!-- FANWORK 03 -->
+
+            <div class="artwork-card">
+
+                <img
+                    src="images/fanwork-14.png"
+                    alt="Dark Bandit fanwork by Dark_Dusty"
+                >
+
+                <div class="history-caption">
+
+                    <strong>
+                        Dark_Dusty
+                    </strong>
+
+                    <span>
+                        Dark Bandit fanwork
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- FANWORK 04 -->
+
+            <div class="artwork-card">
+
+                <img
+                    src="images/fanwork-15.png"
+                    alt="Dark Bandit fanwork by Gui_Animado"
+                >
+
+                <div class="history-caption">
+
+                    <strong>
+                        Gui_Animado
+                    </strong>
+
+                    <span>
+                        Dark Bandit fanwork
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- FANWORK 05 -->
+
+            <div class="artwork-card">
+
+                <img
+                    src="images/fanwork-2025-3.png"
+                    alt="Dark Bandit fanwork by KujiKawaii"
+                >
+
+                <div class="history-caption">
+
+                    <strong>
+                        KujiKawaii
+                    </strong>
+
+                    <span>
+                        Dark Bandit fanwork
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- FANWORK 06 -->
+
+            <div class="artwork-card">
+
+                <img
+                    src="images/fanwork-16.png"
+                    alt="Dark Bandit fanwork by DrewmanG"
+                >
+
+                <div class="history-caption">
+
+                    <strong>
+                        DrewmanG
+                    </strong>
+
+                    <span>
+                        Dark Bandit fanwork
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- FANWORK 07 -->
+
+            <div class="artwork-card">
+
+                <img
+                    src="images/fanwork-17.png"
+                    alt="Dark Bandit fanwork by And_Noir"
+                >
+
+                <div class="history-caption">
+
+                    <strong>
+                        And_Noir
+                    </strong>
+
+                    <span>
+                        Dark Bandit fanwork
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- FANWORK 08 -->
+
+            <div class="artwork-card">
+
+                <img
+                    src="images/fanwork-18.png"
+                    alt="Dark Bandit fanwork by Lollipopp_71"
+                >
+
+                <div class="history-caption">
+
+                    <strong>
+                        Lollipopp_71
+                    </strong>
+
+                    <span>
+                        Dark Bandit fanwork
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- FANWORK 09 -->
+
+            <div class="artwork-card">
+
+                <img
+                    src="images/fanwork-2025-5.png"
+                    alt="Dark Bandit fanwork by MenaTheRandom"
+                >
+
+                <div class="history-caption">
+
+                    <strong>
+                        MenaTheRandom
+                    </strong>
+
+                    <span>
+                        Dark Bandit fanwork
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- FANWORK 10 -->
+
+            <div class="artwork-card">
+
+                <img
+                    src="images/fanwork-20.png"
+                    alt="Dark Bandit fanwork by AlxArt"
+                >
+
+                <div class="history-caption">
+
+                    <strong>
+                        AlxArt
+                    </strong>
+
+                    <span>
+                        Dark Bandit fanwork
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- PLACEHOLDER 11 -->
+
+            <div class="artwork-card">
+
+                <div
+                    style="
+                        aspect-ratio: 1 / 1;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: #6f6a63;
+                        letter-spacing: 2px;
+                        font-size: 10px;
+                    "
+                >
+                    FUTURE FANWORK
+                </div>
+
+                <div class="history-caption">
+
+                    <strong>
+                        Archive Slot
+                    </strong>
+
+                    <span>
+                        To be added
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- PLACEHOLDER 12 -->
+
+            <div class="artwork-card">
+
+                <div
+                    style="
+                        aspect-ratio: 1 / 1;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: #6f6a63;
+                        letter-spacing: 2px;
+                        font-size: 10px;
+                    "
+                >
+                    FUTURE FANWORK
+                </div>
+
+                <div class="history-caption">
+
+                    <strong>
+                        Archive Slot
+                    </strong>
+
+                    <span>
+                        To be added
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <p class="archive-note">
+            Plenty of other Dark Bandit artworks are available online,
+            but this archive cannot realistically compile every work ever created.
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         VIDEO & EDITS
+    ====================================================== -->
+
+    <div class="fanworks-entry">
+
+        <div class="fanworks-heading">
+            <span>VIDEO &amp; EDITS</span>
+        </div>
+
+        <h3>
+            TIKTOK &amp; FAN VIDEOS
+        </h3>
+
+        <p>
+            DarkBandit also appears through short-form edits and fan-made
+            videos. Rather than hosting copies of those videos, the archive
+            features selected creators and link visitors to the original posts.
+        </p>
+
+        <div class="external-grid">
+
+
+            <div class="external-card">
+
+                <h4>
+                    FEATURED TIKTOK EDITS
+                </h4>
+
+                <div class="tiktok-edit-list">
+
+
+                    <div class="tiktok-edit-item">
+
+                        <strong>
+                            Wah wah wah
+                        </strong>
+
+                        <span>
+                            by TheDarkPrince
+                        </span>
+
                         <a
-                            href="https://supercell.com/en/games/clashroyale/blog/news/new-season-siege-and-swish/"
+                            href="https://vt.tiktok.com/ZSqrNyQDp/"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            Supercell
+                            WATCH ON TIKTOK →
                         </a>
-                    </small>
+
+                    </div>
+
+
+                    <div class="tiktok-edit-item">
+
+                        <strong>
+                            Dark Prince x Bandit Drawings
+                        </strong>
+
+                        <span>
+                            by Sneakerus
+                        </span>
+
+                        <a
+                            href="https://vt.tiktok.com/ZSqrNG41h/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            WATCH ON TIKTOK →
+                        </a>
+
+                    </div>
+
+
+                    <div class="tiktok-edit-item">
+
+                        <strong>
+                            Go away : Weezer
+                        </strong>
+
+                        <span>
+                            Edit by Lollipopp_71
+                        </span>
+
+                        <a
+                            href="https://vt.tiktok.com/ZSqrNoduF/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            WATCH ON TIKTOK →
+                        </a>
+
+                    </div>
+
 
                 </div>
 
             </div>
 
 
+            <div class="external-card">
+
+                <h4>
+                    FAN VIDEOS &amp; ANIMATIONS
+                </h4>
+
+                <p>
+                    Additional animations, fan trailers and other video creations
+                    will be added to the archive in the future.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         COMMUNITY DISCUSSIONS
+    ====================================================== -->
+
+    <div class="fanworks-entry">
+
+        <div class="fanworks-heading">
+            <span>COMMUNITY DISCUSSIONS</span>
+        </div>
+
+        <h3>
+            REDDIT &amp; X / TWITTER
+        </h3>
+
+        <p>
+            The fandom is not only expressed through finished artwork.
+            Discussions, theories, polls and reactions are also part of
+            DarkBandit's history.
+        </p>
+
+        <div class="external-grid">
+
+
+            <div class="external-card">
+
+                <h4>
+                    COMMUNITY POSTS
+                </h4>
+
+                <p>
+                    Discussions and social media posts may be documented here
+                    in the future as part of the archive's wider fandom history.
+                </p>
+
+            </div>
+
+
+            <div class="external-card">
+
+                <h4>
+                    FUTURE ARCHIVE MATERIAL
+                </h4>
+
+                <p>
+                    Additional community discussions and historical material
+                    will be added as they are identified and documented.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MATURE CONTENT
+    ====================================================== -->
+
+    <div class="mature-content-note">
+
+        <span class="mini-label">
+            MATURE CONTENT
+        </span>
+
+        <p>
+            NSFW fanworks surrounding Dark Bandit exist and remain a thriving
+            part of the wider fandom. They are not hosted, curated, or linked
+            through this archive.
+        </p>
+
+    </div>
+
+
+    <div class="back-to-archive">
+
+        <a href="index.html#archive">
+            ↑ RETURN TO THE ARCHIVE
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     TIMELINE
+========================================================= -->
+
+<div class="section-divider" aria-hidden="true">
+    <span>◆</span>
+</div>
+
+
+<!-- =========================================================
+     ABOUT THE ARCHIVE
+========================================================= -->
+
+<section class="about-section" id="about">
+
+    <h2 class="section-title">
+        ABOUT THE ARCHIVE
+    </h2>
+
+    <p class="about-intro">
+        Dark Bandit Archive is an independent fan-made archive dedicated to
+        documenting the history, official appearances, fanworks and community
+        surrounding Dark Prince × Bandit. The archive also preserves selected
+        fanworks and information about other ships involving the Dark Prince.
+    </p>
+
+    <div class="about-grid">
+
+
+        <div class="about-card">
+
             <h3>
-                SELECTED FANWORKS
+                Independent Archive
             </h3>
 
             <p>
-                A curated collection of artworks from different artists and
-                interpretations. These works are separate from the artworks
-                already documented in the History section.
-            </p>
-
-
-            <div class="archive-note-strip">
-
-                <div class="did-you-know">
-
-                    <span class="mini-label">
-                        DID YOU KNOW?
-                    </span>
-
-                    <p>
-                        ArtTheMayo and TheDarkPrince are the first documented
-                        Dark Bandit shippers.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- =====================================
-                 ARTWORK GALLERY
-            ====================================== -->
-
-            <div class="artwork-grid">
-
-
-                <!-- FANART 11 -->
-
-                <div class="artwork-card">
-
-                    <img
-                        src="images/fanwork-11.png"
-                        alt="Dark Bandit fanwork by Let'sDrawForFun"
-                    >
-
-                    <div class="history-caption">
-
-                        <strong>
-                            Let'sDrawForFun
-                        </strong>
-
-                        <span>
-                            Dark Bandit fanwork
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- FANART 12 -->
-
-                <div class="artwork-card">
-
-                    <img
-                        src="images/fanwork-12.png"
-                        alt="Dark Bandit fanwork by Garou_FGC"
-                    >
-
-                    <div class="history-caption">
-
-                        <strong>
-                            Garou_FGC
-                        </strong>
-
-                        <span>
-                            Dark Bandit fanwork
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- FANART 13 -->
-
-                <div class="artwork-card">
-
-                    <img
-                        src="images/fanwork-13.png"
-                        alt="Dark Bandit fanwork by TheDarkPrince"
-                    >
-
-                    <div class="history-caption">
-
-                        <strong>
-                            TheDarkPrince
-                        </strong>
-
-                        <span>
-                            Dark Bandit fanwork
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- FANART 14 -->
-
-                <div class="artwork-card">
-
-                    <img
-                        src="images/fanwork-14.png"
-                        alt="Dark Bandit fanwork by Dark_Dusty"
-                    >
-
-                    <div class="history-caption">
-
-                        <strong>
-                            Dark_Dusty
-                        </strong>
-
-                        <span>
-                            Dark Bandit fanwork
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- FANART 15 -->
-
-                <div class="artwork-card">
-
-                    <img
-                        src="images/fanwork-15.png"
-                        alt="Dark Bandit fanwork by Gui_Animado"
-                    >
-
-                    <div class="history-caption">
-
-                        <strong>
-                            Gui_Animado
-                        </strong>
-
-                        <span>
-                            Dark Bandit fanwork
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- FANART 2025-3 -->
-
-                <div class="artwork-card">
-
-                    <img
-                        src="images/fanwork-2025-3.png"
-                        alt="Dark Bandit fanwork by KujiKawaii"
-                    >
-
-                    <div class="history-caption">
-
-                        <strong>
-                            KujiKawaii
-                        </strong>
-
-                        <span>
-                            Dark Bandit fanwork
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- FANART 16 -->
-
-                <div class="artwork-card">
-
-                    <img
-                        src="images/fanwork-16.png"
-                        alt="Dark Bandit fanwork by DrewmanG"
-                    >
-
-                    <div class="history-caption">
-
-                        <strong>
-                            DrewmanG
-                        </strong>
-
-                        <span>
-                            Dark Bandit fanwork
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- FANART 17 -->
-
-                <div class="artwork-card">
-
-                    <img
-                        src="images/fanwork-17.png"
-                        alt="Dark Bandit fanwork by And_Noir"
-                    >
-
-                    <div class="history-caption">
-
-                        <strong>
-                            And_Noir
-                        </strong>
-
-                        <span>
-                            Dark Bandit fanwork
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- FANART 18 -->
-
-                <div class="artwork-card">
-
-                    <img
-                        src="images/fanwork-18.png"
-                        alt="Dark Bandit fanwork by Lollipopp_71"
-                    >
-
-                    <div class="history-caption">
-
-                        <strong>
-                            Lollipopp_71
-                        </strong>
-
-                        <span>
-                            Dark Bandit fanwork
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- FANART 19 -->
-
-                <div class="artwork-card">
-
-                    <img
-                        src="images/fanwork-2025-5.png"
-                        alt="Dark Bandit fanwork by MenaTheRandom"
-                    >
-
-                    <div class="history-caption">
-
-                        <strong>
-                            MenaTheRandom
-                        </strong>
-
-                        <span>
-                            Dark Bandit fanwork
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- FANART 20 -->
-
-                <div class="artwork-card">
-
-                    <img
-                        src="images/fanwork-20.png"
-                        alt="Dark Bandit fanwork by AlxArt"
-                    >
-
-                    <div class="history-caption">
-
-                        <strong>
-                            AlxArt
-                        </strong>
-
-                        <span>
-                            Dark Bandit fanwork
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- FUTURE SLOT -->
-
-                <div class="artwork-card artwork-placeholder">
-
-                    <div class="placeholder-mark">
-                        ✦
-                    </div>
-
-                    <div class="history-caption">
-
-                        <strong>
-                            ARCHIVE SLOT 21
-                        </strong>
-
-                        <span>
-                            Fanwork to be added
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- FUTURE SLOT -->
-
-                <div class="artwork-card artwork-placeholder">
-
-                    <div class="placeholder-mark">
-                        ✦
-                    </div>
-
-                    <div class="history-caption">
-
-                        <strong>
-                            ARCHIVE SLOT 22
-                        </strong>
-
-                        <span>
-                            Fanwork to be added
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-
-            <p class="archive-note">
-                Plenty of other Dark Bandit artworks are available online,
-                but this archive cannot realistically compile every work ever created.
+                Dark Bandit Archive is created and maintained by fans. It is not
+                affiliated with, endorsed by, or officially connected to Supercell.
             </p>
 
         </div>
 
 
-        <!-- =====================================
-             VIDEO & EDITS
-        ====================================== -->
-
-        <div class="fanworks-entry">
-
-            <div class="fanworks-heading">
-                <span>VIDEO &amp; EDITS</span>
-            </div>
+        <div class="about-card">
 
             <h3>
-                TIKTOK &amp; FAN VIDEOS
+                Fanworks &amp; Artist Credit
             </h3>
 
             <p>
-                Dark Bandit also appears through short-form edits and fan-made
-                videos. Rather than hosting copies of those videos, the archive
-                can feature selected creators and link visitors to the original posts.
+                Fanworks remain the property of their respective creators. The
+                archive does not claim ownership of fan-created artwork, writing,
+                edits or other works. Artists and creators are credited whenever
+                their work is documented here.
             </p>
-
-
-            <div class="external-grid">
-
-
-                <div class="external-card">
-
-                    <h4>
-                        FEATURED TIKTOK EDITS
-                    </h4>
-
-                    <div class="tiktok-edit-list">
-
-
-                        <div class="tiktok-edit-item">
-
-                            <strong>
-                                Wah wah wah
-                            </strong>
-
-                            <span>
-                                by TheDarkPrince
-                            </span>
-
-                            <a
-                                href="https://vt.tiktok.com/ZSqrNyQDp/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                WATCH ON TIKTOK →
-                            </a>
-
-                        </div>
-
-
-                        <div class="tiktok-edit-item">
-
-                            <strong>
-                                Dark Prince x Bandit Drawings
-                            </strong>
-
-                            <span>
-                                by Sneakerus
-                            </span>
-
-                            <a
-                                href="https://vt.tiktok.com/ZSqrNG41h/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                WATCH ON TIKTOK →
-                            </a>
-
-                        </div>
-
-
-                        <div class="tiktok-edit-item">
-
-                            <strong>
-                                Go away: Weezer
-                            </strong>
-
-                            <span>
-                                Edit by Lollipopp_71
-                            </span>
-
-                            <a
-                                href="https://vt.tiktok.com/ZSqrNoduF/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                WATCH ON TIKTOK →
-                            </a>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-
-                <div class="external-card">
-
-                    <h4>
-                        FAN VIDEOS &amp; ANIMATIONS
-                    </h4>
-
-                    <p>
-                        Animations, fan trailers and other video creations can be
-                        documented here while keeping the original work on its source platform.
-                    </p>
-
-                </div>
-
-
-            </div>
 
         </div>
 
 
-        <!-- =====================================
-             MATURE CONTENT
-        ====================================== -->
+        <div class="about-card">
 
-        <div class="mature-content-note">
-
-            <span class="mini-label">
-                MATURE CONTENT
-            </span>
+            <h3>
+                Official Material
+            </h3>
 
             <p>
-                NSFW fanworks surrounding Dark Bandit exist and remain a thriving
-                part of the wider fandom. They are not hosted, curated, or linked
-                through this archive.
+                Clash Royale, Dark Prince, Bandit and related characters, artwork
+                and assets belong to their respective rights holders. Official
+                material is documented here for archival, informational and fan
+                community purposes.
             </p>
 
         </div>
 
 
-        <!-- =====================================
-             RETURN
-        ====================================== -->
+        <div class="about-card">
 
-        <div class="back-to-archive">
+            <h3>
+                Archive Philosophy
+            </h3>
 
-            <a href="index.html#archive">
-                ↑ RETURN TO THE ARCHIVE
-            </a>
+            <p>
+                The archive aims to distinguish official material from community
+                interpretation. Historical claims are presented as documented
+                discoveries where possible, while fan interpretations are treated
+                as part of the fandom rather than as canon.
+            </p>
 
         </div>
 
 
-    </section>
+    </div>
 
 
-    <!-- =====================================
-         FOOTER
-    ====================================== -->
+    <div class="about-principle">
 
-    <footer>
-        Dark Bandit Archive · 2026
-    </footer>
+        <strong>
+            Document, Don't Declare.
+        </strong>
 
+        <span>
+            Dark Bandit Archive preserves what the fandom has created and
+            documented without speaking for the entire community.
+        </span>
 
-    <!-- =====================================
-         THEME SCRIPT
-    ====================================== -->
+    </div>
 
-    <script>
-
-        (function () {
-
-            const toggle = document.getElementById("themeToggle");
-            const body = document.body;
+</section>
 
 
-            function updateThemeButton() {
+<!-- =========================================================
+     QUOTE
+========================================================= -->
 
-                const dark =
-                    body.classList.contains("dark-mode");
+<section class="quote">
 
-                toggle.querySelector(".theme-icon").textContent =
-                    dark ? "☾" : "☀";
+    <p>
 
-                toggle.querySelector(".theme-label").textContent =
-                    dark ? "DARK" : "LIGHT";
+        In darkness, a prince.<br>
 
-                toggle.setAttribute(
-                    "aria-pressed",
-                    dark ? "true" : "false"
-                );
+        In the shadows, a thief.<br>
 
-                toggle.setAttribute(
-                    "aria-label",
-                    dark
-                        ? "Switch to light mode"
-                        : "Switch to dark mode"
-                );
+        Together, a legend.
 
-            }
+    </p>
 
 
-            const savedTheme =
-                localStorage.getItem("darkBanditTheme");
+    <div class="quote-heart">
+        ♥
+    </div>
+
+</section>
 
 
-            if (savedTheme === "dark") {
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
-                body.classList.add("dark-mode");
+<footer>
 
-            } else {
+    Dark Bandit Archive · 2026
 
-                body.classList.add("light-mode");
-
-            }
-
-
-            updateThemeButton();
+</footer>
 
 
-            toggle.addEventListener("click", function () {
+<!-- =========================================================
+     THEME TOGGLE
+========================================================= -->
 
-                const dark =
-                    body.classList.toggle("dark-mode");
-
-                body.classList.toggle(
-                    "light-mode",
-                    !dark
-                );
-
-                localStorage.setItem(
-                    "darkBanditTheme",
-                    dark ? "dark" : "light"
-                );
-
-                updateThemeButton();
-
-            });
-
-        })();
-
-    </script>
-
-
-
-
-<!-- SMART SCROLL HEADER SCRIPT -->
 <script>
-    (() => {
-        let lastScrollY = window.scrollY;
-        let ticking = false;
 
-        function updateHeader() {
-            const nav = document.querySelector("nav");
-            if (!nav) return;
+const themeToggle = document.getElementById("themeToggle");
 
-            const currentScrollY = window.scrollY;
-            const scrollDifference = currentScrollY - lastScrollY;
+const themeIcon = themeToggle.querySelector(".theme-icon");
 
-            // Always show the header at the very top.
-            if (currentScrollY <= 10) {
-                nav.classList.remove("header-hidden");
-            }
-            // Ignore tiny movements so the header does not flicker.
-            else if (Math.abs(scrollDifference) >= 8) {
-                if (scrollDifference > 0) {
-                    nav.classList.add("header-hidden");
-                } else {
-                    nav.classList.remove("header-hidden");
-                }
-                lastScrollY = currentScrollY;
-            }
+const themeLabel = themeToggle.querySelector(".theme-label");
 
-            ticking = false;
+
+function updateThemeButton() {
+
+    const isLight =
+        document.body.classList.contains("light-mode");
+
+    themeIcon.textContent =
+        isLight ? "☾" : "☀";
+
+    themeLabel.textContent =
+        isLight ? "DARK" : "LIGHT";
+
+    themeToggle.setAttribute(
+        "aria-label",
+        isLight
+            ? "Switch to dark mode"
+            : "Switch to light mode"
+    );
+
+    themeToggle.setAttribute(
+        "aria-pressed",
+        isLight ? "true" : "false"
+    );
+}
+
+
+const savedTheme =
+    localStorage.getItem("darkBanditTheme");
+
+if (savedTheme === "light") {
+
+    document.body.classList.add("light-mode");
+
+}
+
+updateThemeButton();
+
+
+themeToggle.addEventListener("click", () => {
+
+    document.body.classList.toggle("light-mode");
+
+    const isLight =
+        document.body.classList.contains("light-mode");
+
+    localStorage.setItem(
+        "darkBanditTheme",
+        isLight ? "light" : "dark"
+    );
+
+    updateThemeButton();
+
+});
+
+
+/* =========================================================
+   SMART SCROLL HEADER
+========================================================= */
+
+let lastScrollY = window.scrollY;
+
+let ticking = false;
+
+let scrollDistance = 0;
+
+const hideThreshold = 35;
+
+window.addEventListener("scroll", () => {
+
+    if (ticking) return;
+
+    window.requestAnimationFrame(() => {
+
+        const currentScrollY = window.scrollY;
+
+        const difference =
+            currentScrollY - lastScrollY;
+
+        if (currentScrollY <= 10) {
+
+            document.querySelector("nav")
+                .classList.remove("header-hidden");
+
+            scrollDistance = 0;
+
         }
 
-        window.addEventListener("scroll", () => {
-            if (!ticking) {
-                window.requestAnimationFrame(updateHeader);
-                ticking = true;
+        else if (difference > 0) {
+
+            scrollDistance += difference;
+
+            if (scrollDistance >= hideThreshold) {
+
+                document.querySelector("nav")
+                    .classList.add("header-hidden");
+
+                scrollDistance = 0;
+
             }
-        }, { passive: true });
-    })();
+
+        }
+
+        else if (difference < 0) {
+
+            scrollDistance += difference;
+
+            if (Math.abs(scrollDistance) >= hideThreshold) {
+
+                document.querySelector("nav")
+                    .classList.remove("header-hidden");
+
+                scrollDistance = 0;
+
+            }
+
+        }
+
+        lastScrollY = currentScrollY;
+
+        ticking = false;
+
+    });
+
+    ticking = true;
+
+});
+
 </script>
+
 
 </body>
 </html>
